@@ -1,0 +1,17 @@
+<section id="about" style="padding: 50px; background-color: #f9f9f9; font-family: Arial, sans-serif;">
+  <div style="max-width: 900px; margin: auto; text-align: center;">
+    <h2 style="color: #0A2540; font-size: 32px;">About Us</h2>
+    <p style="font-size: 18px; line-height: 1.6; color: #333;">
+      At <strong>MomentumPortfolios</strong>, we help investors accelerate their wealth journey. 
+      Our portfolios are built on deep research, smart strategies, and a commitment to long-term growth. 
+      With a focus on trust, transparency, and innovation, we empower clients to make informed investment decisions.
+    </p>
+    <p style="font-size: 18px; line-height: 1.6; color: #333;">
+      Whether you are a beginner or a seasoned investor, MomentumPortfolios is here to guide you with 
+      personalized portfolio solutions and expert advisory services.
+    </p>
+    <a href="contact.html" style="display: inline-block; margin-top: 20px; padding: 12px 24px; background-color: #0A2540; color: white; text-decoration: none; border-radius: 8px;">
+      Get in Touch
+    </a>
+  </div>
+</section>
