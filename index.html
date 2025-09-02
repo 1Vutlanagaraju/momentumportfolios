@@ -1,178 +1,623 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MomentumPortfolis — Portfolio</title>
-  <meta name="description" content="MomentumPortfolis — modern portfolio to showcase projects, services, and contact." />
+  <title>Momentum Portfolios — Smart Portfolios, Strong Momentum</title>
+  <meta name="description" content="Investment platform for retail investors: portfolio management, research, education, and performance reporting." />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Colors: Primary Deep Blue #0A2540, Accent Emerald #1DB954 (adjustable), Neutral grays -->
   <style>
-    :root { --bg:#0f1221; --card:#171a2f; --text:#e8ecff; --muted:#a8b0d9; --accent:#6c8cff; --accent2:#7ef0d4; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; color:var(--text); background: radial-gradient(1200px 600px at 80% -10%, #1c2356, transparent), var(--bg); }
-    a { color: var(--accent); text-decoration: none; }
-    header { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(150%) blur(8px); background: rgba(15,18,33,0.7); border-bottom: 1px solid #242a52; }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
-    .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
-    .brand { display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.4px; }
-    .logo { width:28px; height:28px; border-radius:6px; background: linear-gradient(135deg, var(--accent), var(--accent2)); box-shadow: 0 6px 20px rgba(108,140,255,0.45); }
-    .menu { display:flex; gap:18px; }
-    .menu a { color:var(--muted); font-weight:600; }
-    .menu a:hover { color:var(--text); }
-    .cta { padding:10px 14px; background: linear-gradient(135deg,var(--accent),#5976ff); color:white; border-radius:10px; font-weight:700; box-shadow: 0 10px 22px rgba(108,140,255,0.35); }
-    .hero { padding: 72px 0 36px; display:grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items:center; }
-    .h-eyebrow { color: var(--accent2); font-weight:800; letter-spacing: .12em; text-transform: uppercase; font-size:12px; }
-    h1 { margin:10px 0 12px; font-size: clamp(32px, 5vw, 48px); line-height:1.1; }
-    .lead { color: var(--muted); font-size: clamp(16px, 2vw, 18px); }
-    .hero-card { background: linear-gradient(180deg, rgba(23,26,47,.6), rgba(23,26,47,.3)); border:1px solid #2a2f59; border-radius:16px; padding:18px; display:grid; gap:14px; }
-    .kpis { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; }
-    .kpi { background: #121633; border:1px solid #2a2f59; border-radius:12px; padding:14px; text-align:center; }
-    .kpi b { font-size:22px; display:block; }
-    section { padding: 40px 0; }
-    h2 { font-size: 26px; margin: 0 0 8px; }
-    .muted { color: var(--muted); }
-    .cards { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; margin-top: 14px; }
-    .card { background: #141836; border:1px solid #2a2f59; border-radius:14px; padding:16px; }
-    .card h3 { margin: 6px 0 8px; font-size: 18px; }
-    .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; margin-top:14px; }
-    .proj { overflow:hidden; border-radius:14px; border:1px solid #2a2f59; background:#0e1230; }
-    .proj img { width:100%; height:160px; object-fit:cover; display:block; }
-    .proj .pbody { padding:12px 14px; }
-    .about { display:grid; grid-template-columns: 1fr 1fr; gap:18px; align-items:start; }
-    .panel { background: #141836; border:1px solid #2a2f59; border-radius:14px; padding:16px; }
-    .list { margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
-    .contact form { display:grid; gap:10px; margin-top: 12px; }
-    input, textarea { width:100%; padding:12px; color:var(--text); background:#0f1333; border:1px solid #2a2f59; border-radius:10px; }
-    button { border:0; padding:12px 14px; border-radius:10px; background: linear-gradient(135deg,var(--accent),#5976ff); color:white; font-weight:700; cursor:pointer; }
-    footer { padding:22px 0 40px; color: var(--muted); text-align:center; border-top:1px solid #242a52; margin-top: 30px; }
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .cards, .grid, .kpis { grid-template-columns: 1fr 1fr; }
-      .about { grid-template-columns: 1fr; }
-      .menu { display:none; }
+    :root{
+      --bg: #0A2540;              /* Deep Blue */
+      --fg: #0E1621;              /* Dark text on light */
+      --fg-inv: #ffffff;          /* Light text on dark */
+      --accent: #1DB954;          /* Emerald */
+      --accent-2:#0db46e;         /* Deeper emerald hover */
+      --muted:#6b7280;            /* Gray-500 */
+      --line:#e5e7eb;             /* Gray-200 */
+      --card:#ffffff;
+      --card-alt:#f8fafc;
+      --focus:#ffbf47;            /* conspicuous focus */
+      --ok:#10b981;               /* green for positives */
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --shadow: 0 10px 25px rgba(0,0,0,.08);
+      --radius: 16px;
+      --radius-lg: 20px;
+      --maxw: 1200px;
     }
-    @media (max-width: 560px) {
-      .cards, .grid, .kpis { grid-template-columns: 1fr; }
+    /* Reset + base */
+    *,*::before,*::after{box-sizing:border-box}
+    html:focus-within{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";color:var(--fg);background:#ffffff;line-height:1.6}
+    img{max-width:100%;height:auto}
+    a{color:var(--bg);text-decoration:none}
+    a:focus,button:focus,[role="button"]:focus,input:focus,select:focus,textarea:focus{outline:4px solid var(--focus);outline-offset:2px}
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+    .container{max-width:var(--maxw);margin-inline:auto;padding:0 20px}
+    .grid{display:grid;gap:20px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border:0;border-radius:999px;padding:14px 22px;font-weight:700;cursor:pointer;min-height:44px;min-width:44px;box-shadow:var(--shadow)}
+    .btn-primary{background:var(--accent);color:#052016}
+    .btn-primary:hover{background:var(--accent-2)}
+    .btn-outline{background:#fff;border:2px solid var(--bg);color:var(--bg)}
+    .btn-outline:hover{background:var(--bg);color:#fff}
+    .badge{display:inline-flex;align-items:center;gap:.4rem;border-radius:999px;padding:.3rem .6rem;font-size:.85rem;border:1px solid var(--line);background:var(--card-alt)}
+    header{position:sticky;top:0;z-index:50;background:#ffffffcc;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:.6rem}
+    .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#13a05a);display:grid;place-items:center;color:#052016;font-weight:900;box-shadow:var(--shadow)}
+    nav ul{list-style:none;display:flex;gap:18px;margin:0;padding:0}
+    nav a{padding:10px 12px;border-radius:10px;min-height:44px;display:inline-flex;align-items:center}
+    nav a:hover{background:var(--card-alt)}
+    .mobile-toggle{display:none}
+    /* Hero */
+    .hero{background:
+      radial-gradient(1200px 600px at 80% -10%, #e8fff3 0%, transparent 60%),
+      radial-gradient(1000px 500px at -10% 10%, #eaf1ff 0%, transparent 60%); 
+      padding:64px 0 24px; border-bottom:1px solid var(--line)}
+    .hero-inner{display:grid;gap:24px;grid-template-columns:1.1fr .9fr;align-items:center}
+    .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:0}
+    .sub{color:#334155;max-width:55ch}
+    .hero-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow)}
+    .metric{display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:12px;background:var(--card-alt);border:1px solid var(--line)}
+    .kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .kpis strong{font-size:1.25rem}
+    /* Sections */
+    section{padding:56px 0}
+    .section-title{font-size:clamp(22px,3vw,32px);margin:0 0 14px}
+    .section-sub{color:var(--muted);margin:0 0 28px}
+    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin-top:0}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    /* Tables */
+    table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:#fff}
+    th,td{padding:14px;border-bottom:1px solid var(--line);text-align:left}
+    th{font-size:.9rem;color:#334155;background:#f6faf8}
+    tr:last-child td{border-bottom:0}
+    /* Trust row */
+    .trust{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;align-items:center}
+    .trust .item{display:flex;align-items:center;gap:10px;padding:12px;border:1px dashed var(--line);border-radius:12px;background:#fff}
+    /* Education cards */
+    .edu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .edu .card p{color:#475569}
+    /* CTA band */
+    .cta-band{background:linear-gradient(135deg,var(--bg),#081a2c);color:var(--fg-inv);border-radius:20px;padding:28px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:18px}
+    /* Footer */
+    footer{background:#0b1c2e;color:#cbd5e1;padding:36px 0;margin-top:40px}
+    footer a{color:#cbd5e1}
+    .foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:20px}
+    .copyright{border-top:1px solid #1f2937;margin-top:24px;padding-top:16px;color:#94a3b8}
+    /* Forms */
+    label{font-weight:600;display:block;margin-bottom:6px}
+    input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff}
+    .hint{font-size:.9rem;color:#64748b}
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero-inner,.split{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr 1fr}
+      .edu{grid-template-columns:1fr 1fr}
+      .trust{grid-template-columns:1fr 1fr 1fr}
+      .foot{grid-template-columns:1fr 1fr}
     }
+    @media (max-width: 640px){
+      nav ul{display:none}
+      .mobile-toggle{display:inline-flex}
+      .cards,.edu{grid-template-columns:1fr}
+      .trust{grid-template-columns:1fr 1fr}
+      .kpis{grid-template-columns:1fr}
+      .cta-band{grid-template-columns:1fr}
+    }
+    /* Utility */
+    .pill{border:1px solid var(--line);border-radius:999px;padding:.2rem .6rem;background:#fff;color:#334155}
+    .ok{color:var(--ok)}
+    .warn{color:var(--warn)}
+    .danger{color:var(--danger)}
+    .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
+  <a href="#main" class="visually-hidden">Skip to content</a>
+
+  <!-- Header / Navigation -->
+  <header role="banner">
+    <div class="container nav" aria-label="Primary">
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <span>MomentumPortfolis</span>
+        <div class="logo" aria-hidden="true">MP</div>
+        <div>
+          <strong style="font-size:1.05rem">MomentumPortfolios</strong><br/>
+          <span class="pill" aria-label="Tagline">Smart Portfolios, Strong Momentum</span>
+        </div>
       </div>
-      <nav class="menu" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a class="cta" href="#contact">Get in touch</a>
+
+      <nav aria-label="Main">
+        <button class="mobile-toggle btn btn-outline" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+        <ul id="desktopMenu">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#performance">Performance</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#trust">Trust & Compliance</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="btn btn-primary" href="#onboard" aria-label="Start your investment journey">Get Started</a></li>
+        </ul>
       </nav>
+    </div>
+    <!-- Mobile drawer -->
+    <div id="mobileMenu" hidden>
+      <div class="container" style="padding-bottom:12px">
+        <nav aria-label="Mobile">
+          <ul style="list-style:none;display:grid;gap:8px;padding:0;margin:0">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#performance">Performance</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#trust">Trust & Compliance</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a class="btn btn-primary" href="#onboard">Start Your Investment Journey</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="hero">
+  <!-- Hero -->
+  <section class="hero" id="home" role="region" aria-label="Hero">
+    <div class="container hero-inner">
       <div>
-        <div class="h-eyebrow">Elevate your work</div>
-        <h1>Showcase momentum with a clean, fast portfolio</h1>
-        <p class="lead">MomentumPortfolis is a lightweight one‑page site that highlights services, featured projects, and a clear contact path—designed for quick edits and great performance. Replace text and images to publish in minutes.</p>
-        <div style="margin-top:14px; display:flex; gap:10px;">
-          <a class="cta" href="#projects">View projects</a>
-          <a href="#contact" style="padding:10px 12px; border:1px solid #2a2f59; border-radius:10px; color:var(--text);">Contact</a>
+        <h1>Build wealth with transparent, research-driven portfolios.</h1>
+        <p class="sub">We help retail investors start and scale with evidence-based strategies, clear reporting, and human advisors. No jargon—just performance you can track.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
+          <a href="#onboard" class="btn btn-primary">Start Your Investment Journey</a>
+          <a href="#performance" class="btn btn-outline">View Our Track Record</a>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <span class="badge" aria-label="PMS ready"><span aria-hidden="true">✅</span> PMS-ready</span>
+          <span class="badge"><span aria-hidden="true">🔒</span> SSL & 2FA</span>
+          <span class="badge"><span aria-hidden="true">📈</span> Real-time updates</span>
         </div>
       </div>
-      <aside class="hero-card" aria-label="Highlights">
-        <div class="kpis">
-          <div class="kpi"><b>25+</b><span class="muted">Projects</span></div>
-          <div class="kpi"><b>8</b><span class="muted">Industries</span></div>
-          <div class="kpi"><b>4.9</b><span class="muted">Avg. rating</span></div>
+
+      <!-- KPI / Quick access card -->
+      <aside class="hero-card" aria-label="Quick investor actions">
+        <form id="leadMagnet" aria-labelledby="leadTitle">
+          <h2 id="leadTitle" style="margin:0 0 10px;font-size:1.1rem">Free Market Outlook (Monthly)</h2>
+          <p class="hint" id="leadHint">Get our latest macro view and sector picks.</p>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" inputmode="email" placeholder="you@example.com" aria-describedby="leadHint" required />
+          <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+            <button type="submit" class="btn btn-primary">Download Report</button>
+            <a class="btn btn-outline" href="#consultation">Schedule Free Consultation</a>
+          </div>
+        </form>
+        <div style="margin-top:14px" class="kpis" aria-label="Key metrics">
+          <div class="metric"><span>3-Year CAGR</span><strong class="ok" aria-label="three year CAGR">+18.4%</strong></div>
+          <div class="metric"><span>Max Drawdown</span><strong class="warn">-9.7%</strong></div>
+          <div class="metric"><span>Volatility (yr)</span><strong>12.1%</strong></div>
+          <div class="metric"><span>Clients</span><strong>1,240+</strong></div>
         </div>
-        <div class="muted">Responsive, accessible, and SEO‑ready HTML scaffold with semantic structure and simple theming via CSS variables.</div>
+        <p class="hint" style="margin:10px 0 0">*Illustrative metrics. Replace with audited figures.</p>
       </aside>
-    </section>
+    </div>
+  </section>
 
-    <section id="services">
-      <h2>Services</h2>
-      <p class="muted">Offer a focused set of capabilities. Edit headings and bullets to match the brand and value proposition.</p>
-      <div class="cards" role="list">
-        <article class="card" role="listitem">
-          <h3>Portfolio Sites</h3>
-          <p class="muted">Fast static portfolios with clean information architecture and strong visuals for case studies.</p>
-          <ul class="list">
-            <li>Single or multi‑page layouts</li>
-            <li>SEO meta and structured markup</li>
-            <li>Image optimization guidance</li>
+  <!-- Trust strip -->
+  <section aria-label="Trust indicators">
+    <div class="container trust">
+      <div class="item"><span aria-hidden="true">🛡️</span><strong>SSL</strong><span class="muted">TLS&nbsp;1.3</span></div>
+      <div class="item"><span aria-hidden="true">🔐</span><strong>2FA</strong><span>Auth App/SMS</span></div>
+      <div class="item"><span aria-hidden="true">📜</span><strong>Compliance</strong><span>SOC&nbsp;2 (in-progress)</span></div>
+      <div class="item"><span aria-hidden="true">👤</span><strong>KYC</strong><span>SEBI-aligned*</span></div>
+      <div class="item"><span aria-hidden="true">🔎</span><strong>Audit</strong><span>Independent*</span></div>
+    </div>
+    <div class="container"><p class="hint" style="margin-top:8px">*Replace with your official regulator details, license numbers, and links.</p></div>
+  </section>
+
+  <!-- Services / Investor pathways -->
+  <section id="services" role="region" aria-labelledby="svcTitle">
+    <div class="container">
+      <h2 id="svcTitle" class="section-title">How we help investors</h2>
+      <p class="section-sub">Choose your path—beginner friendly portfolios or advanced strategies with detailed analytics.</p>
+
+      <div class="split" role="list">
+        <article class="card" role="listitem" aria-labelledby="begTitle">
+          <span class="badge">Beginner</span>
+          <h3 id="begTitle">Guided portfolios & education</h3>
+          <p>Start with risk assessment, goal setting, and diversified model portfolios. Learn as you invest with bite-sized explainers.</p>
+          <ul>
+            <li>Risk profile & goal planner</li>
+            <li>Auto-rebalancing</li>
+            <li>Monthly learning track</li>
+            <li>Advisor check-ins</li>
           </ul>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btn-primary" href="#onboard">Start Now</a>
+            <a class="btn btn-outline" href="#education">Explore Education</a>
+          </div>
         </article>
-        <article class="card" role="listitem">
-          <h3>Case Study Writing</h3>
-          <p class="muted">Structured narratives that highlight outcomes, process, and measurable impact with clear CTAs.</p>
-          <ul class="list">
-            <li>Outcome‑first storytelling</li>
-            <li>Before/after metrics</li>
-            <li>Reusable templates</li>
+
+        <article class="card" role="listitem" aria-labelledby="proTitle">
+          <span class="badge">Experienced</span>
+          <h3 id="proTitle">Advanced strategies & analytics</h3>
+          <p>Factor tilts, tactical overlays, and deep reporting with drawdown, VaR, and attribution. Integrate with your broker.</p>
+          <ul>
+            <li>Live market data & alerts</li>
+            <li>Performance attribution</li>
+            <li>Tax-aware rebalancing*</li>
+            <li>Direct advisor channel</li>
           </ul>
-        </article>
-        <article class="card" role="listitem">
-          <h3>Brand Touch‑up</h3>
-          <p class="muted">Lightweight identity polish—color, type, and layout tokens—for consistency across pages.</p>
-          <ul class="list">
-            <li>Color systems and tokens</li>
-            <li>Type scale and rhythm</li>
-            <li>Reusable components</li>
-          </ul>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btn-primary" href="#consultation">Schedule Consultation</a>
+            <a class="btn btn-outline" href="#performance">View Track Record</a>
+          </div>
+          <p class="hint">*Where available with your jurisdiction/custodian.</p>
         </article>
       </div>
-    </section>
 
-    <section id="projects">
-      <h2>Featured projects</h2>
-      <p class="muted">Swap images and titles with recent work. Keep concise summaries and link to full write‑ups.</p>
-      <div class="grid" role="list">
-        <article class="proj" role="listitem">
-          <img src="https://picsum.photos/600/400?1" alt="Project thumbnail one" />
-          <div class="pbody">
-            <h3>Momentum Analytics</h3>
-            <p class="muted">Dashboard for KPIs and growth metrics with accessible color contrast and mobile support.</p>
+      <!-- Service tiles -->
+      <div class="cards" style="margin-top:20px">
+        <div class="card">
+          <h3>Portfolio Management</h3>
+          <p>Discretionary and advisory mandates with clear SLAs and reporting.</p>
+        </div>
+        <div class="card">
+          <h3>Research & Insights</h3>
+          <p>Macro to micro: sector views, earnings trackers, and screeners.</p>
+        </div>
+        <div class="card">
+          <h3>Education Hub</h3>
+          <p>Courses, explainers, and webinars tailored to your experience level.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance -->
+  <section id="performance" role="region" aria-labelledby="perfTitle">
+    <div class="container">
+      <h2 id="perfTitle" class="section-title">Performance & Reporting</h2>
+      <p class="section-sub">Transparent returns with methodology, benchmarks, and risk controls.</p>
+
+      <div class="split" style="align-items:start">
+        <!-- Simple accessible SVG chart placeholder -->
+        <figure class="card" role="img" aria-label="3-year performance chart">
+          <figcaption style="margin-bottom:8px"><strong>3-Year Portfolio vs Benchmark</strong> (illustrative)</figcaption>
+          <svg viewBox="0 0 600 260" width="100%" height="260" aria-hidden="true">
+            <rect x="0" y="0" width="600" height="260" fill="#ffffff" stroke="#e5e7eb"/>
+            <!-- grid -->
+            <g stroke="#e5e7eb">
+              <line x1="50" y1="40" x2="50" y2="220"/>
+              <line x1="150" y1="40" x2="150" y2="220"/>
+              <line x1="250" y1="40" x2="250" y2="220"/>
+              <line x1="350" y1="40" x2="350" y2="220"/>
+              <line x1="450" y1="40" x2="450" y2="220"/>
+              <line x1="550" y1="40" x2="550" y2="220"/>
+              <line x1="50" y1="220" x2="550" y2="220"/>
+              <line x1="50" y1="180" x2="550" y2="180"/>
+              <line x1="50" y1="140" x2="550" y2="140"/>
+              <line x1="50" y1="100" x2="550" y2="100"/>
+              <line x1="50" y1="60" x2="550" y2="60"/>
+            </g>
+            <!-- benchmark -->
+            <polyline fill="none" stroke="#94a3b8" stroke-width="3"
+              points="50,200 150,195 250,180 350,172 450,168 550,160"/>
+            <!-- portfolio -->
+            <polyline fill="none" stroke="#1DB954" stroke-width="3"
+              points="50,200 150,188 250,165 350,150 450,132 550,120"/>
+            <!-- legend -->
+            <rect x="60" y="15" width="12" height="3" fill="#1DB954"></rect>
+            <text x="78" y="18" font-size="12">Portfolio</text>
+            <rect x="160" y="15" width="12" height="3" fill="#94a3b8"></rect>
+            <text x="178" y="18" font-size="12">Benchmark</text>
+          </svg>
+          <p class="hint" style="margin-top:8px">Replace with live chart component wired to audited returns.</p>
+        </figure>
+
+        <div class="card" aria-label="Performance table">
+          <h3 style="margin-top:0">Summary (Net of fees)</h3>
+          <table role="table" aria-describedby="perfNote">
+            <thead>
+              <tr role="row">
+                <th scope="col">Metric</th>
+                <th scope="col">Portfolio</th>
+                <th scope="col">Benchmark</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">1-Year Return</th><td>+12.6%</td><td>+8.9%</td></tr>
+              <tr><th scope="row">3-Year CAGR</th><td>+18.4%</td><td>+12.1%</td></tr>
+              <tr><th scope="row">Volatility (yr)</th><td>12.1%</td><td>13.0%</td></tr>
+              <tr><th scope="row">Max Drawdown</th><td class="warn">-9.7%</td><td>-12.4%</td></tr>
+              <tr><th scope="row">Sharpe (Rf 3%)</th><td>1.23</td><td>0.86</td></tr>
+            </tbody>
+          </table>
+          <p id="perfNote" class="hint">Illustrative only. Add methodology, timeframes, and benchmark definitions.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+            <a class="btn btn-primary" href="#reports">View Detailed Reports</a>
+            <a class="btn btn-outline" href="#disclosures">Read Disclosures</a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section id="research" role="region" aria-labelledby="resTitle" style="background:var(--card-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="container">
+      <h2 id="resTitle" class="section-title">Market Research & Insights</h2>
+      <p class="section-sub">Actionable macro views, sector deep-dives, and earnings trackers.</p>
+      <div class="cards">
+        <article class="card">
+          <h3>Monthly Macro</h3>
+          <p>Growth, inflation, liquidity, and policy dashboard with scenario ranges.</p>
+          <a href="#" class="btn btn-outline">View Latest</a>
         </article>
-        <article class="proj" role="listitem">
-          <img src="https://picsum.photos/600/400?2" alt="Project thumbnail two" />
-          <div class="pbody">
-            <h3>Showcase Studio</h3>
-            <p class="muted">Case study microsite with narrative structure, metrics, and sticky call‑to‑action.</p>
-          </div>
+        <article class="card">
+          <h3>Sector Playbooks</h3>
+          <p>Valuation spreads, factor trends, and leading indicators.</p>
+          <a href="#" class="btn btn-outline">Explore Sectors</a>
         </article>
-        <article class="proj" role="listitem">
-          <img src="https://picsum.photos/600/400?3" alt="Project thumbnail three" />
-          <div class="pbody">
-            <h3>Pitchfolio</h3>
-            <p class="muted">Compact portfolio tailored for fast review panels and link‑forward resumes.</p>
-          </div>
+        <article class="card">
+          <h3>Earnings Radar</h3>
+          <p>Beat/miss heatmap, guidance changes, and revisions monitor.</p>
+          <a href="#" class="btn btn-outline">Open Tracker</a>
         </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="about" class="about">
-      <div class="panel">
-        <h2>About</h2>
-        <p class="muted">MomentumPortfolis focuses on clarity, credibility, and speed—prioritizing content first and progressive enhancement for style.</p>
-        <ul class="list">
-          <li>Semantic HTML and accessible contrast</li>
-          <li>Mobile‑first, responsive layout</li>
-          <li>Simple theming via CSS variables</li>
+  <!-- Education -->
+  <section id="education" role="region" aria-labelledby="eduTitle">
+    <div class="container">
+      <h2 id="eduTitle" class="section-title">Education for Every Level</h2>
+      <p class="section-sub">Learn the “why” behind each decision—short, focused content paths.</p>
+      <div class="edu">
+        <article class="card">
+          <h3>Investing 101</h3>
+          <p>Risk, return, compounding, and fees—start here in under 60 minutes.</p>
+          <a href="#" class="btn btn-outline">Begin Course</a>
+        </article>
+        <article class="card">
+          <h3>Portfolio Building</h3>
+          <p>Asset allocation, diversification, and rebalancing strategies.</p>
+          <a href="#" class="btn btn-outline">See Lessons</a>
+        </article>
+        <article class="card">
+          <h3>Advanced Analytics</h3>
+          <p>Factor tilts, drawdowns, VaR, and attribution explained simply.</p>
+          <a href="#" class="btn btn-outline">Go Advanced</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust & Compliance -->
+  <section id="trust" role="region" aria-labelledby="trustTitle" style="background:var(--card-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="container">
+      <h2 id="trustTitle" class="section-title">Trust, Security & Compliance</h2>
+      <p class="section-sub">We follow financial-industry standards to protect your data and assets.</p>
+      <div class="split">
+        <div class="card">
+          <h3>Regulatory</h3>
+          <ul>
+            <li>Regulator: <strong><!-- e.g., SEBI Registered Investment Advisor (XXXX) --></strong></li>
+            <li>Licenses: <span class="mono">[List license IDs]</span></li>
+            <li>Disclosures & policies: <a href="#disclosures">View</a></li>
+          </ul>
+          <h3>Security</h3>
+          <ul>
+            <li>HTTPS + TLS 1.3</li>
+            <li>Two-Factor Authentication</li>
+            <li>SOC 2 controls (roadmap)</li>
+            <li>Encrypted at rest & in transit</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Data & Privacy</h3>
+          <p>We collect the minimum needed and never sell your data.</p>
+          <ul>
+            <li>KYC & consent-based processing</li>
+            <li>Right to access/erase</li>
+            <li>Clear cookie policy</li>
+          </ul>
+          <a class="btn btn-outline" href="#privacy">Read Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Onboarding (Beginner flow) -->
+  <section id="onboard" role="region" aria-labelledby="onbTitle">
+    <div class="container">
+      <h2 id="onbTitle" class="section-title">Start Your Investment Journey</h2>
+      <p class="section-sub">Answer a few questions to receive a suggested portfolio. No obligation.</p>
+      <form class="card" aria-describedby="onbHint">
+        <div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+          <div>
+            <label for="goal">Primary Goal</label>
+            <select id="goal" required>
+              <option value="">Select…</option>
+              <option>Wealth Growth</option>
+              <option>Income</option>
+              <option>Capital Preservation</option>
+            </select>
+          </div>
+          <div>
+            <label for="horizon">Time Horizon</label>
+            <select id="horizon" required>
+              <option value="">Select…</option>
+              <option>0-3 years</option>
+              <option>3-7 years</option>
+              <option>7+ years</option>
+            </select>
+          </div>
+          <div>
+            <label for="risk">Risk Comfort</label>
+            <select id="risk" required>
+              <option value="">Select…</option>
+              <option>Conservative</option>
+              <option>Balanced</option>
+              <option>Aggressive</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:2fr 1fr;margin-top:12px">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Full name" required />
+          </div>
+          <div>
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" type="tel" inputmode="tel" placeholder="+91…" />
+          </div>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+          <button type="submit" class="btn btn-primary">Get Suggested Portfolio</button>
+          <a href="#privacy" class="btn btn-outline">Data & Privacy</a>
+        </div>
+        <p id="onbHint" class="hint">We’ll email a proposal; no trades occur without consent.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Consultation (Experienced flow) -->
+  <section id="consultation" role="region" aria-labelledby="conTitle">
+    <div class="container">
+      <h2 id="conTitle" class="section-title">Talk to an Advisor</h2>
+      <p class="section-sub">For complex needs: book a session with our investment team.</p>
+      <form class="card">
+        <div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+          <div>
+            <label for="cname">Name</label>
+            <input id="cname" type="text" required />
+          </div>
+          <div>
+            <label for="cemail">Email</label>
+            <input id="cemail" type="email" required />
+          </div>
+          <div>
+            <label for="cwhen">Preferred Time</label>
+            <input id="cwhen" type="datetime-local" required />
+          </div>
+        </div>
+        <div style="margin-top:10px">
+          <label for="cnotes">Notes</label>
+          <textarea id="cnotes" rows="4" placeholder="Topics, portfolio size, broker, etc."></textarea>
+        </div>
+        <div style="margin-top:12px">
+          <button class="btn btn-primary" type="submit">Schedule Free Consultation</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section aria-label="Conversion callouts">
+    <div class="container cta-band">
+      <div>
+        <h3 style="margin:0 0 6px">Ready to see your potential?</h3>
+        <p style="margin:0">Get a custom proposal with expected ranges, fees, and risks—no commitment.</p>
+      </div>
+      <a class="btn btn-primary" href="#onboard">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container foot">
+      <div>
+        <div class="brand">
+          <div class="logo" aria-hidden="true">MP</div>
+          <strong>MomentumPortfolios</strong>
+        </div>
+        <p style="margin-top:10px">Transparent portfolios for retail investors, backed by research and clear reporting.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="badge">WCAG 2.2 AA</span>
+          <span class="badge">Mobile-first</span>
+          <span class="badge">PWA-ready</span>
+        </div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:8px">
+          <li><a href="#about">About</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#contact" id="contact">Contact</a></li>
         </ul>
       </div>
-      <div class="panel">
-        <h3>Testimonials</h3>
-        <p class="muted">Real quotes build trust. Replace these with short, outcome‑oriented statements.</p>
-        <ul class="list">
-          <li>“Clean build and smooth handoff—published in a day.”</li>
-          <li>“Structure made our case studies shine.”</li>
-          <li>“Performance improved and bounce rate dropped.”</li>
+      <div>
+        <h4>Legal</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:8px">
+          <li><a href="#disclosures">Disclosures</a></li>
+          <li><a href="#privacy" id="privacy">Privacy Policy</a></li>
+          <li><a href="#terms">Terms</a></li>
         </ul>
       </div>
-    </section>
+      <div>
+        <h4>Resources</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:8px">
+          <li><a href="#research">Market Insights</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#reports" id="reports">Reports</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container copyright">
+      <small>&copy; <span id="year"></span> MomentumPortfolios. All rights reserved. Past performance is not indicative of future results.</small>
+    </div>
+  </footer>
 
-    <section id="contact" class="contact
+  <!-- Minimal JS: mobile menu, form stubs, a11y tweaks -->
+  <script>
+    (function(){
+      const year = document.getElementById('year');
+      if(year) year.textContent = new Date().getFullYear();
+
+      const toggle = document.querySelector('.mobile-toggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if(toggle && mobileMenu){
+        toggle.addEventListener('click', ()=>{
+          const open = mobileMenu.hasAttribute('hidden') ? false : true;
+          if(open){ mobileMenu.setAttribute('hidden',''); toggle.setAttribute('aria-expanded','false'); }
+          else { mobileMenu.removeAttribute('hidden'); toggle.setAttribute('aria-expanded','true'); }
+        });
+      }
+
+      // Lead magnet stub
+      const lead = document.getElementById('leadMagnet');
+      if(lead){
+        lead.addEventListener('submit', (e)=>{
+          e.preventDefault();
+          alert('Thanks! Your market report will download. (Hook this to your email tool.)');
+          // Example download: replace with real file
+          const blob = new Blob(['Market Outlook - Replace with PDF'], {type:'text/plain'});
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url; a.download = 'market-outlook.txt'; a.click();
+          URL.revokeObjectURL(url);
+        });
+      }
+
+      // Onboarding stub
+      const onboard = document.querySelector('#onboard form');
+      if(onboard){
+        onboard.addEventListener('submit', (e)=>{
+          e.preventDefault();
+          alert('We will email your suggested portfolio shortly. (Connect to backend/risk engine.)');
+        });
+      }
+
+      // Consultation stub
+      const consult = document.querySelector('#consultation form');
+      if(consult){
+        consult.addEventListener('submit', (e)=>{
+          e.preventDefault();
+          alert('Consultation scheduled. Check your email for calendar invite. (Integrate with Cal/CRM.)');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
