@@ -1,362 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MomentumPortfolios — Brand Theme</title>
-  <meta name="description" content="Brand theme structure for MomentumPortfolios: identity, colors, typography, layout, tone, and UI kit in a single demo page." />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet">
-
-  <!-- Chart.js for demo charts -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
-
+  <title>MomentumPortfolis — Portfolio</title>
+  <meta name="description" content="MomentumPortfolis — modern portfolio to showcase projects, services, and contact." />
   <style>
-    :root{
-      --blue:#0A2540;           /* Primary */
-      --green:#27AE60;          /* Accent */
-      --gold:#F1C40F;           /* Secondary */
-      --bg:#ffffff;             /* Neutral */
-      --muted:#f5f7fa;          /* Neutral light */
-      --text:#0b1b2b;           /* Body text */
-      --border:#e6e8ec;         /* Borders */
-      --shadow:0 10px 30px rgba(10,37,64,.08);
-      --radius:20px;
+    :root { --bg:#0f1221; --card:#171a2f; --text:#e8ecff; --muted:#a8b0d9; --accent:#6c8cff; --accent2:#7ef0d4; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; color:var(--text); background: radial-gradient(1200px 600px at 80% -10%, #1c2356, transparent), var(--bg); }
+    a { color: var(--accent); text-decoration: none; }
+    header { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(150%) blur(8px); background: rgba(15,18,33,0.7); border-bottom: 1px solid #242a52; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+    .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.4px; }
+    .logo { width:28px; height:28px; border-radius:6px; background: linear-gradient(135deg, var(--accent), var(--accent2)); box-shadow: 0 6px 20px rgba(108,140,255,0.45); }
+    .menu { display:flex; gap:18px; }
+    .menu a { color:var(--muted); font-weight:600; }
+    .menu a:hover { color:var(--text); }
+    .cta { padding:10px 14px; background: linear-gradient(135deg,var(--accent),#5976ff); color:white; border-radius:10px; font-weight:700; box-shadow: 0 10px 22px rgba(108,140,255,0.35); }
+    .hero { padding: 72px 0 36px; display:grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items:center; }
+    .h-eyebrow { color: var(--accent2); font-weight:800; letter-spacing: .12em; text-transform: uppercase; font-size:12px; }
+    h1 { margin:10px 0 12px; font-size: clamp(32px, 5vw, 48px); line-height:1.1; }
+    .lead { color: var(--muted); font-size: clamp(16px, 2vw, 18px); }
+    .hero-card { background: linear-gradient(180deg, rgba(23,26,47,.6), rgba(23,26,47,.3)); border:1px solid #2a2f59; border-radius:16px; padding:18px; display:grid; gap:14px; }
+    .kpis { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; }
+    .kpi { background: #121633; border:1px solid #2a2f59; border-radius:12px; padding:14px; text-align:center; }
+    .kpi b { font-size:22px; display:block; }
+    section { padding: 40px 0; }
+    h2 { font-size: 26px; margin: 0 0 8px; }
+    .muted { color: var(--muted); }
+    .cards { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; margin-top: 14px; }
+    .card { background: #141836; border:1px solid #2a2f59; border-radius:14px; padding:16px; }
+    .card h3 { margin: 6px 0 8px; font-size: 18px; }
+    .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; margin-top:14px; }
+    .proj { overflow:hidden; border-radius:14px; border:1px solid #2a2f59; background:#0e1230; }
+    .proj img { width:100%; height:160px; object-fit:cover; display:block; }
+    .proj .pbody { padding:12px 14px; }
+    .about { display:grid; grid-template-columns: 1fr 1fr; gap:18px; align-items:start; }
+    .panel { background: #141836; border:1px solid #2a2f59; border-radius:14px; padding:16px; }
+    .list { margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
+    .contact form { display:grid; gap:10px; margin-top: 12px; }
+    input, textarea { width:100%; padding:12px; color:var(--text); background:#0f1333; border:1px solid #2a2f59; border-radius:10px; }
+    button { border:0; padding:12px 14px; border-radius:10px; background: linear-gradient(135deg,var(--accent),#5976ff); color:white; font-weight:700; cursor:pointer; }
+    footer { padding:22px 0 40px; color: var(--muted); text-align:center; border-top:1px solid #242a52; margin-top: 30px; }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .cards, .grid, .kpis { grid-template-columns: 1fr 1fr; }
+      .about { grid-template-columns: 1fr; }
+      .menu { display:none; }
     }
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color:var(--text); background:var(--bg);
+    @media (max-width: 560px) {
+      .cards, .grid, .kpis { grid-template-columns: 1fr; }
     }
-    h1,h2,h3,h4{font-family:Montserrat, Inter, sans-serif; color:var(--blue); margin:0 0 .5rem}
-    h1{font-size:clamp(2rem,3.8vw,2.75rem); line-height:1.1}
-    h2{font-size:clamp(1.4rem,2.6vw,2rem)}
-    p{margin:.35rem 0 .75rem; line-height:1.6}
-    .container{width:min(1150px,92%); margin-inline:auto}
-
-    /* Header */
-    header{
-      position:sticky; top:0; z-index:40; background:#fff6; backdrop-filter:saturate(1.5) blur(10px);
-      border-bottom:1px solid var(--border);
-    }
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:.8rem 0}
-    .brand{display:flex; gap:.6rem; align-items:center; font-weight:800; letter-spacing:.3px; color:var(--blue)}
-    .brand-logo{width:36px; height:36px; display:grid; place-items:center; color:#fff; font-weight:800; border-radius:12px; background:linear-gradient(135deg,var(--blue),#153a63)}
-    nav a{color:var(--blue); text-decoration:none; font-weight:600; margin:0 .6rem; padding:.5rem .7rem; border-radius:12px}
-    nav a:hover{background:var(--muted)}
-    .cta{background:var(--green); color:white!important}
-    .cta:hover{filter:brightness(.95)}
-
-    /* Hero */
-    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:2rem; align-items:center; padding:4.5rem 0}
-    .hero .tag{display:inline-flex; align-items:center; gap:.5rem; background:var(--muted); border:1px solid var(--border); padding:.4rem .7rem; border-radius:999px; font-size:.9rem}
-    .hero p{font-size:1.05rem}
-    .hero-cards{display:grid; grid-template-columns:repeat(2,1fr); gap:1rem}
-    .card{background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:1rem; box-shadow:var(--shadow)}
-
-    .btn{display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.1rem; border-radius:16px; border:0; cursor:pointer; font-weight:700}
-    .btn-primary{background:var(--blue); color:#fff}
-    .btn-outline{background:transparent; color:var(--blue); border:2px solid var(--blue)}
-
-    /* Section blocks */
-    section{padding:3.5rem 0; border-top:1px solid var(--border)}
-    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem}
-    .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem}
-
-    /* Badges */
-    .badge{display:inline-flex; align-items:center; gap:.5rem; font-weight:600; padding:.35rem .6rem; border-radius:999px; background:var(--muted); border:1px solid var(--border);}
-
-    /* Icon pill */
-    .pill{display:inline-flex; align-items:center; gap:.6rem; padding:.55rem .75rem; background:#fff; border:1px solid var(--border); border-radius:999px}
-    .pill svg{width:18px; height:18px}
-
-    /* Performance stat */
-    .stat{display:flex; align-items:baseline; gap:.5rem}
-    .stat b{font-family:"Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-size:2rem; color:var(--green)}
-
-    /* Testimonials */
-    .quote{background:#fff; border:1px solid var(--border); border-left:6px solid var(--gold); border-radius:18px; padding:1rem; box-shadow:var(--shadow)}
-
-    /* Footer */
-    footer{padding:2rem 0 3rem; background:var(--blue); color:#e5eef7; margin-top:2rem}
-    footer a{color:#e5eef7; text-decoration:none}
-
-    /* Responsive */
-    @media (max-width: 880px){
-      .hero{grid-template-columns:1fr; padding:2.5rem 0}
-      .hero-cards{grid-template-columns:1fr 1fr}
-      .grid-3{grid-template-columns:1fr 1fr}
-      .grid-2{grid-template-columns:1fr}
-      nav{display:none}
-    }
-    @media (max-width: 540px){
-      .hero-cards{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr}
-    }
-
-    /* Tiny motion */
-    [data-reveal]{opacity:0; transform:translateY(12px); transition:.6s ease}
-    [data-reveal].visible{opacity:1; transform:none}
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
-    <div class="container nav">
+    <div class="wrap nav">
       <div class="brand">
-        <div class="brand-logo">MP</div>
-        <span>Momentum<strong>Portfolios</strong></span>
+        <div class="logo" aria-hidden="true"></div>
+        <span>MomentumPortfolis</span>
       </div>
-      <nav aria-label="Main">
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
+      <nav class="menu" aria-label="Primary">
         <a href="#services">Services</a>
-        <a href="#performance">Performance</a>
-        <a href="#insights">Blog</a>
-        <a href="#contact" class="cta">Contact</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a class="cta" href="#contact">Get in touch</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <main id="home" class="container hero">
-    <div>
-      <span class="tag">Momentum = growth, speed • Portfolios = wealth baskets</span>
-      <h1>Accelerating Your Wealth Journey</h1>
-      <p>Smart portfolios with strong momentum. Disciplined, data‑driven strategies designed to help your investments gain speed—safely and sustainably.</p>
-      <div style="display:flex; gap:.7rem; margin-top:1rem">
-        <a href="#contact" class="btn btn-primary">Start Growing Today</a>
-        <a href="#about" class="btn btn-outline">Why MomentumPortfolios?</a>
-      </div>
-    </div>
-    <div class="hero-cards">
-      <div class="card" aria-live="polite">
-        <div class="pill" style="margin-bottom:.6rem">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M5 8l7-7 7 7"/></svg>
-          CAGR Snapshot
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="h-eyebrow">Elevate your work</div>
+        <h1>Showcase momentum with a clean, fast portfolio</h1>
+        <p class="lead">MomentumPortfolis is a lightweight one‑page site that highlights services, featured projects, and a clear contact path—designed for quick edits and great performance. Replace text and images to publish in minutes.</p>
+        <div style="margin-top:14px; display:flex; gap:10px;">
+          <a class="cta" href="#projects">View projects</a>
+          <a href="#contact" style="padding:10px 12px; border:1px solid #2a2f59; border-radius:10px; color:var(--text);">Contact</a>
         </div>
-        <div class="stat"><b>18.4%</b><span>5Y CAGR*</span></div>
-        <small>*Illustrative; replace with audited numbers.</small>
       </div>
-      <div class="card">
-        <div class="pill" style="margin-bottom:.6rem">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-          Trust Factors
+      <aside class="hero-card" aria-label="Highlights">
+        <div class="kpis">
+          <div class="kpi"><b>25+</b><span class="muted">Projects</span></div>
+          <div class="kpi"><b>8</b><span class="muted">Industries</span></div>
+          <div class="kpi"><b>4.9</b><span class="muted">Avg. rating</span></div>
         </div>
-        <ul style="padding-left:1rem; margin:0">
-          <li>🔒 Secure processes</li>
-          <li>📈 Data‑driven growth</li>
-          <li>🤝 Trusted advisors</li>
+        <div class="muted">Responsive, accessible, and SEO‑ready HTML scaffold with semantic structure and simple theming via CSS variables.</div>
+      </aside>
+    </section>
+
+    <section id="services">
+      <h2>Services</h2>
+      <p class="muted">Offer a focused set of capabilities. Edit headings and bullets to match the brand and value proposition.</p>
+      <div class="cards" role="list">
+        <article class="card" role="listitem">
+          <h3>Portfolio Sites</h3>
+          <p class="muted">Fast static portfolios with clean information architecture and strong visuals for case studies.</p>
+          <ul class="list">
+            <li>Single or multi‑page layouts</li>
+            <li>SEO meta and structured markup</li>
+            <li>Image optimization guidance</li>
+          </ul>
+        </article>
+        <article class="card" role="listitem">
+          <h3>Case Study Writing</h3>
+          <p class="muted">Structured narratives that highlight outcomes, process, and measurable impact with clear CTAs.</p>
+          <ul class="list">
+            <li>Outcome‑first storytelling</li>
+            <li>Before/after metrics</li>
+            <li>Reusable templates</li>
+          </ul>
+        </article>
+        <article class="card" role="listitem">
+          <h3>Brand Touch‑up</h3>
+          <p class="muted">Lightweight identity polish—color, type, and layout tokens—for consistency across pages.</p>
+          <ul class="list">
+            <li>Color systems and tokens</li>
+            <li>Type scale and rhythm</li>
+            <li>Reusable components</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Featured projects</h2>
+      <p class="muted">Swap images and titles with recent work. Keep concise summaries and link to full write‑ups.</p>
+      <div class="grid" role="list">
+        <article class="proj" role="listitem">
+          <img src="https://picsum.photos/600/400?1" alt="Project thumbnail one" />
+          <div class="pbody">
+            <h3>Momentum Analytics</h3>
+            <p class="muted">Dashboard for KPIs and growth metrics with accessible color contrast and mobile support.</p>
+          </div>
+        </article>
+        <article class="proj" role="listitem">
+          <img src="https://picsum.photos/600/400?2" alt="Project thumbnail two" />
+          <div class="pbody">
+            <h3>Showcase Studio</h3>
+            <p class="muted">Case study microsite with narrative structure, metrics, and sticky call‑to‑action.</p>
+          </div>
+        </article>
+        <article class="proj" role="listitem">
+          <img src="https://picsum.photos/600/400?3" alt="Project thumbnail three" />
+          <div class="pbody">
+            <h3>Pitchfolio</h3>
+            <p class="muted">Compact portfolio tailored for fast review panels and link‑forward resumes.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="panel">
+        <h2>About</h2>
+        <p class="muted">MomentumPortfolis focuses on clarity, credibility, and speed—prioritizing content first and progressive enhancement for style.</p>
+        <ul class="list">
+          <li>Semantic HTML and accessible contrast</li>
+          <li>Mobile‑first, responsive layout</li>
+          <li>Simple theming via CSS variables</li>
         </ul>
       </div>
-    </div>
-  </main>
-
-  <!-- Why Us -->
-  <section id="about">
-    <div class="container">
-      <h2>Why MomentumPortfolios?</h2>
-      <p class="badge" style="margin:.7rem 0 1.2rem">Minimalist • Professional • Data‑First</p>
-      <div class="grid-3">
-        <div class="card" data-reveal>
-          <h3>Disciplined Strategy</h3>
-          <p>Rules‑based portfolio construction with risk management baked in—avoid noise, focus on momentum & quality.</p>
-        </div>
-        <div class="card" data-reveal>
-          <h3>Transparent Reporting</h3>
-          <p>Clear performance snapshots with benchmark comparison and drawdown visibility for informed decisions.</p>
-        </div>
-        <div class="card" data-reveal>
-          <h3>Client‑First Advisory</h3>
-          <p>Aligned incentives and continuous education through insights, research notes, and webinars.</p>
-        </div>
+      <div class="panel">
+        <h3>Testimonials</h3>
+        <p class="muted">Real quotes build trust. Replace these with short, outcome‑oriented statements.</p>
+        <ul class="list">
+          <li>“Clean build and smooth handoff—published in a day.”</li>
+          <li>“Structure made our case studies shine.”</li>
+          <li>“Performance improved and bounce rate dropped.”</li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Services -->
-  <section id="services">
-    <div class="container">
-      <h2>Our Services</h2>
-      <div class="grid-3" style="margin-top:1rem">
-        <div class="card" data-reveal>
-          <h3>Portfolio Management</h3>
-          <p>End‑to‑end discretionary portfolio strategies tailored to risk profile and goals.</p>
-        </div>
-        <div class="card" data-reveal>
-          <h3>Stock Advisory</h3>
-          <p>SEBI‑compliant ideas with entry/exit frameworks and risk guidelines.</p>
-        </div>
-        <div class="card" data-reveal>
-          <h3>Research Reports</h3>
-          <p>Thematic and company deep‑dives with valuation, catalysts, and risk factors.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Performance / Track Record -->
-  <section id="performance">
-    <div class="container">
-      <h2>Performance Snapshot</h2>
-      <p>Illustrative charts for layout. Replace with audited results and disclosures.</p>
-      <div class="grid-2" style="margin-top:1rem">
-        <div class="card" data-reveal>
-          <canvas id="growthChart" aria-label="Portfolio growth chart" role="img"></canvas>
-        </div>
-        <div class="card" data-reveal>
-          <canvas id="barChart" aria-label="Returns comparison chart" role="img"></canvas>
-        </div>
-      </div>
-      <div class="grid-3" style="margin-top:1rem">
-        <div class="card stat" data-reveal>
-          <b>+12.3%</b><span>1Y</span>
-        </div>
-        <div class="card stat" data-reveal>
-          <b>+18.4%</b><span>5Y CAGR</span>
-        </div>
-        <div class="card stat" data-reveal>
-          <b>-9.1%</b><span>Max DD</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials / Trust -->
-  <section id="trust">
-    <div class="container">
-      <h2>Trusted by Long‑Term Investors</h2>
-      <div class="grid-3" style="margin-top:1rem">
-        <figure class="quote" data-reveal>
-          <blockquote>Clear frameworks and calm execution. My onboarding was smooth and performance reporting is top‑notch.</blockquote>
-          <figcaption>— A. Shah, Entrepreneur</figcaption>
-        </figure>
-        <figure class="quote" data-reveal>
-          <blockquote>The advisory notes are educational and actionable—helped me stay disciplined during volatility.</blockquote>
-          <figcaption>— R. Iyer, CXO</figcaption>
-        </figure>
-        <figure class="quote" data-reveal>
-          <blockquote>Professional team with simple, modern dashboards. Love the focus on risk controls.</blockquote>
-          <figcaption>— S. Mehta, Doctor</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- Insights -->
-  <section id="insights">
-    <div class="container">
-      <h2>Insights & Education</h2>
-      <div class="grid-3" style="margin-top:1rem">
-        <div class="card" data-reveal>
-          <h3>Momentum 101</h3>
-          <p>What is momentum investing? Evidence, myths, and implementation.</p>
-        </div>
-        <div class="card" data-reveal>
-          <h3>Risk Management</h3>
-          <p>Position sizing, exits, and drawdown controls for smoother journeys.</p>
-        </div>
-        <div class="card" data-reveal>
-          <h3>Tax & Compliance</h3>
-          <p>Disclosures and practical guidance for Indian investors (SEBI‑aware).</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="contact">
-    <div class="container">
-      <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:1rem">
-        <div>
-          <h2>Ready to Begin?</h2>
-          <p>Join now or book a free consultation. We’ll tailor a momentum strategy to your goals.</p>
-        </div>
-        <div style="display:flex; gap:.6rem; flex-wrap:wrap">
-          <a href="#" class="btn btn-primary">Join Now</a>
-          <a href="#" class="btn btn-outline">Book Free Consultation</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap">
-      <div class="brand" style="color:#e5eef7"><div class="brand-logo" style="background:linear-gradient(135deg,#0A2540,#0e3157)">MP</div>Momentum<strong>Portfolios</strong></div>
-      <small>© <span id="year"></span> MomentumPortfolios. Educational content only. Past performance is not indicative of future results. SEBI compliance ready.</small>
-    </div>
-  </footer>
-
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Tiny reveal on scroll
-    const revealEls = document.querySelectorAll('[data-reveal]');
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
-    },{threshold:.1});
-    revealEls.forEach(el=>io.observe(el));
-
-    // Charts (illustrative)
-    window.addEventListener('load', () => {
-      const growthCtx = document.getElementById('growthChart');
-      if (growthCtx) {
-        new Chart(growthCtx, {
-          type: 'line',
-          data: {
-            labels: ['2019','2020','2021','2022','2023','2024','2025'],
-            datasets: [{
-              label: 'Portfolio NAV',
-              data: [100, 116, 135, 129, 158, 171, 191],
-              borderColor: getComputedStyle(document.documentElement).getPropertyValue('--green').trim(),
-              backgroundColor: 'rgba(39,174,96,.12)',
-              borderWidth: 3,
-              fill: true,
-              tension:.35,
-              pointRadius: 3,
-            }]
-          },
-          options: {
-            plugins:{ legend:{ display:false } },
-            scales:{
-              x:{ grid:{ display:false } },
-              y:{ grid:{ color:'#eef2f6' } }
-            }
-          }
-        });
-      }
-
-      const barCtx = document.getElementById('barChart');
-      if (barCtx) {
-        new Chart(barCtx, {
-          type: 'bar',
-          data: {
-            labels: ['1Y','3Y','5Y'],
-            datasets: [{
-              label: 'Returns',
-              data: [12.3, 15.7, 18.4],
-              backgroundColor: [
-                getComputedStyle(document.documentElement).getPropertyValue('--gold').trim(),
-                getComputedStyle(document.documentElement).getPropertyValue('--blue').trim(),
-                getComputedStyle(document.documentElement).getPropertyValue('--green').trim()
-              ],
-              borderRadius: 10,
-            }]
-          },
-          options: {
-            plugins:{ legend:{ display:false } },
-            scales:{
-              x:{ grid:{ display:false } },
-              y:{ grid:{ color:'#eef2f6' }, suggestedMax: 22 }
-            }
-          }
-        });
-      }
-    });
-  </script>
-</body>
-</html>
+    <section id="contact" class="contact
