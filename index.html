@@ -179,6 +179,54 @@
     .strategy-card h4 {
       color: var(--trust-blue);
     }
+    .performance-showcase {
+      background: #fff;
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 2rem 1rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .chart-container {
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .chart-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: var(--card-shadow);
+    }
+    .stock-table {
+      overflow-x: auto;
+      margin: 2rem 0;
+    }
+    .stock-table table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+    .stock-table th {
+      background: var(--trust-blue);
+      color: #fff;
+      padding: 1rem 0.5rem;
+      text-align: left;
+      font-weight: 700;
+    }
+    .stock-table td {
+      padding: 0.8rem 0.5rem;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    .stock-table tr:nth-child(even) {
+      background: var(--soft-mint);
+    }
+    .highlight-green {
+      color: var(--perf-green);
+      font-weight: 700;
+    }
     .methodology, .for-whom, .resources, .footer-form {
       margin-bottom: 3rem;
     }
@@ -267,6 +315,9 @@
       section {
         margin: 32px auto;
       }
+      .stock-table {
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
@@ -277,6 +328,7 @@
       <ul>
         <li><a href="#strategies">Strategies</a></li>
         <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#performance">Performance</a></li>
         <li><a href="#resources">Resources</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -292,6 +344,7 @@
       </div>
     </div>
   </header>
+  
   <section>
     <div class="trust-row">
       <div class="trust-marker">SEBI Registered</div>
@@ -300,10 +353,100 @@
       <div class="trust-marker">Featured in CNBC, Bloomberg</div>
     </div>
     <div class="testimonial">
-      “MomentumPortfolios gave me clarity, control, and peace of mind, even in choppy markets.” <br>
+      "MomentumPortfolios gave me clarity, control, and peace of mind, even in choppy markets." <br>
       <small>- R. Kumar, Retail Investor</small>
     </div>
   </section>
+
+  <section id="performance" class="performance-showcase">
+    <h2 style="color:var(--trust-blue);margin-bottom:1.5rem;">Our Quality Mid Cap Focus</h2>
+    <p style="margin-bottom:2rem;">We identify high-momentum, quality mid cap stocks with strong fundamentals and consistent growth. Below are examples from our current universe of quality mid cap opportunities.</p>
+    
+    <div class="chart-container">
+      <h3 style="color:var(--perf-green);">Capital Efficiency Leaders</h3>
+      <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/ea48678087cac268fbc3d9f2f133b0df/bb1270da-8e22-431d-a854-a491a0aad01a/1ffaafff.png" alt="Quality Mid Cap Stocks ROCE Performance" />
+      <p><small>Higher ROCE indicates better capital efficiency and management quality</small></p>
+    </div>
+
+    <div class="chart-container">
+      <h3 style="color:var(--perf-green);">Momentum Performance Comparison</h3>
+      <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/ea48678087cac268fbc3d9f2f133b0df/44ab6b1b-c136-49fb-b859-a0fab56ca56e/564d5545.png" alt="Mid Cap Momentum Stock Performance" />
+      <p><small>Multi-year return comparison showing consistent growth leaders in our momentum universe</small></p>
+    </div>
+
+    <div class="stock-table">
+      <h3 style="color:var(--trust-blue);margin-bottom:1rem;">Quality Mid Cap Holdings Universe</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Stock Name</th>
+            <th>Sector</th>
+            <th>Market Cap (₹ Cr)</th>
+            <th>ROCE (%)</th>
+            <th>Sales Growth (%)</th>
+            <th>P/E Ratio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Hindustan Zinc</strong></td>
+            <td>Metals & Mining</td>
+            <td>1,88,175</td>
+            <td class="highlight-green">60.73</td>
+            <td>-5.01</td>
+            <td>18.48</td>
+          </tr>
+          <tr>
+            <td><strong>BSE</strong></td>
+            <td>Financial Services</td>
+            <td>89,917</td>
+            <td class="highlight-green">46.57</td>
+            <td class="highlight-green">59.24</td>
+            <td>56.69</td>
+          </tr>
+          <tr>
+            <td><strong>Marico</strong></td>
+            <td>FMCG</td>
+            <td>95,350</td>
+            <td class="highlight-green">45.16</td>
+            <td class="highlight-green">23.31</td>
+            <td>57.13</td>
+          </tr>
+          <tr>
+            <td><strong>HDFC AMC</strong></td>
+            <td>Financial Services</td>
+            <td>1,19,744</td>
+            <td class="highlight-green">43.33</td>
+            <td class="highlight-green">24.83</td>
+            <td>45.97</td>
+          </tr>
+          <tr>
+            <td><strong>Dixon Technologies</strong></td>
+            <td>Electronics</td>
+            <td>1,07,558</td>
+            <td class="highlight-green">39.81</td>
+            <td class="highlight-green">95.08</td>
+            <td>125.34</td>
+          </tr>
+          <tr>
+            <td><strong>Solar Industries</strong></td>
+            <td>Chemicals</td>
+            <td>1,29,252</td>
+            <td class="highlight-green">38.13</td>
+            <td class="highlight-green">27.88</td>
+            <td>102.44</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div style="margin-top:2rem;">
+      <small style="color:var(--momentum-red);">
+        *Past performance is not indicative of future results. Stock data as of Sept 2025. Holdings are illustrative and subject to change.
+      </small>
+    </div>
+  </section>
+
   <section>
     <div class="steps">
       <div class="step-card">
@@ -323,88 +466,100 @@
       <a href="#contact"><button class="secondary-btn">Get Your Portfolio Fit Report</button></a>
     </div>
   </section>
+
   <section id="strategies">
     <h2 style="color:var(--trust-blue);">Strategies Overview</h2>
     <div class="strategies">
       <div class="strategy-card">
         <h4>Core Momentum</h4>
         <p>Objective: Capital growth via market leaders.<br>Volatility: Moderate<br>Liquidity: High<br>Rebalancing: Monthly</p>
+        <p><strong>Focus:</strong> Quality mid caps with strong ROCE and consistent sales growth like Solar Industries and HDFC AMC.</p>
         <a href="#core" style="color:var(--perf-green);font-weight:700;">Learn More</a>
       </div>
       <div class="strategy-card">
         <h4>Defensive Momentum</h4>
         <p>Objective: Downside protection, steady returns.<br>Volatility: Low<br>Liquidity: High<br>Rebalancing: Quarterly</p>
+        <p><strong>Focus:</strong> Stable performers like Hindustan Zinc and Marico with high dividend yields and strong fundamentals.</p>
         <a href="#defensive" style="color:var(--perf-green);font-weight:700;">Learn More</a>
       </div>
       <div class="strategy-card">
         <h4>Global Sector Rotation</h4>
         <p>Objective: Diversification, harnessing global trends.<br>Volatility: Varied<br>Liquidity: High<br>Rebalancing: Monthly</p>
+        <p><strong>Focus:</strong> Sector leaders like Dixon Technologies in electronics and emerging opportunities across global themes.</p>
         <a href="#global" style="color:var(--perf-green);font-weight:700;">Learn More</a>
       </div>
     </div>
   </section>
+
   <section id="methodology" class="methodology">
     <h2 style="color:var(--trust-blue);">Performance Methodology</h2>
     <ul>
-      <li>Backtested over 10+ years with real market data.</li>
-      <li>Live performance tracked and benchmarked against Nifty/Sensex/Global indices.</li>
+      <li>Backtested over 10+ years with real market data from NSE/BSE mid cap universe.</li>
+      <li>Live performance tracked and benchmarked against Nifty Midcap 100 and Sensex indices.</li>
+      <li>Quality filters: ROCE >15%, consistent sales growth, debt-to-equity <1.0, market cap ₹5,000-20,000 Cr.</li>
+      <li>Momentum indicators: Price momentum, earnings revisions, institutional buying patterns.</li>
       <li>Transparent fee structure; realistic assumptions for costs and slippage.</li>
-      <li>Active risk management; Max Drawdown controls detailed.</li>
+      <li>Active risk management; Max Drawdown controls detailed in methodology paper.</li>
       <li><a href="#" style="color:var(--perf-green);">View Full Methodology PDF</a></li>
     </ul>
     <div style="margin-top:1rem;">
       <small style="color:var(--momentum-red);">
-        Past performance is not indicative of future results. All investing involves risk.
+        Past performance is not indicative of future results. All investing involves risk. Mid cap investments are subject to higher volatility.
       </small>
     </div>
   </section>
+
   <section class="for-whom" id="about">
     <h2 style="color:var(--trust-blue);">Who We Serve</h2>
     <div class="for-whom-tiles">
       <div class="for-whom-tile">
         <h3 style="color:var(--perf-green);">Retail Investors</h3>
-        <p>Accessible, automated portfolios with active risk controls. Clarity in allocation, easy onboarding, disciplined investing.</p>
+        <p>Accessible, automated portfolios with active risk controls. Clarity in allocation, easy onboarding, disciplined investing in quality mid caps.</p>
         <ul>
-          <li>Low minimums</li>
-          <li>Simple reporting</li>
-          <li>Mobile dashboard</li>
+          <li>Low minimums (₹50,000)</li>
+          <li>Simple reporting with performance attribution</li>
+          <li>Mobile dashboard with real-time updates</li>
+          <li>Educational content on mid cap investing</li>
         </ul>
       </div>
       <div class="for-whom-tile">
         <h3 style="color:var(--perf-green);">Advisors & Institutions</h3>
-        <p>Transparent reporting, robust data exports, tailored integration for RIAs/HNIs/family offices.</p>
+        <p>Transparent reporting, robust data exports, tailored integration for RIAs/HNIs/family offices seeking mid cap alpha.</p>
         <ul>
-          <li>Custom strategies</li>
-          <li>Fiduciary transparency</li>
-          <li>Dedicated support team</li>
+          <li>Custom strategies and risk parameters</li>
+          <li>Fiduciary transparency with detailed attribution</li>
+          <li>API integration and institutional reporting</li>
+          <li>Dedicated support team with portfolio analytics</li>
         </ul>
       </div>
     </div>
   </section>
+
   <section id="resources" class="resources">
     <h2 style="color:var(--trust-blue);">Resources & Insights</h2>
     <div class="resources-list">
       <div class="resource-card">
         <strong>Momentum Investing: A Practical Primer</strong><br>
-        <small>Download free e-guide</small>
+        <small>Download free e-guide with mid cap case studies</small>
       </div>
       <div class="resource-card">
         <strong>Quarterly Commentary</strong><br>
-        <small>Market and performance updates</small>
+        <small>Market updates and portfolio performance analysis</small>
       </div>
       <div class="resource-card">
-        <strong>FAQs & Videos</strong><br>
-        <small>Strategy explainer videos</small>
+        <strong>Mid Cap Research Reports</strong><br>
+        <small>In-depth analysis of quality mid cap opportunities</small>
       </div>
       <div class="resource-card">
-        <strong>Blog</strong><br>
-        <small>Latest insights, news</small>
+        <strong>Blog & Videos</strong><br>
+        <small>Strategy explainers and market insights</small>
       </div>
     </div>
     <div style="margin-top:1rem;text-align:center;">
       <a href="#contact"><button class="secondary-btn">Send Me the Primer</button></a>
     </div>
   </section>
+
   <footer class="footer" id="contact">
     <h2>Ready to build momentum?</h2>
     <div class="footer-form">
@@ -415,9 +570,9 @@
         <input type="email" name="email" id="email" autocomplete="email" required>
         <label for="type">Investor Type</label>
         <select name="type" id="type">
-          <option value="retail">Retail</option>
-          <option value="advisor">Advisor</option>
-          <option value="institution">Institutional</option>
+          <option value="retail">Retail Investor</option>
+          <option value="advisor">Financial Advisor</option>
+          <option value="institution">Institutional Investor</option>
         </select>
         <label style="font-weight:400;">
           <input type="checkbox" required>
@@ -433,7 +588,7 @@
       <a href="#" style="color:#fff;text-decoration:underline;">Terms</a> | <a href="#" style="color:#fff;text-decoration:underline;">Disclosures</a> | <a href="#" style="color:#fff;text-decoration:underline;">Privacy</a>
       <br>
       <small style="margin-top:1rem;display:block;">
-        © MomentumPortfolios 2025. All investing involves risk. No investment advice given. SEBI Registered.
+        © MomentumPortfolios 2025. All investing involves risk. No investment advice given. SEBI Registered Investment Adviser.
       </small>
     </div>
   </footer>
