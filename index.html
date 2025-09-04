@@ -23,7 +23,6 @@
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)}
 
-    /* Utility */
     .container{max-width:1100px;margin:0 auto;padding:0 1rem}
     .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.2rem;border-radius:14px;font-weight:600;border:1px solid transparent;cursor:pointer;text-decoration:none}
     .btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 20px rgba(0,155,119,.22)}
@@ -35,14 +34,12 @@
     .section-title{font-size:1.8rem;margin:0 0 22px}
     .muted{color:var(--muted)}
 
-    /* Nav */
     header{position:sticky;top:0;z-index:30;background:rgba(10,37,64,.85);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0;color:#fff}
     .brand{display:flex;align-items:center;gap:.6rem;font-weight:700}
     .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#0fd5a9);display:grid;place-items:center;color:#003b2f;font-weight:800}
     .nav-actions{display:flex;gap:.6rem}
 
-    /* Hero */
     .hero{position:relative;isolation:isolate}
     .hero::before{content:"";position:absolute;inset:0;background:
       radial-gradient(1200px 600px at 80% -10%, rgba(0,155,119,.35), transparent 60%),
@@ -53,13 +50,11 @@
     .hero p{max-width:680px;color:#ccdee9;margin:0 0 22px}
     .hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap}
 
-    /* Charts grid */
     .charts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .chart-card{padding:1rem 1rem 1.2rem}
     .chart-card h3{margin:.2rem 0 .3rem;font-size:1rem}
     .chip{display:inline-flex;align-items:center;gap:.35rem;font-size:.8rem;padding:.25rem .55rem;border-radius:999px;background:#eef7f5;color:#055644}
 
-    /* Ticker */
     .ticker-wrap{overflow:hidden;border-top:1px solid #e8edf3;border-bottom:1px solid #e8edf3;background:#fff}
     .ticker{display:flex;gap:32px;white-space:nowrap;animation:ticker 28s linear infinite;padding:12px}
     .tick{display:inline-flex;gap:8px;align-items:center}
@@ -69,14 +64,12 @@
     .chg.down{color:var(--danger)}
     @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-    /* Blinkers (small/micro) */
     .blinker-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
     .blink-item{display:flex;align-items:center;justify-content:space-between;padding:.8rem 1rem;border:1px dashed #dfe7ee;border-radius:14px;background:#fff}
     .blink-name{font-weight:600}
     .blink-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);animation:blink 1.2s infinite}
     @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 
-    /* Testimonials */
     .testimonials{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     .testi{position:relative}
     .testi .quote{font-size:1rem;line-height:1.6;color:#0e2235}
@@ -86,13 +79,11 @@
     .dot{width:8px;height:8px;border-radius:50%;background:#d2dbe4;transition:transform .2s}
     .dot.active{background:var(--accent);transform:scale(1.2)}
 
-    /* Footer */
     footer{background:#0A2540;color:#c8d9e8;padding:38px 0}
     footer a{color:#e7f6f2;text-decoration:none}
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:20px}
     .foot-title{color:#fff;font-weight:700;margin-bottom:.6rem}
 
-    /* Responsive */
     @media (max-width:1024px){.charts{grid-template-columns:1fr 1fr}}
     @media (max-width:720px){
       .footer-grid{grid-template-columns:1fr 1fr}
@@ -103,7 +94,6 @@
   </style>
 </head>
 <body>
-  <!-- NAV -->
   <header>
     <div class="container nav">
       <div class="brand">
@@ -117,7 +107,6 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="container hero-wrap">
       <h1>Accelerating Your Wealth Journey</h1>
@@ -129,18 +118,13 @@
     </div>
   </section>
 
-  <!-- TICKER (Mid Caps) -->
   <div class="ticker-wrap" aria-label="Mid-cap scrolling ticker">
-    <div class="ticker" id="midcapTicker">
-      <!-- Duplicated content is added via JS for seamless loop -->
-    </div>
+    <div class="ticker" id="midcapTicker"></div>
   </div>
 
-  <!-- LARGE CAP CHARTS -->
   <section class="section" id="charts">
     <div class="container">
       <h2 class="section-title">Large-Cap Leaders</h2>
-      <p class="muted" style="margin-top:-8px;margin-bottom:18px">Clean, 5-year trend snapshots of marquee names. (Sample data for prototype.)</p>
       <div class="charts">
         <div class="card chart-card">
           <div class="chip"><span>Reliance Industries</span></div>
@@ -161,17 +145,13 @@
     </div>
   </section>
 
-  <!-- SMALL & MICRO CAPS BLINK -->
   <section class="section" id="signals">
     <div class="container">
       <h2 class="section-title">Small & Micro Cap Highlights</h2>
-      <div class="blinker-grid" id="blinkGrid">
-        <!-- JS will populate rows -->
-      </div>
+      <div class="blinker-grid" id="blinkGrid"></div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
   <section class="section" id="testimonials">
     <div class="container">
       <h2 class="section-title">What Investors Say</h2>
@@ -193,18 +173,6 @@
     </div>
   </section>
 
-  <!-- CTA STRIP -->
-  <section class="section" style="padding:40px 0">
-    <div class="container card" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
-      <div>
-        <h3 style="margin:0 0 6px">Ready to build momentum?</h3>
-        <p class="muted" style="margin:0">Open an account in minutes and explore curated strategies.</p>
-      </div>
-      <a class="btn btn-primary" href="#contact">Create Free Account</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer id="contact">
     <div class="container footer-grid">
       <div>
@@ -233,7 +201,6 @@
   </footer>
 
   <script>
-    // ---------- Mid-cap Ticker (sample data) ----------
     const midcaps = [
       {sym:'PERSISTENT', price: 4920, chg:+1.2},
       {sym:'DEEPAKNTR', price: 2625, chg:-0.8},
@@ -244,7 +211,6 @@
       {sym:'AUROPHARMA', price: 1121, chg:+1.1},
       {sym:'TATAELXSI', price: 8840, chg:+0.7}
     ];
-
     const ticker = document.getElementById('midcapTicker');
     function tickerItem(s){
       const dir = s.chg>=0 ? 'up' : 'down';
@@ -253,12 +219,10 @@
     }
     function buildTicker(){
       const row = midcaps.map(tickerItem).join(' • ');
-      // duplicate for seamless loop
       ticker.innerHTML = row + ' • ' + row;
     }
     buildTicker();
 
-    // ---------- Small & Micro cap blinkers ----------
     const highlights = [
       {name:'GLOBE COMMERCIALS', seg:'Small Cap', signal:'+12%'},
       {name:'MAGELLANIC CLOUD', seg:'Small Cap', signal:'+4%'},
@@ -281,52 +245,29 @@
       </div>
     `).join('');
 
-    // ---------- Chart.js (sample 5Y index-like curves) ----------
-    function spark(ctx, label){
+    function barChart(ctx,label){
       return new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
           labels: ['2019','2020','2021','2022','2023','2024','2025'],
           datasets: [{
             label,
-            data: Array.from({length:7}, (_,i)=>{
-              // pseudo-trend generator with noise
-              const base = 100 + i* (18 + Math.random()*8);
-              return Math.round(base + (Math.random()*14-7));
-            }),
-            tension:.35,
-            borderWidth:2.5,
-            pointRadius:0,
-            fill:false
+            data: Array.from({length:7},()=>Math.round(100+Math.random()*100)),
+            backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()
           }]
         },
         options: {
           responsive:true,
           maintainAspectRatio:false,
-          plugins:{
-            legend:{display:false},
-            tooltip:{enabled:true}
-          },
-          scales:{
-            x:{grid:{display:false}},
-            y:{grid:{color:'rgba(10,37,64,.06)'}, ticks:{display:false}}
-          }
+          plugins:{legend:{display:false}},
+          scales:{y:{grid:{color:'rgba(10,37,64,.06)'}}}
         }
-      })
+      });
     }
+    barChart(document.getElementById('chartRIL'),'RIL');
+    barChart(document.getElementById('chartTCS'),'TCS');
+    barChart(document.getElementById('chartHDFC'),'HDFCBANK');
 
-    const c1 = document.getElementById('chartRIL');
-    const c2 = document.getElementById('chartTCS');
-    const c3 = document.getElementById('chartHDFC');
-
-    const g1 = spark(c1.getContext('2d'), 'RIL');
-    const g2 = spark(c2.getContext('2d'), 'TCS');
-    const g3 = spark(c3.getContext('2d'), 'HDFCBANK');
-
-    // Set dataset border color to accent dynamically to keep CSS-only palette
-    [g1,g2,g3].forEach(g=>{ g.data.datasets[0].borderColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim(); g.update(); });
-
-    // ---------- Testimonials carousel ----------
     const slides = Array.from(document.querySelectorAll('[data-slide]'));
     const dotsWrap = document.getElementById('dots');
     slides.forEach((_,i)=>{
@@ -335,7 +276,7 @@
       d.dataset.i = i;
       d.addEventListener('click',()=>show(i));
       dotsWrap.appendChild(d);
-    })
+    });
 
     let idx = 0, timer;
     function show(i){
@@ -347,14 +288,4 @@
       restart();
     }
     function next(){ show((idx+1)%slides.length) }
-    function restart(){ clearInterval(timer); timer = setInterval(next, 4200) }
-    slides.forEach((s,i)=> s.style.display = i===0 ? 'block':'none');
-    restart();
-
-    // Accessibility: pause carousel on hover
-    const carousel = document.querySelector('.carousel');
-    carousel.addEventListener('mouseenter', ()=> clearInterval(timer));
-    carousel.addEventListener('mouseleave', ()=> restart());
-  </script>
-</body>
-</html>
+    function restart(){
