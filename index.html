@@ -1,596 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MomentumPortfolios | Evidence-based Growth Investing</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MomentumPortfolios — Accelerating Your Wealth Journey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
   <style>
-    :root {
-      --trust-blue: #103766;
-      --perf-green: #2E865F;
-      --soft-mint: #C6F4D6;
-      --off-white: #F5F7FA;
-      --charcoal: #333333;
-      --light-gray: #E8EBF0;
-      --momentum-red: #D14343;
-      --card-radius: 16px;
-      --card-shadow: 0 4px 8px rgba(16,55,102,0.04);
-      font-size: 16px;
+    :root{
+      --primary:#0A2540; /* Deep Blue */
+      --accent:#009B77;  /* Emerald Green */
+      --bg:#F5F6F7;      /* Soft Gray */
+      --text:#0b1420;
+      --muted:#6b7a90;
+      --card:#ffffff;
+      --ring: rgba(0,0,0,0.08);
+      --success:#17a34a;
+      --danger:#e11d48;
     }
-    body {
-      margin: 0;
-      background: var(--off-white);
-      color: var(--charcoal);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(120deg, var(--trust-blue) 60%, var(--soft-mint) 100%);
-      color: #fff;
-      padding: 32px 0 48px 0;
-      box-shadow: 0 2px 8px rgba(16,55,102,0.09);
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 2rem;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-    }
-    nav .cta-btn {
-      background: var(--perf-green);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 0.75rem 1.5rem;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 2px 4px rgba(46,134,95,0.12);
-      transition: background 0.2s;
-    }
-    nav .cta-btn:hover {
-      background: #249052;
-    }
-    .hero {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #fff;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: #f5f7fa;
-      margin-bottom: 2rem;
-    }
-    .hero .btn-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .primary-btn {
-      background: var(--trust-blue);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 1rem 2rem;
-      font-weight: 700;
-      cursor: pointer;
-      font-size: 1rem;
-      box-shadow: 0 2px 4px rgba(16,55,102,0.15);
-    }
-    .secondary-btn {
-      background: var(--perf-green);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 1rem 2rem;
-      font-weight: 700;
-      cursor: pointer;
-      font-size: 1rem;
-      box-shadow: 0 2px 4px rgba(46,134,95,0.12);
-    }
-    section {
-      max-width: 1100px;
-      margin: 48px auto;
-      padding: 0 1rem;
-    }
-    .trust-row {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-    .trust-marker {
-      background: var(--light-gray);
-      border-radius: 8px;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      box-shadow: var(--card-shadow);
-      color: var(--trust-blue);
-      font-weight: 700;
-    }
-    .testimonial {
-      font-style: italic;
-      color: var(--charcoal);
-      background: var(--soft-mint);
-      padding: 1rem 2rem;
-      border-radius: 12px;
-      margin-bottom: 2rem;
-      box-shadow: var(--card-shadow);
-    }
-    .steps {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-    .step-card {
-      background: #fff;
-      border-radius: var(--card-radius);
-      box-shadow: var(--card-shadow);
-      padding: 2rem 1rem;
-      flex: 1 1 220px;
-      min-width: 220px;
-      text-align: center;
-    }
-    .step-card h3 {
-      color: var(--perf-green);
-      margin-bottom: 1rem;
-    }
-    .strategies {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-    }
-    .strategy-card {
-      background: #fff;
-      border-radius: var(--card-radius);
-      box-shadow: var(--card-shadow);
-      padding: 2rem 1rem;
-      flex: 1 1 250px;
-      min-width: 250px;
-      text-align: left;
-      border-left: 10px solid var(--perf-green);
-    }
-    .strategy-card h4 {
-      color: var(--trust-blue);
-    }
-    .performance-showcase {
-      background: #fff;
-      border-radius: var(--card-radius);
-      box-shadow: var(--card-shadow);
-      padding: 2rem 1rem;
-      margin: 3rem 0;
-      text-align: center;
-    }
-    .chart-container {
-      margin: 2rem 0;
-      text-align: center;
-    }
-    .chart-container img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: var(--card-shadow);
-    }
-    .stock-table {
-      overflow-x: auto;
-      margin: 2rem 0;
-    }
-    .stock-table table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #fff;
-      border-radius: var(--card-radius);
-      overflow: hidden;
-      box-shadow: var(--card-shadow);
-    }
-    .stock-table th {
-      background: var(--trust-blue);
-      color: #fff;
-      padding: 1rem 0.5rem;
-      text-align: left;
-      font-weight: 700;
-    }
-    .stock-table td {
-      padding: 0.8rem 0.5rem;
-      border-bottom: 1px solid var(--light-gray);
-    }
-    .stock-table tr:nth-child(even) {
-      background: var(--soft-mint);
-    }
-    .highlight-green {
-      color: var(--perf-green);
-      font-weight: 700;
-    }
-    .methodology, .for-whom, .resources, .footer-form {
-      margin-bottom: 3rem;
-    }
-    .methodology {
-      background: var(--soft-mint);
-      padding: 2rem 1rem;
-      border-radius: var(--card-radius);
-      box-shadow: var(--card-shadow);
-    }
-    .for-whom-tiles {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .for-whom-tile {
-      background: #fff;
-      border-radius: var(--card-radius);
-      box-shadow: var(--card-shadow);
-      padding: 1.5rem 1rem;
-      min-width: 220px;
-      flex: 1;
-      text-align: left;
-      border-top: 8px solid var(--trust-blue);
-    }
-    .resources-list {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-    }
-    .resource-card {
-      background: #fff;
-      border-radius: var(--card-radius);
-      box-shadow: var(--card-shadow);
-      padding: 1rem 1rem;
-      min-width: 180px;
-      flex: 1 1 180px;
-    }
-    .footer {
-      background: var(--trust-blue);
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-      border-top-left-radius: 32px;
-      border-top-right-radius: 32px;
-      margin-top: 64px;
-    }
-    .footer-form {
-      max-width: 450px;
-      margin: 2rem auto;
-      background: #fff;
-      border-radius: var(--card-radius);
-      box-shadow: var(--card-shadow);
-      padding: 2rem 1rem;
-      color: var(--charcoal);
-    }
-    .footer-form label {
-      font-weight: 500;
-      margin-bottom: 0.3rem;
-      display: block;
-    }
-    .footer-form input, .footer-form select {
-      padding: 0.7rem;
-      margin-bottom: 1rem;
-      width: 100%;
-      border-radius: 8px;
-      border: 1px solid var(--light-gray);
-    }
-    .footer-form button {
-      background: var(--perf-green);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 1rem 2rem;
-      font-weight: 700;
-      cursor: pointer;
-      width: 100%;
-      box-shadow: 0 2px 4px rgba(46,134,95,0.12);
-    }
-    @media (max-width: 890px) {
-      .steps, .strategies, .trust-row, .for-whom-tiles, .resources-list {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      section {
-        margin: 32px auto;
-      }
-      .stock-table {
-        font-size: 0.85rem;
-      }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)}
+
+    /* Utility */
+    .container{max-width:1100px;margin:0 auto;padding:0 1rem}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.2rem;border-radius:14px;font-weight:600;border:1px solid transparent;cursor:pointer;text-decoration:none}
+    .btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 20px rgba(0,155,119,.22)}
+    .btn-primary:hover{filter:brightness(1.05)}
+    .btn-outline{background:transparent;border-color:rgba(255,255,255,.6);color:#fff}
+    .btn-outline:hover{background:rgba(255,255,255,.1)}
+    .card{background:var(--card);border-radius:18px;box-shadow:0 10px 30px var(--ring);padding:1rem}
+    .section{padding:64px 0}
+    .section-title{font-size:1.8rem;margin:0 0 22px}
+    .muted{color:var(--muted)}
+
+    /* Nav */
+    header{position:sticky;top:0;z-index:30;background:rgba(10,37,64,.85);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0;color:#fff}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:700}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#0fd5a9);display:grid;place-items:center;color:#003b2f;font-weight:800}
+    .nav-actions{display:flex;gap:.6rem}
+
+    /* Hero */
+    .hero{position:relative;isolation:isolate}
+    .hero::before{content:"";position:absolute;inset:0;background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(0,155,119,.35), transparent 60%),
+      radial-gradient(800px 600px at -10% 10%, rgba(10,37,64,.9), rgba(10,37,64,.7) 50%, transparent 70%),
+      linear-gradient(180deg, #0A2540, #0A2540)}
+    .hero-wrap{position:relative;z-index:1;color:#fff;padding:72px 0 64px}
+    .hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.08;margin:0 0 12px}
+    .hero p{max-width:680px;color:#ccdee9;margin:0 0 22px}
+    .hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap}
+
+    /* Charts grid */
+    .charts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .chart-card{padding:1rem 1rem 1.2rem}
+    .chart-card h3{margin:.2rem 0 .3rem;font-size:1rem}
+    .chip{display:inline-flex;align-items:center;gap:.35rem;font-size:.8rem;padding:.25rem .55rem;border-radius:999px;background:#eef7f5;color:#055644}
+
+    /* Ticker */
+    .ticker-wrap{overflow:hidden;border-top:1px solid #e8edf3;border-bottom:1px solid #e8edf3;background:#fff}
+    .ticker{display:flex;gap:32px;white-space:nowrap;animation:ticker 28s linear infinite;padding:12px}
+    .tick{display:inline-flex;gap:8px;align-items:center}
+    .tick .sym{font-weight:600;color:#0A2540}
+    .tick .chg{font-weight:600}
+    .chg.up{color:var(--success)}
+    .chg.down{color:var(--danger)}
+    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* Blinkers (small/micro) */
+    .blinker-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .blink-item{display:flex;align-items:center;justify-content:space-between;padding:.8rem 1rem;border:1px dashed #dfe7ee;border-radius:14px;background:#fff}
+    .blink-name{font-weight:600}
+    .blink-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);animation:blink 1.2s infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+    /* Testimonials */
+    .testimonials{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .testi{position:relative}
+    .testi .quote{font-size:1rem;line-height:1.6;color:#0e2235}
+    .testi .who{margin-top:10px;font-weight:600}
+    .carousel{position:relative}
+    .dots{display:flex;gap:8px;margin-top:10px}
+    .dot{width:8px;height:8px;border-radius:50%;background:#d2dbe4;transition:transform .2s}
+    .dot.active{background:var(--accent);transform:scale(1.2)}
+
+    /* Footer */
+    footer{background:#0A2540;color:#c8d9e8;padding:38px 0}
+    footer a{color:#e7f6f2;text-decoration:none}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:20px}
+    .foot-title{color:#fff;font-weight:700;margin-bottom:.6rem}
+
+    /* Responsive */
+    @media (max-width:1024px){.charts{grid-template-columns:1fr 1fr}}
+    @media (max-width:720px){
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .charts{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      .blinker-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
+  <!-- NAV -->
   <header>
-    <nav>
-      <div style="font-weight:700;font-size:1.5rem;">MomentumPortfolios</div>
-      <ul>
-        <li><a href="#strategies">Strategies</a></li>
-        <li><a href="#methodology">Methodology</a></li>
-        <li><a href="#performance">Performance</a></li>
-        <li><a href="#resources">Resources</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="cta-btn">Book a Call</button>
-    </nav>
-    <div class="hero">
-      <h1>Build momentum in your wealth—with evidence, discipline, and clarity.</h1>
-      <p>Rules-based, momentum-driven portfolios tailored for retail and professional investors.</p>
-      <div class="btn-group">
-        <a href="#contact"><button class="primary-btn">Schedule a 15‑min Intro Call</button></a>
-        <a href="#methodology"><button class="secondary-btn">See Performance Methodology</button></a>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">MP</div>
+        <div>MomentumPortfolios</div>
+      </div>
+      <div class="nav-actions">
+        <a href="#charts" class="btn btn-outline">Explore Portfolios</a>
+        <a href="#contact" class="btn btn-primary">Start Investing</a>
       </div>
     </div>
   </header>
-  
-  <section>
-    <div class="trust-row">
-      <div class="trust-marker">SEBI Registered</div>
-      <div class="trust-marker">10+ Years Strategy Track Record</div>
-      <div class="trust-marker">Low Drawdown Approaches</div>
-      <div class="trust-marker">Featured in CNBC, Bloomberg</div>
-    </div>
-    <div class="testimonial">
-      "MomentumPortfolios gave me clarity, control, and peace of mind, even in choppy markets." <br>
-      <small>- R. Kumar, Retail Investor</small>
-    </div>
-  </section>
 
-  <section id="performance" class="performance-showcase">
-    <h2 style="color:var(--trust-blue);margin-bottom:1.5rem;">Our Quality Mid Cap Focus</h2>
-    <p style="margin-bottom:2rem;">We identify high-momentum, quality mid cap stocks with strong fundamentals and consistent growth. Below are examples from our current universe of quality mid cap opportunities.</p>
-    
-    <div class="chart-container">
-      <h3 style="color:var(--perf-green);">Capital Efficiency Leaders</h3>
-      <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/ea48678087cac268fbc3d9f2f133b0df/bb1270da-8e22-431d-a854-a491a0aad01a/1ffaafff.png" alt="Quality Mid Cap Stocks ROCE Performance" />
-      <p><small>Higher ROCE indicates better capital efficiency and management quality</small></p>
-    </div>
-
-    <div class="chart-container">
-      <h3 style="color:var(--perf-green);">Momentum Performance Comparison</h3>
-      <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/ea48678087cac268fbc3d9f2f133b0df/44ab6b1b-c136-49fb-b859-a0fab56ca56e/564d5545.png" alt="Mid Cap Momentum Stock Performance" />
-      <p><small>Multi-year return comparison showing consistent growth leaders in our momentum universe</small></p>
-    </div>
-
-    <div class="stock-table">
-      <h3 style="color:var(--trust-blue);margin-bottom:1rem;">Quality Mid Cap Holdings Universe</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Stock Name</th>
-            <th>Sector</th>
-            <th>Market Cap (₹ Cr)</th>
-            <th>ROCE (%)</th>
-            <th>Sales Growth (%)</th>
-            <th>P/E Ratio</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Hindustan Zinc</strong></td>
-            <td>Metals & Mining</td>
-            <td>1,88,175</td>
-            <td class="highlight-green">60.73</td>
-            <td>-5.01</td>
-            <td>18.48</td>
-          </tr>
-          <tr>
-            <td><strong>BSE</strong></td>
-            <td>Financial Services</td>
-            <td>89,917</td>
-            <td class="highlight-green">46.57</td>
-            <td class="highlight-green">59.24</td>
-            <td>56.69</td>
-          </tr>
-          <tr>
-            <td><strong>Marico</strong></td>
-            <td>FMCG</td>
-            <td>95,350</td>
-            <td class="highlight-green">45.16</td>
-            <td class="highlight-green">23.31</td>
-            <td>57.13</td>
-          </tr>
-          <tr>
-            <td><strong>HDFC AMC</strong></td>
-            <td>Financial Services</td>
-            <td>1,19,744</td>
-            <td class="highlight-green">43.33</td>
-            <td class="highlight-green">24.83</td>
-            <td>45.97</td>
-          </tr>
-          <tr>
-            <td><strong>Dixon Technologies</strong></td>
-            <td>Electronics</td>
-            <td>1,07,558</td>
-            <td class="highlight-green">39.81</td>
-            <td class="highlight-green">95.08</td>
-            <td>125.34</td>
-          </tr>
-          <tr>
-            <td><strong>Solar Industries</strong></td>
-            <td>Chemicals</td>
-            <td>1,29,252</td>
-            <td class="highlight-green">38.13</td>
-            <td class="highlight-green">27.88</td>
-            <td>102.44</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    
-    <div style="margin-top:2rem;">
-      <small style="color:var(--momentum-red);">
-        *Past performance is not indicative of future results. Stock data as of Sept 2025. Holdings are illustrative and subject to change.
-      </small>
-    </div>
-  </section>
-
-  <section>
-    <div class="steps">
-      <div class="step-card">
-        <h3>1. Discover</h3>
-        <p>Assess your risk profile and investment goals—online or with an advisor.</p>
-      </div>
-      <div class="step-card">
-        <h3>2. Allocate</h3>
-        <p>Choose a strategy; portfolios are tailored and rebalanced automatically.</p>
-      </div>
-      <div class="step-card">
-        <h3>3. Rebalance</h3>
-        <p>Stay disciplined and adaptive—periodic reviews and automated management ensure alignment.</p>
-      </div>
-    </div>
-    <div style="text-align:center;">
-      <a href="#contact"><button class="secondary-btn">Get Your Portfolio Fit Report</button></a>
-    </div>
-  </section>
-
-  <section id="strategies">
-    <h2 style="color:var(--trust-blue);">Strategies Overview</h2>
-    <div class="strategies">
-      <div class="strategy-card">
-        <h4>Core Momentum</h4>
-        <p>Objective: Capital growth via market leaders.<br>Volatility: Moderate<br>Liquidity: High<br>Rebalancing: Monthly</p>
-        <p><strong>Focus:</strong> Quality mid caps with strong ROCE and consistent sales growth like Solar Industries and HDFC AMC.</p>
-        <a href="#core" style="color:var(--perf-green);font-weight:700;">Learn More</a>
-      </div>
-      <div class="strategy-card">
-        <h4>Defensive Momentum</h4>
-        <p>Objective: Downside protection, steady returns.<br>Volatility: Low<br>Liquidity: High<br>Rebalancing: Quarterly</p>
-        <p><strong>Focus:</strong> Stable performers like Hindustan Zinc and Marico with high dividend yields and strong fundamentals.</p>
-        <a href="#defensive" style="color:var(--perf-green);font-weight:700;">Learn More</a>
-      </div>
-      <div class="strategy-card">
-        <h4>Global Sector Rotation</h4>
-        <p>Objective: Diversification, harnessing global trends.<br>Volatility: Varied<br>Liquidity: High<br>Rebalancing: Monthly</p>
-        <p><strong>Focus:</strong> Sector leaders like Dixon Technologies in electronics and emerging opportunities across global themes.</p>
-        <a href="#global" style="color:var(--perf-green);font-weight:700;">Learn More</a>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-wrap">
+      <h1>Accelerating Your Wealth Journey</h1>
+      <p>Professional portfolios designed for retail and sophisticated investors. Transparent performance insights, smart diversification, and data-backed decisions—all in one elegant dashboard.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#charts">View Large-Cap Trends</a>
+        <a class="btn btn-outline" href="#testimonials">See Investor Stories</a>
       </div>
     </div>
   </section>
 
-  <section id="methodology" class="methodology">
-    <h2 style="color:var(--trust-blue);">Performance Methodology</h2>
-    <ul>
-      <li>Backtested over 10+ years with real market data from NSE/BSE mid cap universe.</li>
-      <li>Live performance tracked and benchmarked against Nifty Midcap 100 and Sensex indices.</li>
-      <li>Quality filters: ROCE >15%, consistent sales growth, debt-to-equity <1.0, market cap ₹5,000-20,000 Cr.</li>
-      <li>Momentum indicators: Price momentum, earnings revisions, institutional buying patterns.</li>
-      <li>Transparent fee structure; realistic assumptions for costs and slippage.</li>
-      <li>Active risk management; Max Drawdown controls detailed in methodology paper.</li>
-      <li><a href="#" style="color:var(--perf-green);">View Full Methodology PDF</a></li>
-    </ul>
-    <div style="margin-top:1rem;">
-      <small style="color:var(--momentum-red);">
-        Past performance is not indicative of future results. All investing involves risk. Mid cap investments are subject to higher volatility.
-      </small>
+  <!-- TICKER (Mid Caps) -->
+  <div class="ticker-wrap" aria-label="Mid-cap scrolling ticker">
+    <div class="ticker" id="midcapTicker">
+      <!-- Duplicated content is added via JS for seamless loop -->
     </div>
-  </section>
+  </div>
 
-  <section class="for-whom" id="about">
-    <h2 style="color:var(--trust-blue);">Who We Serve</h2>
-    <div class="for-whom-tiles">
-      <div class="for-whom-tile">
-        <h3 style="color:var(--perf-green);">Retail Investors</h3>
-        <p>Accessible, automated portfolios with active risk controls. Clarity in allocation, easy onboarding, disciplined investing in quality mid caps.</p>
-        <ul>
-          <li>Low minimums (₹50,000)</li>
-          <li>Simple reporting with performance attribution</li>
-          <li>Mobile dashboard with real-time updates</li>
-          <li>Educational content on mid cap investing</li>
-        </ul>
-      </div>
-      <div class="for-whom-tile">
-        <h3 style="color:var(--perf-green);">Advisors & Institutions</h3>
-        <p>Transparent reporting, robust data exports, tailored integration for RIAs/HNIs/family offices seeking mid cap alpha.</p>
-        <ul>
-          <li>Custom strategies and risk parameters</li>
-          <li>Fiduciary transparency with detailed attribution</li>
-          <li>API integration and institutional reporting</li>
-          <li>Dedicated support team with portfolio analytics</li>
-        </ul>
+  <!-- LARGE CAP CHARTS -->
+  <section class="section" id="charts">
+    <div class="container">
+      <h2 class="section-title">Large-Cap Leaders</h2>
+      <p class="muted" style="margin-top:-8px;margin-bottom:18px">Clean, 5-year trend snapshots of marquee names. (Sample data for prototype.)</p>
+      <div class="charts">
+        <div class="card chart-card">
+          <div class="chip"><span>Reliance Industries</span></div>
+          <h3>RIL • 5Y Performance</h3>
+          <canvas id="chartRIL" height="180"></canvas>
+        </div>
+        <div class="card chart-card">
+          <div class="chip"><span>TCS</span></div>
+          <h3>TCS • 5Y Performance</h3>
+          <canvas id="chartTCS" height="180"></canvas>
+        </div>
+        <div class="card chart-card">
+          <div class="chip"><span>HDFC Bank</span></div>
+          <h3>HDFC Bank • 5Y Performance</h3>
+          <canvas id="chartHDFC" height="180"></canvas>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="resources" class="resources">
-    <h2 style="color:var(--trust-blue);">Resources & Insights</h2>
-    <div class="resources-list">
-      <div class="resource-card">
-        <strong>Momentum Investing: A Practical Primer</strong><br>
-        <small>Download free e-guide with mid cap case studies</small>
+  <!-- SMALL & MICRO CAPS BLINK -->
+  <section class="section" id="signals">
+    <div class="container">
+      <h2 class="section-title">Small & Micro Cap Highlights</h2>
+      <div class="blinker-grid" id="blinkGrid">
+        <!-- JS will populate rows -->
       </div>
-      <div class="resource-card">
-        <strong>Quarterly Commentary</strong><br>
-        <small>Market updates and portfolio performance analysis</small>
-      </div>
-      <div class="resource-card">
-        <strong>Mid Cap Research Reports</strong><br>
-        <small>In-depth analysis of quality mid cap opportunities</small>
-      </div>
-      <div class="resource-card">
-        <strong>Blog & Videos</strong><br>
-        <small>Strategy explainers and market insights</small>
-      </div>
-    </div>
-    <div style="margin-top:1rem;text-align:center;">
-      <a href="#contact"><button class="secondary-btn">Send Me the Primer</button></a>
     </div>
   </section>
 
-  <footer class="footer" id="contact">
-    <h2>Ready to build momentum?</h2>
-    <div class="footer-form">
-      <form>
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" autocomplete="name" required>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" autocomplete="email" required>
-        <label for="type">Investor Type</label>
-        <select name="type" id="type">
-          <option value="retail">Retail Investor</option>
-          <option value="advisor">Financial Advisor</option>
-          <option value="institution">Institutional Investor</option>
-        </select>
-        <label style="font-weight:400;">
-          <input type="checkbox" required>
-          I consent to receive resources and updates. View <a href="#" style="color:var(--trust-blue);text-decoration:underline;">Privacy Policy</a>
-        </label>
-        <button type="submit">Send Me the Primer</button>
-      </form>
-      <p style="margin-top:1rem;font-size:0.92rem;color:var(--charcoal);">
-        Also reach us at <a href="tel:+911234567890" style="color:var(--perf-green);text-decoration:underline;">+91 12345 67890</a> or <a href="#" style="color:var(--perf-green);text-decoration:underline;">Schedule a Call</a>.
-      </p>
+  <!-- TESTIMONIALS -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">What Investors Say</h2>
+      <div class="testimonials carousel" aria-live="polite">
+        <div class="card testi" data-slide>
+          <div class="quote">“MomentumPortfolios gave me clarity and discipline. My SIPs finally align with my risk profile.”</div>
+          <div class="who">— Rajesh K., Retail Investor</div>
+        </div>
+        <div class="card testi" data-slide style="display:none">
+          <div class="quote">“The portfolio heatmaps and alerts are top notch. Perfect for quickly rebalancing exposure.”</div>
+          <div class="who">— Meera S., Business Owner</div>
+        </div>
+        <div class="card testi" data-slide style="display:none">
+          <div class="quote">“Love the clean UI and fast insights. It’s become my daily market brief.”</div>
+          <div class="who">— Arjun P., Analyst</div>
+        </div>
+      </div>
+      <div class="dots" id="dots"></div>
     </div>
-    <div style="margin-top:2rem;font-size:0.92rem;">
-      <a href="#" style="color:#fff;text-decoration:underline;">Terms</a> | <a href="#" style="color:#fff;text-decoration:underline;">Disclosures</a> | <a href="#" style="color:#fff;text-decoration:underline;">Privacy</a>
-      <br>
-      <small style="margin-top:1rem;display:block;">
-        © MomentumPortfolios 2025. All investing involves risk. No investment advice given. SEBI Registered Investment Adviser.
-      </small>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="section" style="padding:40px 0">
+    <div class="container card" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <div>
+        <h3 style="margin:0 0 6px">Ready to build momentum?</h3>
+        <p class="muted" style="margin:0">Open an account in minutes and explore curated strategies.</p>
+      </div>
+      <a class="btn btn-primary" href="#contact">Create Free Account</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="container footer-grid">
+      <div>
+        <div class="foot-title">MomentumPortfolios</div>
+        <p>Smart portfolios, strong momentum. Data-driven investing made simple.</p>
+      </div>
+      <div>
+        <div class="foot-title">Company</div>
+        <a href="#">About Us</a><br/>
+        <a href="#">Services</a><br/>
+        <a href="#">Careers</a>
+      </div>
+      <div>
+        <div class="foot-title">Support</div>
+        <a href="#">Help Center</a><br/>
+        <a href="#">Contact</a><br/>
+        <a href="#">Security</a>
+      </div>
+      <div>
+        <div class="foot-title">Legal</div>
+        <a href="#">Terms</a><br/>
+        <a href="#">Privacy</a><br/>
+        <a href="#">Disclosures</a>
+      </div>
     </div>
   </footer>
+
+  <script>
+    // ---------- Mid-cap Ticker (sample data) ----------
+    const midcaps = [
+      {sym:'PERSISTENT', price: 4920, chg:+1.2},
+      {sym:'DEEPAKNTR', price: 2625, chg:-0.8},
+      {sym:'ZYDUSWELL', price: 1702, chg:+0.6},
+      {sym:'MINDSPACE', price: 374, chg:+0.4},
+      {sym:'POLYCAB', price: 6350, chg:+0.9},
+      {sym:'CLEAN', price: 1380, chg:-0.3},
+      {sym:'AUROPHARMA', price: 1121, chg:+1.1},
+      {sym:'TATAELXSI', price: 8840, chg:+0.7}
+    ];
+
+    const ticker = document.getElementById('midcapTicker');
+    function tickerItem(s){
+      const dir = s.chg>=0 ? 'up' : 'down';
+      const sign = s.chg>=0 ? '+' : '';
+      return `<div class="tick"><span class="sym">${s.sym}</span><span>₹${s.price.toLocaleString()}</span><span class="chg ${dir}">${sign}${s.chg}%</span></div>`
+    }
+    function buildTicker(){
+      const row = midcaps.map(tickerItem).join(' • ');
+      // duplicate for seamless loop
+      ticker.innerHTML = row + ' • ' + row;
+    }
+    buildTicker();
+
+    // ---------- Small & Micro cap blinkers ----------
+    const highlights = [
+      {name:'GLOBE COMMERCIALS', seg:'Small Cap', signal:'+12%'},
+      {name:'MAGELLANIC CLOUD', seg:'Small Cap', signal:'+4%'},
+      {name:'UJAAS ENERGY', seg:'Micro Cap', signal:'-3%'},
+      {name:'KAYA LTD', seg:'Small Cap', signal:'+2%'},
+      {name:'URJA GLOBAL', seg:'Micro Cap', signal:'+6%'},
+      {name:'SILVERLINE TECH', seg:'Micro Cap', signal:'+1%'}
+    ];
+    const grid = document.getElementById('blinkGrid');
+    grid.innerHTML = highlights.map(h => `
+      <div class="blink-item">
+        <div>
+          <div class="blink-name">${h.name}</div>
+          <div class="muted" style="font-size:.85rem">${h.seg} • Highlight</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="muted" style="font-weight:700">${h.signal}</div>
+          <div class="blink-dot" aria-hidden="true"></div>
+        </div>
+      </div>
+    `).join('');
+
+    // ---------- Chart.js (sample 5Y index-like curves) ----------
+    function spark(ctx, label){
+      return new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['2019','2020','2021','2022','2023','2024','2025'],
+          datasets: [{
+            label,
+            data: Array.from({length:7}, (_,i)=>{
+              // pseudo-trend generator with noise
+              const base = 100 + i* (18 + Math.random()*8);
+              return Math.round(base + (Math.random()*14-7));
+            }),
+            tension:.35,
+            borderWidth:2.5,
+            pointRadius:0,
+            fill:false
+          }]
+        },
+        options: {
+          responsive:true,
+          maintainAspectRatio:false,
+          plugins:{
+            legend:{display:false},
+            tooltip:{enabled:true}
+          },
+          scales:{
+            x:{grid:{display:false}},
+            y:{grid:{color:'rgba(10,37,64,.06)'}, ticks:{display:false}}
+          }
+        }
+      })
+    }
+
+    const c1 = document.getElementById('chartRIL');
+    const c2 = document.getElementById('chartTCS');
+    const c3 = document.getElementById('chartHDFC');
+
+    const g1 = spark(c1.getContext('2d'), 'RIL');
+    const g2 = spark(c2.getContext('2d'), 'TCS');
+    const g3 = spark(c3.getContext('2d'), 'HDFCBANK');
+
+    // Set dataset border color to accent dynamically to keep CSS-only palette
+    [g1,g2,g3].forEach(g=>{ g.data.datasets[0].borderColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim(); g.update(); });
+
+    // ---------- Testimonials carousel ----------
+    const slides = Array.from(document.querySelectorAll('[data-slide]'));
+    const dotsWrap = document.getElementById('dots');
+    slides.forEach((_,i)=>{
+      const d = document.createElement('div');
+      d.className = 'dot' + (i===0?' active':'');
+      d.dataset.i = i;
+      d.addEventListener('click',()=>show(i));
+      dotsWrap.appendChild(d);
+    })
+
+    let idx = 0, timer;
+    function show(i){
+      slides[idx].style.display='none';
+      dotsWrap.children[idx].classList.remove('active');
+      idx = i;
+      slides[idx].style.display='block';
+      dotsWrap.children[idx].classList.add('active');
+      restart();
+    }
+    function next(){ show((idx+1)%slides.length) }
+    function restart(){ clearInterval(timer); timer = setInterval(next, 4200) }
+    slides.forEach((s,i)=> s.style.display = i===0 ? 'block':'none');
+    restart();
+
+    // Accessibility: pause carousel on hover
+    const carousel = document.querySelector('.carousel');
+    carousel.addEventListener('mouseenter', ()=> clearInterval(timer));
+    carousel.addEventListener('mouseleave', ()=> restart());
+  </script>
 </body>
 </html>
