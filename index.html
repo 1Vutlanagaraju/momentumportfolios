@@ -93,7 +93,88 @@
       <nav>
         <a href="#features">Features</a>
         <a href="#insights">Insights</a>
-      
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Momentum Portfolios</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .insight-container {
+      position: relative;
+      display: inline-block;
+    }
+    button {
+      background-color: #0A2540;
+      color: #fff;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #083060;
+    }
+    #insights {
+      display: none;
+      position: absolute;
+      top: 50px; /* appears below the button */
+      left: 0;
+      width: 350px;
+      padding: 20px;
+      background-color: #f9fafc;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      z-index: 100;
+    }
+    .insight-container:hover #insights {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to Momentum Portfolios</h1>
+
+  <div class="insight-container">
+    <!-- Hover Button -->
+    <button>Insights</button>
+
+    <!-- Insights Content -->
+    <div id="insights">
+      <h2>Key Insights</h2>
+
+      <h3>1. Investment Approach & Philosophy</h3>
+      <p>
+        Discretionary strategies tailored to a range of risk profiles,
+        aiming for consistent and steady returns.
+        <a href="https://momentum.co.uk" target="_blank">momentum.co.uk</a>
+      </p>
+      <p>
+        Diverse allocation across geographies and asset classes,
+        blending investment styles for outcome-based objectives.
+        <a href="https://momentum.co.uk" target="_blank">momentum.co.uk</a>
+      </p>
+
+      <h3>2. Model Portfolio Service Highlights</h3>
+      <p>
+        Suited for clients seeking clear target outcomes, steady, diversified,
+        medium- to long-term investments.
+        <a href="https://momentum.co.uk" target="_blank">momentum.co.uk</a>
+      </p>
+      <ul>
+        <li>Momentum Managed Portfolio Service</li>
+        <li>Momentum Sustainable Managed Portfolios</li>
+        <li>Momentum Passive Plus Portfolio Service</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
+
         <a class="cta" href="#start">Start Investing</a>
       </nav>
     </header>
