@@ -1,291 +1,238 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MomentumPortfolios — Accelerating Your Wealth Journey</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root{
-      --primary:#0A2540; /* Deep Blue */
-      --accent:#009B77;  /* Emerald Green */
-      --bg:#F5F6F7;      /* Soft Gray */
-      --text:#0b1420;
-      --muted:#6b7a90;
+      --deep-blue:#0A2540;
+      --emerald:#00A676;
+      --muted:#f4f7fb;
       --card:#ffffff;
-      --ring: rgba(0,0,0,0.08);
-      --success:#17a34a;
-      --danger:#e11d48;
+      --glass: rgba(255,255,255,0.06);
+      --shadow: 0 8px 20px rgba(10,37,64,0.12);
+      --radius: 14px;
+      --max-width:1200px;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)}
+    body{margin:0;background:linear-gradient(180deg,#f7fbff 0%, #ffffff 100%);color:#082035}
+    .container{max-width:var(--max-width);margin:28px auto;padding:0 20px}
 
-    .container{max-width:1100px;margin:0 auto;padding:0 1rem}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.2rem;border-radius:14px;font-weight:600;border:1px solid transparent;cursor:pointer;text-decoration:none}
-    .btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 20px rgba(0,155,119,.22)}
-    .btn-primary:hover{filter:brightness(1.05)}
-    .btn-outline{background:transparent;border-color:rgba(255,255,255,.6);color:#fff}
-    .btn-outline:hover{background:rgba(255,255,255,.1)}
-    .card{background:var(--card);border-radius:18px;box-shadow:0 10px 30px var(--ring);padding:1rem}
-    .section{padding:64px 0}
-    .section-title{font-size:1.8rem;margin:0 0 22px}
-    .muted{color:var(--muted)}
+    /* Header */
+    header{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--emerald),#007b5e);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav a{margin-left:18px;text-decoration:none;color:var(--deep-blue);font-weight:600}
+    .cta{background:var(--emerald);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
 
-    header{position:sticky;top:0;z-index:30;background:rgba(10,37,64,.85);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0;color:#fff}
-    .brand{display:flex;align-items:center;gap:.6rem;font-weight:700}
-    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#0fd5a9);display:grid;place-items:center;color:#003b2f;font-weight:800}
-    .nav-actions{display:flex;gap:.6rem}
+    /* Top ticker (mid-cap stocks) */
+    .ticker-wrap{overflow:hidden;border-radius:12px;background:linear-gradient(90deg,rgba(10,37,64,0.03),rgba(0,166,118,0.04));padding:8px 12px;margin-bottom:18px}
+    .ticker{display:flex;gap:28px;white-space:nowrap;animation:scroll-left 24s linear infinite}
+    .ticker .item{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:10px;background:rgba(255,255,255,0.6);box-shadow:var(--shadow)}
+    .price.up{color:var(--emerald);font-weight:700}
+    .price.down{color:#d23f3f;font-weight:700}
+    @keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-    .hero{position:relative;isolation:isolate}
-    .hero::before{content:"";position:absolute;inset:0;background:
-      radial-gradient(1200px 600px at 80% -10%, rgba(0,155,119,.35), transparent 60%),
-      radial-gradient(800px 600px at -10% 10%, rgba(10,37,64,.9), rgba(10,37,64,.7) 50%, transparent 70%),
-      linear-gradient(180deg, #0A2540, #0A2540)}
-    .hero-wrap{position:relative;z-index:1;color:#fff;padding:72px 0 64px}
-    .hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.08;margin:0 0 12px}
-    .hero p{max-width:680px;color:#ccdee9;margin:0 0 22px}
-    .hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center;margin-bottom:24px}
+    .hero-card{background:var(--card);padding:24px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero h1{margin:0;font-size:28px;color:var(--deep-blue)}
+    .tagline{color:#36546b;margin-top:8px}
 
-    .charts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .chart-card{padding:1rem 1rem 1.2rem}
-    .chart-card h3{margin:.2rem 0 .3rem;font-size:1rem}
-    .chip{display:inline-flex;align-items:center;gap:.35rem;font-size:.8rem;padding:.25rem .55rem;border-radius:999px;background:#eef7f5;color:#055644}
+    /* Blinking large-cap highlights */
+    .blinking{display:flex;gap:10px;margin-top:18px}
+    .blink-item{padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,#fff,#f1fbf6);font-weight:700}
+    .blink{animation:blink 1.6s infinite}
+    @keyframes blink{0%{opacity:1}50%{opacity:0.25}100%{opacity:1}}
 
-    .ticker-wrap{overflow:hidden;border-top:1px solid #e8edf3;border-bottom:1px solid #e8edf3;background:#fff}
-    .ticker{display:flex;gap:32px;white-space:nowrap;animation:ticker 28s linear infinite;padding:12px}
-    .tick{display:inline-flex;gap:8px;align-items:center}
-    .tick .sym{font-weight:600;color:#0A2540}
-    .tick .chg{font-weight:600}
-    .chg.up{color:var(--success)}
-    .chg.down{color:var(--danger)}
-    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    /* Chart area */
+    .chart-wrap{padding:12px}
+    canvas{width:100%!important;height:260px!important}
 
-    .blinker-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .blink-item{display:flex;align-items:center;justify-content:space-between;padding:.8rem 1rem;border:1px dashed #dfe7ee;border-radius:14px;background:#fff}
-    .blink-name{font-weight:600}
-    .blink-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);animation:blink 1.2s infinite}
-    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+    /* Mid-cap & small-cap sections */
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin:18px 0}
+    .stock-scroller{overflow:hidden;padding:12px 0}
+    .stock-row{display:flex;gap:12px;animation:scroll-right 20s linear infinite}
+    .scard{min-width:180px;background:var(--card);padding:12px;border-radius:12px;box-shadow:var(--shadow)}
+    @keyframes scroll-right{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-    .testimonials{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .testi{position:relative}
-    .testi .quote{font-size:1rem;line-height:1.6;color:#0e2235}
-    .testi .who{margin-top:10px;font-weight:600}
-    .carousel{position:relative}
-    .dots{display:flex;gap:8px;margin-top:10px}
-    .dot{width:8px;height:8px;border-radius:50%;background:#d2dbe4;transition:transform .2s}
-    .dot.active{background:var(--accent);transform:scale(1.2)}
+    /* Small cap bottom ticker */
+    .bottom-ticker{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(90deg,rgba(10,37,64,0.04),rgba(0,166,118,0.02));padding:8px 0}
+    .bottom-ticker .ticker{animation-duration:30s}
 
-    footer{background:#0A2540;color:#c8d9e8;padding:38px 0}
-    footer a{color:#e7f6f2;text-decoration:none}
-    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:20px}
-    .foot-title{color:#fff;font-weight:700;margin-bottom:.6rem}
+    /* Testimonials */
+    .testimonials{display:flex;gap:12px;margin-top:18px}
+    .tcard{flex:1;background:linear-gradient(180deg,#fff,#fbfeff);padding:12px;border-radius:12px;box-shadow:var(--shadow)}
 
-    @media (max-width:1024px){.charts{grid-template-columns:1fr 1fr}}
-    @media (max-width:720px){
-      .footer-grid{grid-template-columns:1fr 1fr}
-      .charts{grid-template-columns:1fr}
-      .testimonials{grid-template-columns:1fr}
-      .blinker-grid{grid-template-columns:1fr}
+    /* Footer spacing so bottom ticker doesn't overlap */
+    .spacer{height:72px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .hero-card{order:2}
+      .chart-wrap{order:1}
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo">MP</div>
-        <div>MomentumPortfolios</div>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="mark">MP</div>
+        <div>
+          <div style="font-weight:700">MomentumPortfolios</div>
+          <div style="font-size:12px;color:#3b5566">Accelerating Your Wealth Journey</div>
+        </div>
       </div>
-      <div class="nav-actions">
-        <a href="#charts" class="btn btn-outline">Explore Portfolios</a>
-        <a href="#contact" class="btn btn-primary">Start Investing</a>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#insights">Insights</a>
+        <a class="cta" href="#start">Start Investing</a>
+      </nav>
+    </header>
+
+    <!-- Top scrolling ticker of quality mid-cap stocks -->
+    <div class="ticker-wrap" aria-hidden="false" title="Quality mid-cap stocks">
+      <div class="ticker" id="midTicker">
+        <!-- We'll duplicate content in JS so animation appears continuous -->
+        <div class="item"> <strong>HCLTech</strong> <span class="price up">+2.3%</span></div>
+        <div class="item"> <strong>Adani Enterprises</strong> <span class="price down">-1.1%</span></div>
+        <div class="item"> <strong>Apollo Hospitals</strong> <span class="price up">+0.8%</span></div>
+        <div class="item"> <strong>ICICI Securities</strong> <span class="price up">+1.6%</span></div>
+        <div class="item"> <strong>PI Industries</strong> <span class="price up">+0.9%</span></div>
       </div>
     </div>
-  </header>
 
-  <section class="hero">
-    <div class="container hero-wrap">
-      <h1>Accelerating Your Wealth Journey</h1>
-      <p>Professional portfolios designed for retail and sophisticated investors. Transparent performance insights, smart diversification, and data-backed decisions—all in one elegant dashboard.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="#charts">View Large-Cap Trends</a>
-        <a class="btn btn-outline" href="#testimonials">See Investor Stories</a>
+    <!-- Hero: left content + chart on right -->
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Smart portfolios powered by momentum</h1>
+        <p class="tagline">Designed for retail investors looking for simple, data-driven portfolios with strong risk-adjusted returns.</p>
+
+        <div class="blinking" aria-live="polite">
+          <div class="blink-item blink">Reliance Industries</div>
+          <div class="blink-item">Tata Consultancy Services</div>
+          <div class="blink-item blink">HDFC Bank</div>
+          <div class="blink-item">Infosys</div>
+        </div>
+
+        <div style="margin-top:16px;display:flex;gap:12px;align-items:center">
+          <a class="cta" href="#start">Open Account</a>
+          <a href="#learn" style="text-decoration:none;color:#0a2540;font-weight:600">Learn How it Works</a>
+        </div>
+
+        <div class="testimonials" style="margin-top:18px">
+          <div class="tcard">"Easy to use — I started with small SIPs and grew confidence." — Anjali P.</div>
+          <div class="tcard">"Transparent fees and great insights." — Rohit S.</div>
+        </div>
+      </div>
+
+      <aside class="hero-card chart-wrap">
+        <h3 style="margin:0 0 6px 0">Large-cap bar chart — Reliance Industries (sample)</h3>
+        <canvas id="largeCapChart" aria-label="Bar chart of Reliance stock" role="img"></canvas>
+
+        <div style="margin-top:12px;font-size:13px;color:#36546b">Snapshot: 12-month returns, monthly bars. Replace with live data for real-time charts.</div>
+      </aside>
+    </section>
+
+    <!-- Mid-cap scroller section -->
+    <div id="features" class="section-title">
+      <h2 style="margin:0">Quality Mid-cap Picks</h2>
+      <div style="font-size:13px;color:#557079">Curated and dynamically updated</div>
+    </div>
+    <div class="stock-scroller">
+      <div class="stock-row" id="midRow">
+        <div class="scard"> <strong>Pidilite</strong><div>PE: 48</div><div>YTD: +18%</div></div>
+        <div class="scard"> <strong>Polycab</strong><div>PE: 32</div><div>YTD: +14%</div></div>
+        <div class="scard"> <strong>Laurus Labs</strong><div>PE: 28</div><div>YTD: +21%</div></div>
+        <div class="scard"> <strong>Concentrix</strong><div>PE: 26</div><div>YTD: +11%</div></div>
+        <div class="scard"> <strong>Blue Star</strong><div>PE: 36</div><div>YTD: +9%</div></div>
       </div>
     </div>
-  </section>
 
-  <div class="ticker-wrap" aria-label="Mid-cap scrolling ticker">
-    <div class="ticker" id="midcapTicker"></div>
+    <!-- Insights -->
+    <section id="insights" style="margin-top:18px">
+      <div class="hero-card">
+        <h3 style="margin-top:0">Why MomentumPortfolios?</h3>
+        <ul>
+          <li>Data-driven strategies tuned for retail risk profiles.</li>
+          <li>Simple plans: SIPs, lump-sum, goal-based investing.</li>
+          <li>Transparent fees and regular performance updates.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div style="height:24px"></div>
   </div>
 
-  <section class="section" id="charts">
+  <!-- Fixed bottom small-cap ticker -->
+  <div class="bottom-ticker">
     <div class="container">
-      <h2 class="section-title">Large-Cap Leaders</h2>
-      <div class="charts">
-        <div class="card chart-card">
-          <div class="chip"><span>Reliance Industries</span></div>
-          <h3>RIL • 5Y Performance</h3>
-          <canvas id="chartRIL" height="180"></canvas>
-        </div>
-        <div class="card chart-card">
-          <div class="chip"><span>TCS</span></div>
-          <h3>TCS • 5Y Performance</h3>
-          <canvas id="chartTCS" height="180"></canvas>
-        </div>
-        <div class="card chart-card">
-          <div class="chip"><span>HDFC Bank</span></div>
-          <h3>HDFC Bank • 5Y Performance</h3>
-          <canvas id="chartHDFC" height="180"></canvas>
-        </div>
+      <div class="ticker" id="smallTicker">
+        <div class="item"> <strong>SmallCap A</strong> <span class="price up">+6.1%</span></div>
+        <div class="item"> <strong>SmallCap B</strong> <span class="price down">-2.3%</span></div>
+        <div class="item"> <strong>SmallCap C</strong> <span class="price up">+3.5%</span></div>
+        <div class="item"> <strong>SmallCap D</strong> <span class="price up">+4.2%</span></div>
+        <div class="item"> <strong>SmallCap E</strong> <span class="price down">-1.0%</span></div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="section" id="signals">
-    <div class="container">
-      <h2 class="section-title">Small & Micro Cap Highlights</h2>
-      <div class="blinker-grid" id="blinkGrid"></div>
-    </div>
-  </section>
-
-  <section class="section" id="testimonials">
-    <div class="container">
-      <h2 class="section-title">What Investors Say</h2>
-      <div class="testimonials carousel" aria-live="polite">
-        <div class="card testi" data-slide>
-          <div class="quote">“MomentumPortfolios gave me clarity and discipline. My SIPs finally align with my risk profile.”</div>
-          <div class="who">— Rajesh K., Retail Investor</div>
-        </div>
-        <div class="card testi" data-slide style="display:none">
-          <div class="quote">“The portfolio heatmaps and alerts are top notch. Perfect for quickly rebalancing exposure.”</div>
-          <div class="who">— Meera S., Business Owner</div>
-        </div>
-        <div class="card testi" data-slide style="display:none">
-          <div class="quote">“Love the clean UI and fast insights. It’s become my daily market brief.”</div>
-          <div class="who">— Arjun P., Analyst</div>
-        </div>
-      </div>
-      <div class="dots" id="dots"></div>
-    </div>
-  </section>
-
-  <footer id="contact">
-    <div class="container footer-grid">
-      <div>
-        <div class="foot-title">MomentumPortfolios</div>
-        <p>Smart portfolios, strong momentum. Data-driven investing made simple.</p>
-      </div>
-      <div>
-        <div class="foot-title">Company</div>
-        <a href="#">About Us</a><br/>
-        <a href="#">Services</a><br/>
-        <a href="#">Careers</a>
-      </div>
-      <div>
-        <div class="foot-title">Support</div>
-        <a href="#">Help Center</a><br/>
-        <a href="#">Contact</a><br/>
-        <a href="#">Security</a>
-      </div>
-      <div>
-        <div class="foot-title">Legal</div>
-        <a href="#">Terms</a><br/>
-        <a href="#">Privacy</a><br/>
-        <a href="#">Disclosures</a>
-      </div>
-    </div>
-  </footer>
+  <div class="spacer"></div>
 
   <script>
-    const midcaps = [
-      {sym:'PERSISTENT', price: 4920, chg:+1.2},
-      {sym:'DEEPAKNTR', price: 2625, chg:-0.8},
-      {sym:'ZYDUSWELL', price: 1702, chg:+0.6},
-      {sym:'MINDSPACE', price: 374, chg:+0.4},
-      {sym:'POLYCAB', price: 6350, chg:+0.9},
-      {sym:'CLEAN', price: 1380, chg:-0.3},
-      {sym:'AUROPHARMA', price: 1121, chg:+1.1},
-      {sym:'TATAELXSI', price: 8840, chg:+0.7}
-    ];
-    const ticker = document.getElementById('midcapTicker');
-    function tickerItem(s){
-      const dir = s.chg>=0 ? 'up' : 'down';
-      const sign = s.chg>=0 ? '+' : '';
-      return `<div class="tick"><span class="sym">${s.sym}</span><span>₹${s.price.toLocaleString()}</span><span class="chg ${dir}">${sign}${s.chg}%</span></div>`
+    // Duplicate ticker content so CSS scrolling looks continuous
+    function duplicateTicker(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      const clone = el.innerHTML;
+      el.innerHTML += clone; // simple duplication for continuous scroll
     }
-    function buildTicker(){
-      const row = midcaps.map(tickerItem).join(' • ');
-      ticker.innerHTML = row + ' • ' + row;
-    }
-    buildTicker();
+    duplicateTicker('midTicker');
+    duplicateTicker('smallTicker');
 
-    const highlights = [
-      {name:'GLOBE COMMERCIALS', seg:'Small Cap', signal:'+12%'},
-      {name:'MAGELLANIC CLOUD', seg:'Small Cap', signal:'+4%'},
-      {name:'UJAAS ENERGY', seg:'Micro Cap', signal:'-3%'},
-      {name:'KAYA LTD', seg:'Small Cap', signal:'+2%'},
-      {name:'URJA GLOBAL', seg:'Micro Cap', signal:'+6%'},
-      {name:'SILVERLINE TECH', seg:'Micro Cap', signal:'+1%'}
-    ];
-    const grid = document.getElementById('blinkGrid');
-    grid.innerHTML = highlights.map(h => `
-      <div class="blink-item">
-        <div>
-          <div class="blink-name">${h.name}</div>
-          <div class="muted" style="font-size:.85rem">${h.seg} • Highlight</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px">
-          <div class="muted" style="font-weight:700">${h.signal}</div>
-          <div class="blink-dot" aria-hidden="true"></div>
-        </div>
-      </div>
-    `).join('');
+    // Duplicate midRow content
+    (function duplicateRow(){
+      const row = document.getElementById('midRow');
+      if(!row) return;
+      row.innerHTML += row.innerHTML;
+    })();
 
-    function barChart(ctx,label){
-      return new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['2019','2020','2021','2022','2023','2024','2025'],
-          datasets: [{
-            label,
-            data: Array.from({length:7},()=>Math.round(100+Math.random()*100)),
-            backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()
-          }]
-        },
-        options: {
-          responsive:true,
-          maintainAspectRatio:false,
-          plugins:{legend:{display:false}},
-          scales:{y:{grid:{color:'rgba(10,37,64,.06)'}}}
-        }
-      });
-    }
-    barChart(document.getElementById('chartRIL'),'RIL');
-    barChart(document.getElementById('chartTCS'),'TCS');
-    barChart(document.getElementById('chartHDFC'),'HDFCBANK');
+    // Sample bar chart using Chart.js (monthly sample data)
+    const ctx = document.getElementById('largeCapChart').getContext('2d');
+    const labels = ['Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep'];
+    const sampleData = [6.2,4.8,5.5,8.0,7.1,6.6,7.9,5.2,3.8,4.5,6.0,5.1];
 
-    const slides = Array.from(document.querySelectorAll('[data-slide]'));
-    const dotsWrap = document.getElementById('dots');
-    slides.forEach((_,i)=>{
-      const d = document.createElement('div');
-      d.className = 'dot' + (i===0?' active':'');
-      d.dataset.i = i;
-      d.addEventListener('click',()=>show(i));
-      dotsWrap.appendChild(d);
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Monthly return (%)',
+          data: sampleData,
+          borderRadius:6,
+          barThickness:18,
+        }]
+      },
+      options: {
+        maintainAspectRatio:false,
+        plugins:{legend:{display:false}},
+        scales:{y:{beginAtZero:true,ticks:{callback:function(v){return v+"%"}}}}
+      }
     });
 
-    let idx = 0, timer;
-    function show(i){
-      slides[idx].style.display='none';
-      dotsWrap.children[idx].classList.remove('active');
-      idx = i;
-      slides[idx].style.display='block';
-      dotsWrap.children[idx].classList.add('active');
-      restart();
+    // Accessibility: pause animation on reduced motion
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(prefersReduced){
+      document.querySelectorAll('.ticker, .stock-row').forEach(e=>e.style.animationPlayState='paused');
+      document.querySelectorAll('.blink').forEach(e=>e.style.animation='none');
     }
-    function next(){ show((idx+1)%slides.length) }
-    function restart(){
+  </script>
+</body>
+</html>
