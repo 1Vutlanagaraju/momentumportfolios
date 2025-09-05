@@ -228,12 +228,61 @@
   <!-- Contact -->
   <section id="contact">
     <h2>Contact Us</h2>
-    <form>
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
+    <section id="contact" class="fade-in">
+  <h2>Contact Us</h2>
+  <div class="contact-section">
+    <form action="https://formspree.io/f/xqadgyjd" method="POST" id="contact-form">
+      
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="_replyto" placeholder="Enter your email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+
       <button type="submit">Send Message</button>
     </form>
+
+    <!-- Success message (hidden at first) -->
+    <p id="form-success" style="display:none; color:green; margin-top:15px;">
+      ✅ Thank you! Your message has been sent successfully.
+    </p>
+
+    <!-- Error message -->
+    <p id="form-error" style="display:none; color:red; margin-top:15px;">
+      ❌ Oops! Something went wrong. Please try again later.
+    </p>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const successMsg = document.getElementById("form-success");
+  const errorMsg = document.getElementById("form-error");
+
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      successMsg.style.display = "block";
+      errorMsg.style.display = "none";
+      form.reset();
+    } else {
+      errorMsg.style.display = "block";
+      successMsg.style.display = "none";
+    }
+  });
+</script>
+
   </section>
 
   <!-- Footer -->
