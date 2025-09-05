@@ -9,12 +9,12 @@
       margin: 0;
       font-family: Arial, sans-serif;
       line-height: 1.6;
-      background-color: #000;
-      color: #fff;
+      background-color: #f4f6f9; /* Light gray background */
+      color: #333;
     }
 
     header {
-      background: #0A2540;
+      background: #0A2540; /* Deep blue */
       color: #fff;
       padding: 15px 20px;
       display: flex;
@@ -55,6 +55,7 @@
       text-align: center;
       padding: 100px 20px;
       background: linear-gradient(to right, #0A2540, #083060);
+      color: #fff;
     }
 
     #hero h1 {
@@ -72,7 +73,7 @@
     }
 
     h2 {
-      color: #28a745;
+      color: #0A2540;
       margin-bottom: 20px;
       text-align: center;
     }
@@ -88,7 +89,7 @@
       color: #333;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       text-align: center;
     }
 
@@ -105,6 +106,7 @@
       padding: 20px;
       border-radius: 10px;
       width: 300px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
     form input, form textarea {
@@ -114,6 +116,11 @@
       border-radius: 6px;
       border: 1px solid #ccc;
       font-size: 14px;
+    }
+
+    form textarea {
+      height: 120px;
+      resize: none;
     }
 
     form button {
@@ -137,6 +144,15 @@
       text-align: center;
       padding: 20px;
       margin-top: 40px;
+    }
+
+    footer a {
+      color: #28a745;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -223,7 +239,7 @@
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Momentum Portfolios | All Rights Reserved</p>
-    <p><a href="#" style="color:#28a745;">Disclaimer</a> | <a href="#" style="color:#28a745;">Privacy Policy</a></p>
+    <p><a href="#">Disclaimer</a> | <a href="#">Privacy Policy</a></p>
   </footer>
 
 </body>
