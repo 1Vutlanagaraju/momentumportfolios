@@ -178,34 +178,39 @@
     <h1>Accelerating Your Wealth Journey</h1>
     <p>Smart, momentum-driven portfolios tailored for retail investors.</p>
     <a href="#portfolios" class="cta">Start Investing</a>
-    <!-- START INVESTING BUTTON -->
+  <!-- START INVESTING BUTTON + POPUP FORM WITH UPI PAYMENT -->
+
+<!-- Button -->
 <button onclick="openInvestForm()" 
         style="background:#0066cc; color:white; padding:12px 24px; font-size:18px; border:none; border-radius:8px; cursor:pointer;">
   🚀 Start Investing
 </button>
 
-<!-- POPUP FORM -->
+<!-- Popup Form Container -->
 <div id="investFormPopup" 
-     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:1000;">
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+            background:rgba(0,0,0,0.6); z-index:1000;">
 
-  <div style="background:white; max-width:480px; margin:60px auto; padding:24px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.3); position:relative;">
+  <div style="background:white; max-width:450px; margin:80px auto; padding:24px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.3); position:relative;">
     
-    <!-- CLOSE BUTTON -->
+    <!-- Close Button -->
     <span onclick="closeInvestForm()" 
           style="position:absolute; top:12px; right:16px; font-size:20px; cursor:pointer; color:#555;">✖</span>
 
     <h2 style="margin-bottom:16px; text-align:center; color:#0066cc;">Start Investing</h2>
     
-    <form id="investForm" action="https://formspree.io/f/xpwjnvvw" method="POST">
+    <form id="investForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       
       <!-- Hidden field to identify this form -->
       <input type="hidden" name="form_type" value="Start Investing">
 
       <label>Full Name</label>
-      <input type="text" name="name" required style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:6px;">
+      <input type="text" name="name" required 
+             style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:6px;">
       
       <label>Email</label>
-      <input type="email" name="email" required style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:6px;">
+      <input type="email" name="email" required 
+             style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:6px;">
       
       <label>Choose a Service</label>
       <select name="service" id="serviceSelect" required 
@@ -214,60 +219,56 @@
         <option value="aggressive">Aggressive Portfolio — ₹25,000</option>
         <option value="balanced">Balanced Portfolio — ₹15,000</option>
         <option value="conservative">Conservative Portfolio — ₹10,000</option>
-        <option value="custom">Custom Advisory — ₹30,000</option>
+        <option value="custom">Custom Advisory — ₹50,000</option>
       </select>
-      
-      <label>Investment Amount (₹)</label>
-      <input type="number" name="amount" required style="width:100%; padding:10px; margin-bottom:16px; border:1px solid #ccc; border-radius:6px;">
       
       <button type="submit" 
               style="background:#28a745; color:white; padding:12px; width:100%; border:none; border-radius:8px; font-size:16px; cursor:pointer;">
-        Proceed to Payment
+        Proceed to Pay
       </button>
     </form>
   </div>
 </div>
 
-<!-- SCRIPT -->
+<!-- Script -->
 <script>
   function openInvestForm() {
     document.getElementById("investFormPopup").style.display = "block";
   }
+
   function closeInvestForm() {
     document.getElementById("investFormPopup").style.display = "none";
   }
 
-  // Handle form + payment
+  // Handle form submission
   document.getElementById("investForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    // Send data to Formspree
+    // Send form data to Formspree
     fetch(this.action, {
       method: this.method,
       body: new FormData(this),
       headers: { 'Accept': 'application/json' }
     }).then(response => {
       if (response.ok) {
-        // Redirect user to Razorpay payment page
+        // Redirect user to GPay / UPI link
         let service = document.getElementById("serviceSelect").value;
         if (service === "aggressive") {
-          window.location.href = "upi://pay?pa=vutlanagaraju@okhdfcbank&pn=MomentumPortfolios&am=25000&cu=INR/l/aggressive-portfolio"; // replace with your real link
+          window.location.href = "upi://pay?pa=vutlanagaraju@okhdfcbank&pn=MomentumPortfolios&am=25000&cu=INR";
         } else if (service === "balanced") {
-          window.location.href = "https://rzp.io/l/balanced-portfolio";
+          window.location.href = "upi://pay?pa=vutlanagaraju@okhdfcbank&pn=MomentumPortfolios&am=15000&cu=INR";
         } else if (service === "conservative") {
-          window.location.href = "https://rzp.io/l/conservative-portfolio";
+          window.location.href = "upi://pay?pa=vutlanagaraju@okhdfcbank&pn=MomentumPortfolios&am=10000&cu=INR";
         } else if (service === "custom") {
-          window.location.href = "https://rzp.io/l/custom-advisory";
+          window.location.href = "upi://pay?pa=vutlanagaraju@okhdfcbank&pn=MomentumPortfolios&am=50000&cu=INR";
         }
+        alert("✅ Please complete the payment in your GPay/UPI app. After payment, we will send stock details to your email.");
       } else {
         alert("Error! Please try again.");
       }
     });
   });
 </script>
-
-    <a href="#philosophy" class="cta" style="background:#fff; color:#0A2540;">Learn More</a>
-  </section>
 
   <!-- About Us -->
   <section id="about">
