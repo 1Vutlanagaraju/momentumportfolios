@@ -178,114 +178,13 @@
     <h1>Accelerating Your Wealth Journey</h1>
     <p>Smart, momentum-driven portfolios tailored for retail investors.</p>
     <a href="#portfolios" class="cta">Start Investing</a>
-<!-- START INVESTING BUTTON -->
-<button onclick="openInvestForm()" 
-        style="background:#0066cc; color:white; padding:12px 24px; font-size:18px; border:none; border-radius:8px; cursor:pointer;">
-  🚀 Start Investing
-</button>
+    <a href="#philosophy" class="cta" style="background:#fff; color:#0A2540;">Learn More</a>
+  </section>
 
-<!-- POPUP FORM -->
-<div id="investFormPopup" 
-     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
-            background:rgba(0,0,0,0.2); z-index:1000; /* slightly transparent, not full blue */">
-
-  <div style="background:white; max-width:450px; margin:80px auto; padding:24px; border-radius:12px; 
-              box-shadow:0 4px 12px rgba(0,0,0,0.3); position:relative;">
-    
-    <!-- CLOSE BUTTON -->
-    <span onclick="closeInvestForm()" 
-          style="position:absolute; top:12px; right:16px; font-size:20px; cursor:pointer; color:#555;">✖</span>
-
-    <h2 style="margin-bottom:16px; text-align:center; color:#0066cc;">Start Investing</h2>
-    
-    <form id="investForm" action="https://formspree.io/f/xpwjnvvw" method="POST">
-      <input type="hidden" name="form_type" value="Start Investing">
-
-      <label>Full Name</label>
-      <input type="text" name="name" required 
-             style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:6px;">
-      
-      <label>Email</label>
-      <input type="email" name="email" required 
-             style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:6px;">
-      
-      <label>Choose a Service</label>
-      <select name="service" id="serviceSelect" required 
-              style="width:100%; padding:10px; margin-bottom:16px; border:1px solid #ccc; border-radius:6px;">
-        <option value="">-- Select a Service --</option>
-        <option value="aggressive">Aggressive Portfolio — ₹20,000</option>
-        <option value="balanced">Balanced Portfolio — ₹15,000</option>
-        <option value="conservative">Conservative Portfolio — ₹10,000</option>
-        <option value="custom">Custom Advisory — ₹30,000</option>
-      </select>
-      
-      <button type="submit" 
-              style="background:#28a745; color:white; padding:12px; width:100%; border:none; border-radius:8px; font-size:16px; cursor:pointer;">
-        Proceed to Pay
-      </button>
-    </form>
-  </div>
-</div>
-
-<script>
-  function openInvestForm() {
-    document.getElementById("investFormPopup").style.display = "block";
-  }
-
-  function closeInvestForm() {
-    document.getElementById("investFormPopup").style.display = "none";
-  }
-
-  document.getElementById("investForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    fetch(this.action, {
-      method: this.method,
-      body: new FormData(this),
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        let service = document.getElementById("serviceSelect").value;
-        let upiLink = "";
-
-        switch(service) {
-          case "aggressive":
-            upiLink = "upi://pay?pa=vutlanagaraju@okhdfcbank&pn=MomentumPortfolios&am=20000&cu=INR";
-            break;
-          case "balanced":
-            upiLink = "upi://pay?pa=vutlanagaraju@okhdfcbank&pn=MomentumPortfolios&am=15000&cu=INR";
-            break;
-          case "conservative":
-            upiLink = "upi://pay?pa=vutlanagaraju@okhdfcbank&pn=MomentumPortfolios&am=10000&cu=INR";
-            break;
-          case "custom":
-            upiLink = "upi://pay?pa=vutlanagaraju@okhdfcbank&pn=MomentumPortfolios&am=30000&cu=INR";
-            break;
-          default:
-            alert("Please select a valid service.");
-            return;
-        }
-
-        window.location.href = upiLink;
-        alert("✅ Please complete the payment in your UPI app. After payment, we will send stock details to your email.");
-      } else {
-        alert("Error! Please try again.");
-      }
-    });
-  });
-</script>
-
-    
   <!-- About Us -->
   <section id="about">
     <h2>About Us</h2>
     <p>We are a team of passionate investment professionals dedicated to creating momentum-based portfolios that generate consistent returns. Our mission is to make smart investing simple and accessible for retail investors.</p>
-    <p>“Our motto is to beat the silent killer called inflation through smart investments.”</p>
-    <p>Unlock the power of momentum investing—a strategy rooted in the simple yet powerful idea that what’s been moving will keep moving. Momentum Portfolios harnesses this principle by identifying stocks with strong recent performance and positioning you to ride that wave strategically and intelligently. Whether you're a retail investor looking to take a more active role or a seasoned pro seeking smart factors to layer into your portfolio, momentum strategies offer a time-tested edge recognized by both academic research and experienced market practitioners.</p>
-  <p>Momentum investing isn't just hype—it’s backed by decades of research. Pioneering studies by Jegadeesh and Titman confirmed that stocks that have outperformed over the past 3–12 months tend to outperform again, while MSCI notes that momentum has historically delivered among the strongest excess returns, particularly over long cycles</p>
-  <p>At Momentum Portfolios, we extend these insights with enhanced strategies—such as overlapping momentum approaches, which focus on stocks showing sustained strength across different lookback periods, improving risk-adjusted returns with higher Sharpe ratios and lower tail risk</p>
-  <p>But strong theory needs smart execution—and that’s our specialty. Momentum Portfolios focuses on long-only approaches that are accessible, flexible, and tax-efficient—no need for complex shorting structures, just well-structured portfolios that put upward momentum first</p>
-  <p>We blend rigorous quant models with real-world sensibility—balancing diversification, turnover, and rebalancing cadence to align with both individual investors’ tax and trading constraints and professional mandates’ operational workflows. At Momentum Portfolios, you don’t just track momentum—you harness it with clarity, discipline, and conviction.</p>
   </section>
 
   <!-- Investment Philosophy -->
@@ -318,135 +217,23 @@
       <div class="testimonial"><p>"Clear strategy, transparent process, and consistent performance. Highly recommend."</p><strong>- Business Professional</strong></div>
     </div>
   </section>
-  <!-- ================== MODEL PORTFOLIOS SECTION ================== -->
-<section id="model-portfolios" style="padding:60px; background:#f9fafb; font-family:Arial, sans-serif;">
-  <h2 style="text-align:center; color:#0A2540; font-size:32px; margin-bottom:40px;">
-    Our Model Portfolios
-  </h2>
-  
-  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:30px; max-width:1100px; margin:0 auto;">
-    
-    <!-- Conservative Portfolio -->
-    <div style="background:#ffffff; padding:25px; border-radius:16px; box-shadow:0 6px 14px rgba(0,0,0,0.08); transition:transform 0.3s;">
-      <h3 style="color:#0A2540; font-size:22px; margin-bottom:15px;">Conservative Portfolio</h3>
-      <ul style="list-style:disc; padding-left:20px; line-height:1.8;">
-        <li>Reliance – 25%</li>
-        <li>HDFC Bank – 20%</li>
-        <li>Infosys – 15%</li>
-        <li>ICICI Bank – 20%</li>
-        <li>HUL – 20%</li>
-      </ul>
-      <p><b>Expected Return:</b> ~10-12% annually</p>
-      <p><b>Risk Level:</b> Low</p>
-    </div>
-    
-    <!-- Balanced Portfolio -->
-    <div style="background:#ffffff; padding:25px; border-radius:16px; box-shadow:0 6px 14px rgba(0,0,0,0.08); transition:transform 0.3s;">
-      <h3 style="color:#0A2540; font-size:22px; margin-bottom:15px;">Balanced Portfolio</h3>
-      <ul style="list-style:disc; padding-left:20px; line-height:1.8;">
-        <li>Reliance – 20%</li>
-        <li>Infosys – 15%</li>
-        <li>ICICI Bank – 15%</li>
-        <li>TCS – 15%</li>
-        <li>Bharti Airtel – 15%</li>
-        <li>Midcap Growth ETF – 20%</li>
-      </ul>
-      <p><b>Expected Return:</b> ~12-15% annually</p>
-      <p><b>Risk Level:</b> Medium</p>
-    </div>
-    
-    <!-- Aggressive Portfolio -->
-    <div style="background:#ffffff; padding:25px; border-radius:16px; box-shadow:0 6px 14px rgba(0,0,0,0.08); transition:transform 0.3s;">
-      <h3 style="color:#0A2540; font-size:22px; margin-bottom:15px;">Aggressive Portfolio</h3>
-      <ul style="list-style:disc; padding-left:20px; line-height:1.8;">
-        <li>Adani Enterprises – 15%</li>
-        <li>Zomato – 15%</li>
-        <li>IRCTC – 15%</li>
-        <li>Nykaa – 15%</li>
-        <li>Mid/Small Cap Growth Stocks – 40%</li>
-      </ul>
-      <p><b>Expected Return:</b> ~15-20% annually</p>
-      <p><b>Risk Level:</b> High</p>
-    </div>
-    
-  </div>
-</section>
-<!-- ================== END MODEL PORTFOLIOS SECTION ================== -->
-
 
   <!-- Insights -->
   <section id="insights">
     <h2>Latest Insights</h2>
-    <p>Equity investment is the most convenient option for long-term wealth creation.</p>
-     <p>Investstors gladly accept 7% to 8% annual return from bank's fixed deposit but the same person can't accept 25% annual return from equity investment</p>
-    <P>Investment in Knowledge pays the best interest</P>
-    <p>Equity investment is not risky rather staying asway from equity investment is risky</p>
-    <p>Investment in stocks is just like driving a car. If you can master the subject, it becomes easier.</p>
-    <p>A stock is nothing but a partial ownership in the business. Treat yourself as an owner of the business.</p>
-    <p>There are plenty of stock recommendations are available here and there. Before following any of them just conduct a basic test of your own.</p>
-    <p>investing in companies with wide economic moat during their early stage can generate a multibagger return</p>
-    <p>Promoters increasing their stake from the open market transaction is always very positive for the stock</p>
+    <p>Stay updated with articles, blogs, and research on momentum investing and market opportunities.</p>
     <p><a href="#">Read More →</a></p>
   </section>
 
   <!-- Contact -->
   <section id="contact">
-   
-    <section id="contact" class="fade-in">
-  <h2>Contact Us</h2>
-  <div class="contact-section">
-    <form action="https://formspree.io/f/xqadgyjd" method="POST" id="contact-form">
-      
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required>
-
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="_replyto" placeholder="Enter your email" required>
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
-
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
-
-    <!-- Success message (hidden at first) -->
-    <p id="form-success" style="display:none; color:green; margin-top:15px;">
-      ✅ Thank you! Your message has been sent successfully.
-    </p>
-
-    <!-- Error message -->
-    <p id="form-error" style="display:none; color:red; margin-top:15px;">
-      ❌ Oops! Something went wrong. Please try again later.
-    </p>
-  </div>
-</section>
-
-<script>
-  const form = document.getElementById("contact-form");
-  const successMsg = document.getElementById("form-success");
-  const errorMsg = document.getElementById("form-error");
-
-  form.addEventListener("submit", async function(e) {
-    e.preventDefault();
-    const formData = new FormData(form);
-
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      successMsg.style.display = "block";
-      errorMsg.style.display = "none";
-      form.reset();
-    } else {
-      errorMsg.style.display = "block";
-      successMsg.style.display = "none";
-    }
-  });
-</script>
-
   </section>
 
   <!-- Footer -->
