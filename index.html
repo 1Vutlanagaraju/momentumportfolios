@@ -316,13 +316,33 @@
 
   <!-- Contact -->
   <section id="contact">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+  <section id="contactUs" style="padding:40px 20px; max-width:600px; margin:40px auto; background:#f9f9f9; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+  <h2 style="text-align:center; color:#0066cc; margin-bottom:24px;">Contact Us</h2>
+  
+  <form id="contactForm" action="https://formspree.io/f/YOUR_CONTACT_FORM_ID" method="POST">
+    <input type="hidden" name="form_type" value="Contact Us">
+
+    <label>Full Name</label>
+    <input type="text" name="name" required 
+           style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:6px;">
+
+    <label>Email</label>
+    <input type="email" name="email" required 
+           style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:6px;">
+
+    <label>Phone Number</label>
+    <input type="tel" name="phone" required 
+           style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:6px;">
+
+    <label>Message</label>
+    <textarea name="message" required rows="5"
+              style="width:100%; padding:10px; margin-bottom:16px; border:1px solid #ccc; border-radius:6px;"></textarea>
+
+    <button type="submit" 
+            style="background:#28a745; color:white; padding:12px; width:100%; border:none; border-radius:8px; font-size:16px; cursor:pointer;">
+      Submit
+    </button>
+  </form>
   </section>
 
   <!-- Footer -->
