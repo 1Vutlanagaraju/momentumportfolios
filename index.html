@@ -389,7 +389,229 @@
    
     <p><a href="#">Read More →</a></p>
   </section>
+<section class="faq-section">
+  <div class="container">
+    <h2>Frequently Asked Questions (FAQ)</h2>
 
+    <div class="faq-item">
+      <button class="faq-question">What is Momentum Portfolios?</button>
+      <div class="faq-answer">
+        <p>
+          Momentum Portfolios is an educational platform focused on momentum investing strategies,
+          market research, and disciplined portfolio-building approaches designed to help investors
+          understand long-term wealth creation.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">What is momentum investing?</button>
+      <div class="faq-answer">
+        <p>
+          Momentum investing is an investment approach that focuses on identifying stocks showing
+          strong performance trends and market strength while maintaining disciplined risk management.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Do you provide stock tips or guaranteed returns?</button>
+      <div class="faq-answer">
+        <p>
+          No. We do not guarantee profits, returns, or provide assured income opportunities.
+          Stock market investments are subject to market risks.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Who can benefit from Momentum Portfolios?</button>
+      <div class="faq-answer">
+        <p>
+          Retail investors, market learners, and individuals interested in understanding
+          disciplined investing methods can benefit from our educational content.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Do you provide personalized financial advice?</button>
+      <div class="faq-answer">
+        <p>
+          No. We do not provide personalized financial, tax, legal, or investment advice.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Is stock market investing risky?</button>
+      <div class="faq-answer">
+        <p>
+          Yes. Investments in securities are subject to market risks, including possible loss
+          of capital. Investors should carefully evaluate risks before investing.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Should I consult a financial advisor?</button>
+      <div class="faq-answer">
+        <p>
+          Yes. Investors should consult qualified financial professionals before making
+          investment decisions.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">How can I contact Momentum Portfolios?</button>
+      <div class="faq-answer">
+        <p>
+          You can connect with us through the contact information available on our website.
+        </p>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong>
+      Investment in securities market is subject to market risks. The information provided
+      on this website is for educational and informational purposes only and does not
+      constitute investment advice, financial advice, or solicitation to buy or sell securities.
+      Past performance is not indicative of future results.
+    </div>
+
+  </div>
+</section>
+
+<style>
+
+.faq-section{
+background:#f8fafc;
+padding:70px 20px;
+font-family:Arial,sans-serif;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+.faq-section h2{
+text-align:center;
+font-size:34px;
+margin-bottom:40px;
+color:#0f172a;
+}
+
+.faq-item{
+background:#fff;
+margin-bottom:15px;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+.faq-question{
+width:100%;
+padding:20px;
+font-size:18px;
+font-weight:600;
+border:none;
+background:#ffffff;
+cursor:pointer;
+text-align:left;
+color:#0f172a;
+}
+
+.faq-question:hover{
+background:#eff6ff;
+}
+
+.faq-answer{
+display:none;
+padding:20px;
+line-height:1.7;
+color:#475569;
+background:#fafafa;
+}
+
+.disclaimer{
+margin-top:40px;
+padding:20px;
+background:#fff7ed;
+border-left:5px solid #f97316;
+font-size:14px;
+line-height:1.7;
+border-radius:8px;
+}
+
+</style>
+
+<script>
+
+const faq=document.querySelectorAll(".faq-question");
+
+faq.forEach(item=>{
+
+item.addEventListener("click",()=>{
+
+const answer=item.nextElementSibling;
+
+if(answer.style.display==="block"){
+answer.style.display="none";
+}else{
+
+document.querySelectorAll(".faq-answer").forEach(el=>{
+el.style.display="none";
+});
+
+answer.style.display="block";
+
+}
+
+});
+
+});
+
+</script>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+
+{
+"@type":"Question",
+"name":"What is Momentum Portfolios?",
+"acceptedAnswer":{
+"@type":"Answer",
+"text":"Momentum Portfolios is an educational platform focused on momentum investing strategies and disciplined portfolio approaches."
+}
+},
+
+{
+"@type":"Question",
+"name":"Do you provide stock tips or guaranteed returns?",
+"acceptedAnswer":{
+"@type":"Answer",
+"text":"No. We do not guarantee returns or profits. Investments are subject to market risks."
+}
+},
+
+{
+"@type":"Question",
+"name":"Is stock market investing risky?",
+"acceptedAnswer":{
+"@type":"Answer",
+"text":"Yes. Investments in securities markets involve risks including capital loss."
+}
+}
+
+]
+
+}
+</script>
   <!-- Contact -->
   <section id="contact">
   <section id="contactUs" style="padding:40px 20px; max-width:600px; margin:40px auto; background:#f9f9f9; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
