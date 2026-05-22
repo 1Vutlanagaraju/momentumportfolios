@@ -330,39 +330,22 @@ text-decoration:underline;
 }
 
 </style>
-<section class="market-snapshot">
+<!-- TradingView Market Ticker START -->
 
-<h2>📊 Market Snapshot</h2>
+<div class="market-ticker-container">
 
-<div class="snapshot-grid">
+<script
+type="module"
+src="https://widgets.tradingview-widget.com/w/en/tv-ticker-tape.js">
+</script>
 
-<div class="snapshot-card">
-<h3>NIFTY 50</h3>
-<p id="nifty">Loading...</p>
-</div>
-
-<div class="snapshot-card">
-<h3>BANK NIFTY</h3>
-<p id="banknifty">Loading...</p>
-</div>
-
-<div class="snapshot-card">
-<h3>India VIX</h3>
-<p id="vix">Loading...</p>
-</div>
-
-<div class="snapshot-card">
-<h3>Top Gainers</h3>
-<p id="gainers">Loading...</p>
-</div>
-
-<div class="snapshot-card">
-<h3>Top Losers</h3>
-<p id="losers">Loading...</p>
-</div>
+<tv-ticker-tape
+symbols="NSE:NIFTY,NSE:BANKNIFTY,NSE:INDIAVIX">
+</tv-ticker-tape>
 
 </div>
 
+<!-- TradingView Market Ticker END -->
 </section>
 <div class="stock-links">
 
