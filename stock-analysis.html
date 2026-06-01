@@ -1,55 +1,314 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Stock Analysis | Momentum Portfolios</title>
-<meta name="description" content="Stock analysis and educational market insights.">
+
+<meta name="description" content="Latest stock analysis, share price targets, technical analysis, swing trading ideas and investment insights from Momentum Portfolios.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f4f7fb;
+color:#333;
+}
+
+.hero{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+padding:70px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+max-width:800px;
+margin:auto;
+opacity:0.9;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:50px 20px;
+}
+
+.stock-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+}
+
+.stock-card{
+background:#fff;
+border-radius:18px;
+padding:25px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+transition:all .3s ease;
+}
+
+.stock-card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+.stock-tag{
+display:inline-block;
+background:#22c55e;
+color:white;
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:600;
+margin-bottom:15px;
+}
+
+.stock-card h2{
+font-size:22px;
+margin-bottom:12px;
+color:#111827;
+}
+
+.stock-card p{
+color:#6b7280;
+margin-bottom:15px;
+line-height:1.6;
+}
+
+.stock-card a{
+color:#22c55e;
+font-weight:600;
+text-decoration:none;
+}
+
+.stock-card a:hover{
+text-decoration:underline;
+}
+
+.back-home{
+text-align:center;
+margin-top:50px;
+}
+
+.back-home a{
+display:inline-block;
+background:#22c55e;
+color:white;
+padding:14px 30px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+}
+
+.back-home a:hover{
+background:#16a34a;
+}
+
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:60px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:30px;
+}
+
+.stock-card h2{
+font-size:20px;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>Stock Analysis</h1>
+<section class="hero">
 
-<ul>
+<h1>📊 Stock Analysis</h1>
 
-<li><a href="Retail Traders Blog.html">Retail Traders Guide</a></li>
+<p>
+Explore detailed stock analysis, share price targets, technical setups,
+fundamental insights and investment opportunities across Indian equities.
+</p>
 
-<li><a href="JP Power Share Analysis.html">JP Power</a></li>
+</section>
 
-<li><a href="SBI Share Analysis.html">SBI</a></li>
+<div class="container">
 
-<li><a href="Tata Power Share Analysis.html">Tata Power</a></li>
+<div class="stock-grid">
 
-<li><a href="Suzlon Energy Ltd Share Analysis.html">Suzlon</a></li>
+<div class="stock-card">
+<span class="stock-tag">Education</span>
+<h2>Retail Traders Guide</h2>
+<p>Essential lessons every retail trader should understand before entering the market.</p>
+<a href="Retail Traders Blog.html">Read Analysis →</a>
+</div>
 
-<li><a href="IRFC Share Analysis.html">IRFC</a></li>
-  
-<li><a href="Coforge Ltd Share Analysis.html">Coforge Ltd Share Analysis</a></li>  
-  
-<li><a href="NIIT Ltd Share Analysis.html">NIIT Ltd</a></li> 
-  
-<li><a href="Yes Bank Share Analysis.html">Yes Bank Share Analysis</a></li>
-  
-<li><a href="UCO Bank Share Analysis.html">UCO Bank Share Analysis</a></li>
-  
-<li><a href="Eicher Motors Ltd Share Analysis.html">Eicher Motors Share Analysis</a></li>
-  
-<li><a href="IDFC First Bank Share Analysis.html">IDFC First Bank Share Analysis</a></li>  
+<div class="stock-card">
+<span class="stock-tag">Power Sector</span>
+<h2>JP Power</h2>
+<p>Technical and fundamental outlook for JP Power.</p>
+<a href="JP Power Share Analysis.html">Read Analysis →</a>
+</div>
 
-<li><a href="Dhanlaxmi Bank Share Analysis.html">Dhanlaxmi Bank Share Analysis</a></li> 
+<div class="stock-card">
+<span class="stock-tag">Banking</span>
+<h2>SBI</h2>
+<p>India's largest public sector bank – growth outlook and target levels.</p>
+<a href="SBI Share Analysis.html">Read Analysis →</a>
+</div>
 
-<li><a href="Utkarsh Small Finance Bank Share Analysis.html">Utkarsh Small Finance Bank Analysis</a></li> 
+<div class="stock-card">
+<span class="stock-tag">Power Sector</span>
+<h2>Tata Power</h2>
+<p>Renewable energy growth story and technical setup.</p>
+<a href="Tata Power Share Analysis.html">Read Analysis →</a>
+</div>
 
-<li><a href="IDBI Bank Share Analysis.html">IDBI Bank Share Analysis</a></li>   
+<div class="stock-card">
+<span class="stock-tag">Renewable Energy</span>
+<h2>Suzlon Energy</h2>
+<p>Wind energy leader with strong momentum and future growth prospects.</p>
+<a href="Suzlon Energy Ltd Share Analysis.html">Read Analysis →</a>
+</div>
 
-<li><a href="Dixon Technologies.html">Dixon Technologies Analysis</a></li> 
+<div class="stock-card">
+<span class="stock-tag">Railway PSU</span>
+<h2>IRFC</h2>
+<p>Railway financing giant and long-term investment outlook.</p>
+<a href="IRFC Share Analysis.html">Read Analysis →</a>
+</div>
 
-<li><a href="South Indian Bank Share Analysis.html">South Indian Bank Share Analysis</a></li> 
+<div class="stock-card">
+<span class="stock-tag">IT Services</span>
+<h2>Coforge Ltd</h2>
+<p>Digital transformation and IT services growth story.</p>
+<a href="Coforge Ltd Share Analysis.html">Read Analysis →</a>
+</div>
 
-<li><a href="IIFL Finance Ltd Share Analysis.html">IIFL Finance Ltd Share Analysis</a></li  
-    
-</ul>
+<div class="stock-card">
+<span class="stock-tag">Education</span>
+<h2>NIIT Ltd</h2>
+<p>AI-focused education company and future growth opportunities.</p>
+<a href="NIIT Ltd Share Analysis.html">Read Analysis →</a>
+</div>
 
-<a href="index.html">← Back Home</a>
+<div class="stock-card">
+<span class="stock-tag">Banking</span>
+<h2>Yes Bank</h2>
+<p>Turnaround story and technical analysis.</p>
+<a href="Yes Bank Share Analysis.html">Read Analysis →</a>
+</div>
+
+<div class="stock-card">
+<span class="stock-tag">Banking</span>
+<h2>UCO Bank</h2>
+<p>Public sector banking stock with growth potential.</p>
+<a href="UCO Bank Share Analysis.html">Read Analysis →</a>
+</div>
+
+<div class="stock-card">
+<span class="stock-tag">Auto Sector</span>
+<h2>Eicher Motors</h2>
+<p>Royal Enfield growth story and investment outlook.</p>
+<a href="Eicher Motors Ltd Share Analysis.html">Read Analysis →</a>
+</div>
+
+<div class="stock-card">
+<span class="stock-tag">Banking</span>
+<h2>IDFC First Bank</h2>
+<p>Private banking growth and future prospects.</p>
+<a href="IDFC First Bank Share Analysis.html">Read Analysis →</a>
+</div>
+
+<div class="stock-card">
+<span class="stock-tag">Banking</span>
+<h2>Dhanlaxmi Bank</h2>
+<p>Small-cap banking stock technical and fundamental review.</p>
+<a href="Dhanlaxmi Bank Share Analysis.html">Read Analysis →</a>
+</div>
+
+<div class="stock-card">
+<span class="stock-tag">Small Finance Bank</span>
+<h2>Utkarsh Small Finance Bank</h2>
+<p>High-growth banking opportunity with emerging market focus.</p>
+<a href="Utkarsh Small Finance Bank Share Analysis.html">Read Analysis →</a>
+</div>
+
+<div class="stock-card">
+<span class="stock-tag">Banking</span>
+<h2>IDBI Bank</h2>
+<p>Disinvestment theme and banking sector outlook.</p>
+<a href="IDBI Bank Share Analysis.html">Read Analysis →</a>
+</div>
+
+<div class="stock-card">
+<span class="stock-tag">Electronics Manufacturing</span>
+<h2>Dixon Technologies</h2>
+<p>India's EMS leader benefiting from Make in India initiatives.</p>
+<a href="Dixon Technologies.html">Read Analysis →</a>
+</div>
+
+<div class="stock-card">
+<span class="stock-tag">Banking</span>
+<h2>South Indian Bank</h2>
+<p>Private sector bank with improving asset quality.</p>
+<a href="South Indian Bank Share Analysis.html">Read Analysis →</a>
+</div>
+
+<div class="stock-card">
+<span class="stock-tag">NBFC</span>
+<h2>IIFL Finance Ltd</h2>
+<p>Financial services company with diversified lending business.</p>
+<a href="IIFL Finance Ltd Share Analysis.html">Read Analysis →</a>
+</div>
+
+</div>
+
+<div class="back-home">
+<a href="index.html">← Back to Home</a>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 Momentum Portfolios | Stock Analysis & Market Insights</p>
+</footer>
 
 </body>
 </html>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XY663GKBHZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XY663GKBHZ');
+</script>
