@@ -762,7 +762,100 @@ font-size:14px;
 line-height:1.7;
 border-radius:8px;
 }
+.founder-section{
+padding:80px 20px;
+background:#ffffff;
+}
 
+.founder-container{
+max-width:1100px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.founder-image img{
+width:220px;
+height:220px;
+border-radius:50%;
+object-fit:cover;
+object-position:center top;
+border:5px solid #2563eb;
+display:block;
+margin:auto;
+}
+
+.founder-content{
+flex:1;
+}
+
+.founder-badge{
+display:inline-block;
+background:#eff6ff;
+padding:8px 15px;
+border-radius:20px;
+font-size:14px;
+font-weight:600;
+color:#2563eb;
+margin-bottom:15px;
+}
+
+.founder-tags{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.founder-tags span{
+background:#eff6ff;
+padding:8px 14px;
+border-radius:20px;
+color:#2563eb;
+font-size:14px;
+font-weight:600;
+}
+
+.founder-btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 24px;
+background:#2563eb;
+color:white;
+text-decoration:none;
+border-radius:8px;
+}
+
+@media(max-width:768px){
+
+.founder-container{
+flex-direction:column;
+text-align:center;
+gap:25px;
+}
+
+.founder-image img{
+width:150px;
+height:150px;
+}
+
+.founder-content h2{
+font-size:28px;
+}
+
+.founder-tags{
+justify-content:center;
+}
+
+.founder-btn{
+display:block;
+max-width:220px;
+margin:20px auto 0;
+}
+
+}
 </style>
 
 <script>
