@@ -1030,19 +1030,6 @@ answer.style.display="block";
 
 }
 </script>
-
-  <!-- Footer -->
-  <div id="footer-placeholder"></div>
-
-<script>
-fetch('/footer.html')
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById('footer-placeholder').innerHTML = data;
-  });
-</script>
-
-</body>
   <section class="founder-credibility">
     <h2>About the Founder</h2>
 
@@ -1058,6 +1045,21 @@ fetch('/footer.html')
         <div>Risk First Approach</div>
     </div>
 </section>
+  
+  <!-- Footer -->
+  
+  <div id="footer-placeholder"></div>
+
+<script>
+fetch('/footer.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('footer-placeholder').innerHTML = data;
+  });
+</script>
+
+</body>
+
   <div id="footer-placeholder"></div>
 
 <script>
