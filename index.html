@@ -955,4 +955,36 @@ fetch('/footer.html')
 </script>
 
 </body>
+  <script>
+
+const hero = document.querySelector('.modern-hero');
+
+const heroImages = [
+
+'images/wipro-analysis.jpg',
+'images/paras-analysis.jpg',
+'images/suzlon-analysis.jpg',
+'images/stock-market-banner.jpg'
+
+];
+
+let currentHero = 0;
+
+function changeHeroImage(){
+
+hero.style.backgroundImage =
+`linear-gradient(rgba(10,37,64,0.85),
+rgba(10,37,64,0.85)),
+url('${heroImages[currentHero]}')`;
+
+currentHero = (currentHero + 1) % heroImages.length;
+
+}
+
+changeHeroImage();
+
+/* Change every 10 seconds */
+setInterval(changeHeroImage,10000);
+
+</script>
 </html>
