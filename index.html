@@ -336,10 +336,22 @@ Read My Story →
 <style>
 
 .modern-hero{
-    background:
-    linear-gradient(rgba(10,37,64,0.85),
-    rgba(10,37,64,0.85)),
-    url('images/stock-market-banner.jpg');
+    position:relative;
+    overflow:hidden;
+    color:#fff;
+    min-height:75vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+    padding:60px 20px;
+
+    background-size:cover;
+    background-position:center;
+    transition:background-image 1.5s ease-in-out;
+}
 
     background-size:cover;
     background-position:center;
