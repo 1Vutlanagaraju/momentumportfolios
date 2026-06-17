@@ -1,31 +1,49 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Company Profiles | Momentum Portfolios</title>
-<meta name="description" content="Explore detailed company profiles of leading Indian stocks including business model, management, financial highlights, growth drivers, and investment insights.">
-<meta name="keywords" content="Company Profiles India, Indian Stocks, Business Profiles, Management Analysis, Stock Research, Momentum Portfolios">
+
+<meta name="description" content="Explore detailed company profiles of leading Indian companies including business model, management quality, growth drivers, financial highlights, competitive advantages, and investment insights.">
+<meta name="keywords" content="Company Profiles India, Indian Stocks, Stock Research, Business Profiles, NSE Stocks, Momentum Portfolios">
 
 <style>
+
+/* ===========================
+   GLOBAL STYLES
+=========================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI',Arial,sans-serif;
+    font-family:'Segoe UI', Arial, sans-serif;
 }
 
 body{
     background:#f4f7fc;
     color:#333;
+    line-height:1.6;
 }
 
-/* HERO SECTION */
+/* ===========================
+   HERO SECTION
+=========================== */
+
 .hero{
-    background:linear-gradient(135deg,#071739,#0f4c81,#1f8ef1);
+    background:
+    linear-gradient(rgba(7,23,57,0.80),
+    rgba(15,76,129,0.85)),
+    url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600');
+
+    background-size:cover;
+    background-position:center;
     color:#fff;
     text-align:center;
-    padding:90px 20px;
+    padding:100px 20px;
 }
 
 .hero h1{
@@ -35,29 +53,43 @@ body{
 }
 
 .hero p{
-    font-size:22px;
     max-width:850px;
     margin:auto;
+    font-size:22px;
     line-height:1.8;
     opacity:0.95;
 }
 
-/* STATS */
+/* ===========================
+   STATS SECTION
+=========================== */
+
 .stats{
     max-width:1200px;
-    margin:-50px auto 50px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+    margin:-55px auto 60px;
     padding:0 20px;
+
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
 }
 
 .stat-card{
     background:#fff;
-    border-radius:18px;
+    border-radius:20px;
     padding:35px;
     text-align:center;
-    box-shadow:0 12px 30px rgba(0,0,0,0.10);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.10);
+
+    transition:0.3s;
+}
+
+.stat-card:hover{
+    transform:translateY(-8px);
 }
 
 .stat-card h2{
@@ -71,18 +103,15 @@ body{
     font-size:18px;
 }
 
-/* SEARCH */
-.search-section{
-    max-width:1200px;
-    margin:auto;
-    padding:0 20px 40px;
-}
-/* SEARCH + FILTER */
+/* ===========================
+   SEARCH & FILTER
+=========================== */
 
 .search-filter-section{
     max-width:1200px;
     margin:40px auto;
     padding:0 20px;
+
     display:grid;
     grid-template-columns:2fr 1fr;
     gap:20px;
@@ -93,58 +122,61 @@ body{
     width:100%;
     padding:18px 25px;
     border:none;
-    border-radius:50px;
+    border-radius:60px;
     background:#fff;
     font-size:17px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
     outline:none;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.08);
 }
 
 .sector-filter{
     cursor:pointer;
 }
 
-@media(max-width:768px){
+/* ===========================
+   COMPANY GRID
+=========================== */
 
-.search-filter-section{
-    grid-template-columns:1fr;
-}
-
-}
-.search-box{
-    width:100%;
-    padding:18px 25px;
-    border:none;
-    border-radius:50px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-    font-size:17px;
-    outline:none;
-}
-
-/* COMPANY GRID */
 .company-grid{
     max-width:1200px;
     margin:auto;
     padding:20px;
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    grid-template-columns:
+    repeat(auto-fit,minmax(330px,1fr));
+
     gap:30px;
 }
+
+/* ===========================
+   COMPANY CARD
+=========================== */
 
 .company-card{
     background:#fff;
     border-radius:20px;
     overflow:hidden;
-    box-shadow:0 12px 30px rgba(0,0,0,0.08);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.08);
+
     transition:all .3s ease;
 }
 
 .company-card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-10px);
 }
 
 .card-top{
-    background:linear-gradient(135deg,#0f4c81,#1f8ef1);
+    background:
+    linear-gradient(
+    135deg,
+    #0f4c81,
+    #1f8ef1);
+
     color:#fff;
     padding:30px;
 }
@@ -155,7 +187,7 @@ body{
 }
 
 .card-top p{
-    opacity:0.9;
+    opacity:0.90;
 }
 
 .card-body{
@@ -167,7 +199,7 @@ body{
 }
 
 .card-body ul li{
-    padding:10px 0;
+    padding:12px 0;
     border-bottom:1px solid #f1f1f1;
     color:#555;
 }
@@ -175,12 +207,14 @@ body{
 .btn{
     display:inline-block;
     margin-top:25px;
+    padding:14px 30px;
+
     background:#1f8ef1;
     color:#fff;
     text-decoration:none;
-    padding:14px 30px;
-    border-radius:50px;
     font-weight:600;
+    border-radius:50px;
+
     transition:0.3s;
 }
 
@@ -188,17 +222,26 @@ body{
     background:#071739;
 }
 
-/* CTA */
+/* ===========================
+   CTA SECTION
+=========================== */
+
 .cta{
-    background:#071739;
-    color:#fff;
-    text-align:center;
-    padding:80px 20px;
     margin-top:80px;
+    padding:90px 20px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #071739,
+    #0f4c81);
+
+    text-align:center;
+    color:#fff;
 }
 
 .cta h2{
-    font-size:40px;
+    font-size:42px;
     margin-bottom:20px;
 }
 
@@ -210,7 +253,10 @@ body{
     opacity:0.95;
 }
 
-/* FOOTER */
+/* ===========================
+   FOOTER
+=========================== */
+
 .footer{
     background:#05101f;
     color:#ccc;
@@ -218,7 +264,12 @@ body{
     padding:35px 20px;
 }
 
+/* ===========================
+   MOBILE RESPONSIVE
+=========================== */
+
 @media(max-width:768px){
+
 .hero h1{
     font-size:38px;
 }
@@ -227,10 +278,16 @@ body{
     font-size:18px;
 }
 
+.search-filter-section{
+    grid-template-columns:1fr;
+}
+
 .cta h2{
-    font-size:30px;
+    font-size:32px;
 }
+
 }
+
 </style>
 </head>
 
@@ -238,16 +295,20 @@ body{
 
 <!-- HERO -->
 <section class="hero">
+
     <h1>🏢 Company Profiles</h1>
+
     <p>
         Explore India's leading companies through detailed business profiles,
-        management insights, competitive advantages, financial highlights,
-        growth drivers, and investment perspectives.
+        management quality, competitive advantages, financial highlights,
+        growth drivers and investment perspectives.
     </p>
+
 </section>
 
 <!-- STATS -->
 <section class="stats">
+
     <div class="stat-card">
         <h2>100+</h2>
         <p>Companies to be Covered</p>
@@ -262,52 +323,50 @@ body{
         <h2>100%</h2>
         <p>Educational Research</p>
     </div>
+
 </section>
 
 <!-- SEARCH -->
-<!-- SEARCH + FILTER -->
 <section class="search-filter-section">
 
-    <div class="search-wrapper">
-        <input
-            type="text"
-            id="searchBox"
-            class="search-box"
-            placeholder="🔍 Search Company Profiles..."
-            onkeyup="searchAndFilter()">
-    </div>
+    <input
+        type="text"
+        id="searchBox"
+        class="search-box"
+        placeholder="🔍 Search Company Profiles..."
+        onkeyup="searchAndFilter()">
 
-    <div class="filter-wrapper">
-        <select
-            id="sectorFilter"
-            class="sector-filter"
-            onchange="searchAndFilter()">
+    <select
+        id="sectorFilter"
+        class="sector-filter"
+        onchange="searchAndFilter()">
 
-            <option value="all">📂 All Sectors</option>
-            <option value="defence">🛡️ Defence</option>
-            <option value="banking">🏦 Banking</option>
-            <option value="it">💻 Information Technology</option>
-            <option value="power">⚡ Power & Energy</option>
-            <option value="pharma">💊 Pharmaceuticals</option>
-            <option value="auto">🚗 Automobiles</option>
+        <option value="all">📂 All Sectors</option>
+        <option value="defence">🛡️ Defence</option>
+        <option value="banking">🏦 Banking</option>
+        <option value="it">💻 Information Technology</option>
+        <option value="power">⚡ Power & Energy</option>
+        <option value="pharma">💊 Pharmaceuticals</option>
+        <option value="auto">🚗 Automobiles</option>
+        <option value="consumer">🛍️ Consumer</option>
 
-        </select>
-    </div>
+    </select>
 
 </section>
 
-<!-- COMPANY CARDS -->
-    <div class="company-card" data-sector="defence">
-         
-    <h3>🏢 Data Patterns (India) Ltd</h3>
-    <p>Defence Electronics | NSE: DATAPATTNS</p>
+<!-- COMPANY GRID -->
+<section class="company-grid">
 
-    <a href="companies/defence/data-patterns.html">
-        Read Company Profile →
-    </a>
-</div>
+    <!-- DATA PATTERNS -->
+    <div class="company-card" data-sector="defence">
+
+        <div class="card-top">
+            <h3>🏢 Data Patterns (India) Ltd</h3>
+            <p>Defence Electronics | NSE: DATAPATTNS</p>
+        </div>
 
         <div class="card-body">
+
             <ul>
                 <li>📌 Business Model</li>
                 <li>👨‍💼 Management Team</li>
@@ -315,20 +374,26 @@ body{
                 <li>⚠ Key Risks</li>
             </ul>
 
-            <a href="companies/data-patterns.html" class="btn">
+            <a
+            href="companies/defence/data-patterns.html"
+            class="btn">
                 Read Profile →
             </a>
+
         </div>
+
     </div>
 
+    <!-- TATA POWER -->
     <div class="company-card" data-sector="power">
+
         <div class="card-top">
-             
-            <h3>Tata Power</h3>
+            <h3>⚡ Tata Power</h3>
             <p>Power & Renewable Energy</p>
         </div>
 
         <div class="card-body">
+
             <ul>
                 <li>📌 Business Segments</li>
                 <li>👨‍💼 Leadership Team</li>
@@ -336,20 +401,26 @@ body{
                 <li>⚠ Investment Risks</li>
             </ul>
 
-            <a href="companies/tata-power.html" class="btn">
+            <a
+            href="companies/tata-power.html"
+            class="btn">
                 Read Profile →
             </a>
+
         </div>
+
     </div>
 
+    <!-- RELIANCE -->
     <div class="company-card" data-sector="consumer">
-         
+
         <div class="card-top">
-            <h3>Reliance Industries</h3>
+            <h3>🏢 Reliance Industries</h3>
             <p>Diversified Conglomerate</p>
         </div>
 
         <div class="card-body">
+
             <ul>
                 <li>📌 Business Segments</li>
                 <li>👨‍💼 Management Team</li>
@@ -357,23 +428,29 @@ body{
                 <li>⚠ Key Risks</li>
             </ul>
 
-            <a href="companies/reliance-industries.html" class="btn">
+            <a
+            href="companies/reliance-industries.html"
+            class="btn">
                 Read Profile →
             </a>
+
         </div>
+
     </div>
 
 </section>
 
 <!-- CTA -->
 <section class="cta">
+
     <h2>Research. Learn. Invest Smarter.</h2>
 
     <p>
         Momentum Portfolios is building an educational library of India's
         leading companies to help retail investors understand businesses,
-        management quality, growth opportunities, and risks before investing.
+        management quality, growth opportunities and risks before investing.
     </p>
+
 </section>
 
 <!-- FOOTER -->
@@ -381,54 +458,46 @@ body{
     © 2026 Momentum Portfolios | Company Profiles Library
 </footer>
 
-</script>
-</script>
+<!-- SEARCH SCRIPT -->
+<script>
 
 function searchAndFilter(){
 
-    let input =
+    const input =
         document.getElementById("searchBox")
         .value.toUpperCase();
 
-    let sector =
+    const sector =
         document.getElementById("sectorFilter")
         .value;
 
-    let cards =
+    const cards =
         document.querySelectorAll(".company-card");
 
     cards.forEach(card => {
 
-        let text =
+        const text =
             card.innerText.toUpperCase();
 
-        let cardSector =
+        const cardSector =
             card.getAttribute("data-sector");
 
-        let matchesSearch =
+        const matchesSearch =
             text.includes(input);
 
-        let matchesSector =
+        const matchesSector =
             sector === "all" ||
             cardSector === sector;
 
-        if(matchesSearch && matchesSector){
-
-            card.style.display = "block";
-
-        }else{
-
-            card.style.display = "none";
-
-        }
-
+        card.style.display =
+            (matchesSearch && matchesSector)
+            ? "block"
+            : "none";
     });
-
 }
 
-</script>
 </script>
 
 </body>
 </html>
-
+```
