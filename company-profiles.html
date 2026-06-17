@@ -1,0 +1,341 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Company Profiles | Momentum Portfolios</title>
+<meta name="description" content="Explore detailed company profiles of leading Indian stocks including business model, management, financial highlights, growth drivers, and investment insights.">
+<meta name="keywords" content="Company Profiles India, Indian Stocks, Business Profiles, Management Analysis, Stock Research, Momentum Portfolios">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Arial,sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+    color:#333;
+}
+
+/* HERO SECTION */
+.hero{
+    background:linear-gradient(135deg,#071739,#0f4c81,#1f8ef1);
+    color:#fff;
+    text-align:center;
+    padding:90px 20px;
+}
+
+.hero h1{
+    font-size:52px;
+    margin-bottom:20px;
+    font-weight:700;
+}
+
+.hero p{
+    font-size:22px;
+    max-width:850px;
+    margin:auto;
+    line-height:1.8;
+    opacity:0.95;
+}
+
+/* STATS */
+.stats{
+    max-width:1200px;
+    margin:-50px auto 50px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding:0 20px;
+}
+
+.stat-card{
+    background:#fff;
+    border-radius:18px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 12px 30px rgba(0,0,0,0.10);
+}
+
+.stat-card h2{
+    color:#1f8ef1;
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.stat-card p{
+    color:#666;
+    font-size:18px;
+}
+
+/* SEARCH */
+.search-section{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px 40px;
+}
+
+.search-box{
+    width:100%;
+    padding:18px 25px;
+    border:none;
+    border-radius:50px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    font-size:17px;
+    outline:none;
+}
+
+/* COMPANY GRID */
+.company-grid{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.company-card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    transition:all .3s ease;
+}
+
+.company-card:hover{
+    transform:translateY(-8px);
+}
+
+.card-top{
+    background:linear-gradient(135deg,#0f4c81,#1f8ef1);
+    color:#fff;
+    padding:30px;
+}
+
+.card-top h3{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.card-top p{
+    opacity:0.9;
+}
+
+.card-body{
+    padding:30px;
+}
+
+.card-body ul{
+    list-style:none;
+}
+
+.card-body ul li{
+    padding:10px 0;
+    border-bottom:1px solid #f1f1f1;
+    color:#555;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    background:#1f8ef1;
+    color:#fff;
+    text-decoration:none;
+    padding:14px 30px;
+    border-radius:50px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#071739;
+}
+
+/* CTA */
+.cta{
+    background:#071739;
+    color:#fff;
+    text-align:center;
+    padding:80px 20px;
+    margin-top:80px;
+}
+
+.cta h2{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.cta p{
+    max-width:850px;
+    margin:auto;
+    font-size:20px;
+    line-height:1.8;
+    opacity:0.95;
+}
+
+/* FOOTER */
+.footer{
+    background:#05101f;
+    color:#ccc;
+    text-align:center;
+    padding:35px 20px;
+}
+
+@media(max-width:768px){
+.hero h1{
+    font-size:38px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+.cta h2{
+    font-size:30px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>🏢 Company Profiles</h1>
+    <p>
+        Explore India's leading companies through detailed business profiles,
+        management insights, competitive advantages, financial highlights,
+        growth drivers, and investment perspectives.
+    </p>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+    <div class="stat-card">
+        <h2>100+</h2>
+        <p>Companies to be Covered</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>15+</h2>
+        <p>Sectors Covered</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>100%</h2>
+        <p>Educational Research</p>
+    </div>
+</section>
+
+<!-- SEARCH -->
+<section class="search-section">
+    <input
+        type="text"
+        id="searchBox"
+        class="search-box"
+        placeholder="🔍 Search Company Profiles..."
+        onkeyup="searchCompany()">
+</section>
+
+<!-- COMPANY CARDS -->
+<section class="company-grid" id="companyGrid">
+
+    <div class="company-card">
+        <div class="card-top">
+            <h3>Data Patterns</h3>
+            <p>Defence Electronics</p>
+        </div>
+
+        <div class="card-body">
+            <ul>
+                <li>📌 Business Model</li>
+                <li>👨‍💼 Management Team</li>
+                <li>📈 Growth Drivers</li>
+                <li>⚠ Key Risks</li>
+            </ul>
+
+            <a href="companies/data-patterns.html" class="btn">
+                Read Profile →
+            </a>
+        </div>
+    </div>
+
+    <div class="company-card">
+        <div class="card-top">
+            <h3>Tata Power</h3>
+            <p>Power & Renewable Energy</p>
+        </div>
+
+        <div class="card-body">
+            <ul>
+                <li>📌 Business Segments</li>
+                <li>👨‍💼 Leadership Team</li>
+                <li>📈 Future Opportunities</li>
+                <li>⚠ Investment Risks</li>
+            </ul>
+
+            <a href="companies/tata-power.html" class="btn">
+                Read Profile →
+            </a>
+        </div>
+    </div>
+
+    <div class="company-card">
+        <div class="card-top">
+            <h3>Reliance Industries</h3>
+            <p>Diversified Conglomerate</p>
+        </div>
+
+        <div class="card-body">
+            <ul>
+                <li>📌 Business Segments</li>
+                <li>👨‍💼 Management Team</li>
+                <li>📈 Growth Strategy</li>
+                <li>⚠ Key Risks</li>
+            </ul>
+
+            <a href="companies/reliance-industries.html" class="btn">
+                Read Profile →
+            </a>
+        </div>
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Research. Learn. Invest Smarter.</h2>
+
+    <p>
+        Momentum Portfolios is building an educational library of India's
+        leading companies to help retail investors understand businesses,
+        management quality, growth opportunities, and risks before investing.
+    </p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    © 2026 Momentum Portfolios | Company Profiles Library
+</footer>
+
+<script>
+function searchCompany() {
+    let input = document.getElementById("searchBox").value.toUpperCase();
+    let cards = document.querySelectorAll(".company-card");
+
+    cards.forEach(card => {
+        let text = card.innerText.toUpperCase();
+        card.style.display =
+            text.includes(input) ? "block" : "none";
+    });
+}
+</script>
+
+</body>
+</html>
+```
