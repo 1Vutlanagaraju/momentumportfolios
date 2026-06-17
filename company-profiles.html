@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,7 +77,40 @@ body{
     margin:auto;
     padding:0 20px 40px;
 }
+/* SEARCH + FILTER */
 
+.search-filter-section{
+    max-width:1200px;
+    margin:40px auto;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+}
+
+.search-box,
+.sector-filter{
+    width:100%;
+    padding:18px 25px;
+    border:none;
+    border-radius:50px;
+    background:#fff;
+    font-size:17px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    outline:none;
+}
+
+.sector-filter{
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.search-filter-section{
+    grid-template-columns:1fr;
+}
+
+}
 .search-box{
     width:100%;
     padding:18px 25px;
@@ -233,19 +265,42 @@ body{
 </section>
 
 <!-- SEARCH -->
-<section class="search-section">
-    <input
-        type="text"
-        id="searchBox"
-        class="search-box"
-        placeholder="🔍 Search Company Profiles..."
-        onkeyup="searchCompany()">
-</section>
+<!-- SEARCH + FILTER -->
+<section class="search-filter-section">
+
+    <div class="search-wrapper">
+        <input
+            type="text"
+            id="searchBox"
+            class="search-box"
+            placeholder="🔍 Search Company Profiles..."
+            onkeyup="searchAndFilter()">
+    </div>
+
+    <div class="filter-wrapper">
+        <select
+            id="sectorFilter"
+            class="sector-filter"
+            onchange="searchAndFilter()">
+
+            <option value="all">📂 All Sectors</option>
+            <option value="defence">🛡️ Defence</option>
+            <option value="banking">🏦 Banking</option>
+            <option value="it">💻 Information Technology</option>
+            <option value="power">⚡ Power & Energy</option>
+            <option value="pharma">💊 Pharmaceuticals</option>
+            <option value="auto">🚗 Automobiles</option>
+
+        </select>
+    </div>
+
+</section>>
 
 <!-- COMPANY CARDS -->
 <section class="company-grid" id="companyGrid">
 
     <div class="company-card">
+         data-sector="defence">
     <h3>🏢 Data Patterns (India) Ltd</h3>
     <p>Defence Electronics | NSE: DATAPATTNS</p>
 
@@ -270,6 +325,7 @@ body{
 
     <div class="company-card">
         <div class="card-top">
+             data-sector="power">
             <h3>Tata Power</h3>
             <p>Power & Renewable Energy</p>
         </div>
@@ -289,6 +345,7 @@ body{
     </div>
 
     <div class="company-card">
+         data-sector="consumer">
         <div class="card-top">
             <h3>Reliance Industries</h3>
             <p>Diversified Conglomerate</p>
@@ -327,18 +384,53 @@ body{
 </footer>
 
 <script>
-function searchCompany() {
-    let input = document.getElementById("searchBox").value.toUpperCase();
-    let cards = document.querySelectorAll(".company-card");
+<script>
+
+function searchAndFilter(){
+
+    let input =
+        document.getElementById("searchBox")
+        .value.toUpperCase();
+
+    let sector =
+        document.getElementById("sectorFilter")
+        .value;
+
+    let cards =
+        document.querySelectorAll(".company-card");
 
     cards.forEach(card => {
-        let text = card.innerText.toUpperCase();
-        card.style.display =
-            text.includes(input) ? "block" : "none";
+
+        let text =
+            card.innerText.toUpperCase();
+
+        let cardSector =
+            card.getAttribute("data-sector");
+
+        let matchesSearch =
+            text.includes(input);
+
+        let matchesSector =
+            sector === "all" ||
+            cardSector === sector;
+
+        if(matchesSearch && matchesSector){
+
+            card.style.display = "block";
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
     });
+
 }
+
+</script>
 </script>
 
 </body>
 </html>
-```
+
