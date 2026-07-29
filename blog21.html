@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Stock Market Didn't Take Your Money — Your Decisions Did | Trading Psychology</title>
+
+  <meta name="description" content="The stock market didn't take your money—your decisions did. Learn why trading losses often come from poor preparation, tips, expectations and lack of discipline, and why successful investing requires patience, knowledge and risk management.">
+
+  <meta name="keywords" content="stock market psychology India, trading psychology, stock market losses, investing mistakes, swing trading psychology, trading discipline, investor mindset, stock market education India, risk management, trading mistakes">
+
+  <meta name="author" content="Momentum Portfolios">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Stock Market Didn't Take Your Money... So Who Did?">
+  <meta property="og:description" content="Before blaming the market for a loss, ask whether the real problem was the market—or the decisions made before the trade.">
+  <meta property="og:locale" content="en_IN">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Stock Market Didn't Take Your Money... So Who Did?">
+  <meta name="twitter:description" content="A lesson on trading psychology, discipline, expectations and decision-making in the stock market.">
+
+  <style>
+    :root {
+      --bg: #070b14;
+      --bg-soft: #0c1220;
+      --card: rgba(16, 24, 40, 0.88);
+      --card-2: #111a2b;
+      --text: #f4f7fb;
+      --muted: #9eabc0;
+      --border: rgba(255,255,255,0.09);
+      --green: #00c896;
+      --green-soft: rgba(0, 200, 150, 0.12);
+      --red: #ff5c6c;
+      --red-soft: rgba(255, 92, 108, 0.11);
+      --gold: #f5c451;
+      --blue: #4da3ff;
+      --shadow: 0 25px 70px rgba(0,0,0,.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 15% 0%, rgba(0,200,150,.10), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(77,163,255,.08), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.8;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 70px;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      padding: 70px 60px;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background:
+        linear-gradient(110deg, rgba(8,13,24,.98) 15%, rgba(8,13,24,.88) 58%, rgba(0,200,150,.10)),
+        var(--bg-soft);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -140px;
+      top: -140px;
+      border-radius: 50%;
+      background: rgba(0,200,150,.12);
+      filter: blur(20px);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--green), var(--blue), transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 22px;
+      padding: 8px 14px;
+      border: 1px solid rgba(0,200,150,.25);
+      border-radius: 100px;
+      background: var(--green-soft);
+      color: #5ee6c1;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 900px;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -3px;
+      margin-bottom: 24px;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .hero-subtitle {
+      max-width: 760px;
+      color: #c4cedc;
+      font-size: 1.15rem;
+      line-height: 1.75;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .meta-pill {
+      padding: 7px 12px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    /* ARTICLE */
+    .article {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 70px 0 20px;
+    }
+
+    .lead {
+      margin-bottom: 38px;
+      font-size: 1.32rem;
+      line-height: 1.8;
+      color: #e1e7f0;
+    }
+
+    .lead strong {
+      color: var(--green);
+    }
+
+    .section {
+      margin: 60px 0;
+    }
+
+    .section-label {
+      margin-bottom: 10px;
+      color: var(--green);
+      font-size: .75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+    }
+
+    h2 {
+      margin-bottom: 22px;
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: #cbd4e1;
+      font-size: 1.05rem;
+    }
+
+    strong {
+      color: #fff;
+    }
+
+    /* QUOTE */
+    .quote {
+      position: relative;
+      margin: 45px 0;
+      padding: 34px 38px;
+      border-left: 4px solid var(--green);
+      border-radius: 0 18px 18px 0;
+      background: linear-gradient(90deg, var(--green-soft), rgba(255,255,255,.025));
+    }
+
+    .quote p {
+      margin: 0;
+      color: #fff;
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    /* EXAMPLE CARDS */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin: 30px 0;
+    }
+
+    .card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,200,150,.35);
+    }
+
+    .card-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      background: var(--green-soft);
+      font-size: 1.45rem;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    /* EXPECTATIONS */
+    .expectation-box {
+      margin: 38px 0;
+      padding: 38px;
+      text-align: center;
+      border: 1px solid rgba(245,196,81,.20);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at center top, rgba(245,196,81,.10), transparent 65%),
+        var(--card);
+    }
+
+    .expectation-box .small {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .expectation-box h3 {
+      max-width: 680px;
+      margin: auto;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      line-height: 1.4;
+    }
+
+    /* 10 LAKH */
+    .money-box {
+      margin: 45px 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--card);
+    }
+
+    .money-head {
+      padding: 22px 30px;
+      background: rgba(255,255,255,.035);
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .money-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .money-item {
+      padding: 32px;
+    }
+
+    .money-item:first-child {
+      border-right: 1px solid var(--border);
+    }
+
+    .money-value {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    .good {
+      color: var(--green);
+    }
+
+    .bad {
+      color: var(--red);
+    }
+
+    /* BIG STATEMENT */
+    .big-statement {
+      margin: 70px 0;
+      padding: 55px 35px;
+      text-align: center;
+      border: 1px solid rgba(0,200,150,.25);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 50% 100%, rgba(0,200,150,.13), transparent 55%),
+        var(--card);
+    }
+
+    .big-statement .line1 {
+      display: block;
+      color: var(--muted);
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      font-weight: 700;
+    }
+
+    .big-statement .line2 {
+      display: block;
+      margin-top: 5px;
+      color: var(--green);
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -2px;
+    }
+
+    /* THREE PILLARS */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 35px 0;
+    }
+
+    .pillar {
+      padding: 28px 18px;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card);
+    }
+
+    .pillar span {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.7rem;
+    }
+
+    .pillar strong {
+      font-size: 1rem;
+    }
+
+    /* TAKEAWAY */
+    .takeaway {
+      margin-top: 70px;
+      padding: 42px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #0d4439, #0c2430);
+      border: 1px solid rgba(0,200,150,.28);
+    }
+
+    .takeaway h2 {
+      margin-bottom: 18px;
+    }
+
+    .takeaway p {
+      color: #d7e6e3;
+    }
+
+    .takeaway p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* DISCLAIMER */
+    .disclaimer {
+      max-width: 850px;
+      margin: 55px auto 0;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,.025);
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.7;
+    }
+
+    .disclaimer strong {
+      color: #d8e0eb;
+    }
+
+    footer {
+      max-width: 850px;
+      margin: 30px auto 0;
+      padding: 25px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: #69778c;
+      font-size: .82rem;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 22px, 1120px);
+        padding-top: 12px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 45px 25px;
+        border-radius: 20px;
+      }
+
+      h1 {
+        letter-spacing: -1.8px;
+      }
+
+      .article {
+        padding-top: 50px;
+      }
+
+      .comparison-grid,
+      .pillars {
+        grid-template-columns: 1fr;
+      }
+
+      .money-row {
+        grid-template-columns: 1fr;
+      }
+
+      .money-item:first-child {
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .quote {
+        padding: 27px 25px;
+      }
+
+      .takeaway {
+        padding: 30px 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="page">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+
+      <div class="badge">Trading Psychology • Investor Mindset</div>
+
+      <h1>
+        The Stock Market Didn't Take Your Money...
+        <span>So Who Did?</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Everyone blames the market after a loss. But what if the market
+        isn't the real reason? Sometimes the hardest lesson in investing
+        begins by looking at our own decisions.
+      </p>
+
+      <div class="hero-meta">
+        <span class="meta-pill">Stock Market Education</span>
+        <span class="meta-pill">Trading Psychology</span>
+        <span class="meta-pill">Risk & Discipline</span>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ARTICLE -->
+  <article class="article">
+
+    <p class="lead">
+      If I tell you that it wasn't the stock market that took your money,
+      but <strong>your own decisions</strong>, you might not like hearing it.
+      But understanding this difference can completely change the way you
+      approach investing and trading.
+    </p>
+
+
+    <section class="section">
+
+      <div class="section-label">The Real Problem</div>
+
+      <h2>People Don't Hate the Stock Market. They Hate Losses.</h2>
+
+      <p>Think about this for a moment.</p>
+
+      <div class="comparison-grid">
+
+        <div class="card">
+          <div class="card-icon">🍽️</div>
+          <h3>A Restaurant Fails</h3>
+          <p>
+            Someone opens a restaurant without learning how to run the
+            business. A year later, it shuts down. Do people immediately
+            say, <strong>"Business is gambling"</strong>?
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📚</div>
+          <h3>An Exam Attempt Fails</h3>
+          <p>
+            Someone appears for the UPSC examination without adequate
+            preparation and fails. Do people conclude that
+            <strong>"Studying is useless"</strong>?
+          </p>
+        </div>
+
+      </div>
+
+      <p>
+        Probably not.
+      </p>
+
+      <p>
+        But when someone enters the stock market without learning the basics,
+        buys a stock because a friend recommended it, or places trades based
+        entirely on a video or social-media tip, the reaction after a loss is
+        often very different.
+      </p>
+
+      <div class="quote">
+        <p>"The stock market is gambling."</p>
+      </div>
+
+      <p>
+        And that's where one of the biggest misunderstandings begins.
+      </p>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="section-label">Expectations vs Reality</div>
+
+      <h2>People Don't Just Put Money Into the Market</h2>
+
+      <p>
+        They often put their <strong>expectations</strong> into it too.
+      </p>
+
+      <div class="expectation-box">
+        <span class="small">The Expectation Trap</span>
+        <h3>
+          Expecting to make money without first investing time in
+          knowledge, discipline and risk management.
+        </h3>
+      </div>
+
+      <p>
+        When those expectations break, blaming the market can feel easier
+        than examining the process that led to the trade.
+      </p>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="section-label">The ₹10 Lakh Question</div>
+
+      <h2>Why Do We Research Products But Look for Tips When Investing?</h2>
+
+      <p>
+        There's something I've always found interesting.
+      </p>
+
+      <p>
+        When someone plans to buy a <strong>₹10 lakh car</strong>, they may
+        spend weeks or months comparing models, mileage, safety, maintenance,
+        resale value, reviews and features.
+      </p>
+
+      <p>
+        But when the same person considers putting
+        <strong>₹10 lakh into stocks</strong>, the research process can
+        sometimes become:
+      </p>
+
+      <div class="quote">
+        <p>"Bro... can you suggest a good stock?"</p>
+      </div>
+
+      <div class="money-box">
+
+        <div class="money-head">Same Money. Completely Different Mindset.</div>
+
+        <div class="money-row">
+
+          <div class="money-item">
+            <span class="money-value">₹10 Lakh Car</span>
+            <strong class="good">Research First</strong>
+            <p>
+              Compare features, reviews, price, safety, maintenance and
+              long-term value before making the decision.
+            </p>
+          </div>
+
+          <div class="money-item">
+            <span class="money-value">₹10 Lakh Investment</span>
+            <strong class="bad">Tip First?</strong>
+            <p>
+              A friend, social-media post, video or market rumour can
+              sometimes become the entire investment thesis.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <p>
+        That can become an extremely expensive mindset.
+      </p>
+
+      <p>
+        Because when we buy a product,
+        <strong>we ask questions.</strong>
+      </p>
+
+      <p>
+        But when we invest, too many people simply
+        <strong>look for tips.</strong>
+      </p>
+
+    </section>
+
+
+    <div class="big-statement">
+      <span class="line1">The stock market didn't take your money.</span>
+      <span class="line2">Your decisions did.</span>
+    </div>
+
+
+    <section class="section">
+
+      <div class="section-label">A Different Perspective</div>
+
+      <h2>The Market Is Not a Get-Rich Machine</h2>
+
+      <p>
+        From my own experience, there's one lesson I keep coming back to:
+        the stock market should not be treated as a machine for becoming
+        rich quickly.
+      </p>
+
+      <p>
+        It is a place where your process is tested continuously.
+      </p>
+
+      <div class="pillars">
+
+        <div class="pillar">
+          <span>🧠</span>
+          <strong>Your Habits</strong>
+        </div>
+
+        <div class="pillar">
+          <span>⏳</span>
+          <strong>Your Patience</strong>
+        </div>
+
+        <div class="pillar">
+          <span>🎯</span>
+          <strong>Your Decisions</strong>
+        </div>
+
+      </div>
+
+      <p>
+        Every single trading day can test whether you follow your plan,
+        manage risk, control emotions and make decisions based on a process
+        rather than excitement or fear.
+      </p>
+
+    </section>
+
+
+    <section class="takeaway">
+
+      <div class="section-label">Final Thought</div>
+
+      <h2>Treat the Market as a Skill to Be Learned</h2>
+
+      <p>
+        The day people stop treating the stock market as a shortcut to easy
+        money and start treating investing and trading as skills that require
+        learning, preparation, patience and risk management, their thinking
+        begins to change.
+      </p>
+
+      <p>
+        And when the thinking changes, the decisions may improve too.
+      </p>
+
+      <p>
+        <strong>
+          It's always better to live in reality than in illusions.
+        </strong>
+      </p>
+
+    </section>
+
+  </article>
+
+
+  <!-- DISCLAIMER -->
+  <aside class="disclaimer">
+    <strong>Disclaimer:</strong>
+    This article is published for educational and informational purposes only.
+    It should not be considered investment advice, a stock recommendation,
+    research advice, or a solicitation to buy or sell any security.
+    Stock market investments are subject to market risks. Readers should
+    conduct their own research and, where appropriate, consult a qualified
+    financial professional before making investment decisions.
+  </aside>
+
+
+  <footer>
+    © 2026 Momentum Portfolios • Stock Market Education & Trading Psychology
+  </footer>
+
+</main>
+
+</body>
+</html>
