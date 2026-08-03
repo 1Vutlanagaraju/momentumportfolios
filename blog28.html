@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Primary SEO -->
+    <title>What Happens If You Sell Both a Call and a Put? | Short Straddle Strategy Explained</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Learn what happens when you sell both a Call and a Put (Short Straddle) in options trading. Understand profits, unlimited risks, premium decay, stop loss, and risk management before trading.">
+    <meta name="keywords" content="Sell Call and Put, Short Straddle Strategy, Option Selling, Options Trading India, NIFTY Options, Premium Decay, Theta Decay, Risk Management, NSE Options, Stock Market Education, Momentum Portfolios">
+    <meta name="author" content="Momentum Portfolios">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="What Happens If You Sell Both a Call and a Put?">
+    <meta property="og:description" content="Selling both a Call and a Put can generate premium income—but it also carries significant risk. Learn how the Short Straddle strategy really works.">
+    <meta property="og:image" content="https://momentumportfolios.com/images/options-selling-guide.jpg">
+    <meta property="og:url" content="https://momentumportfolios.com/">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://momentumportfolios.com/">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"Article",
+      "headline":"What Happens If You Sell Both a Call and a Put?",
+      "description":"Understand the Short Straddle options strategy, its advantages, risks, and why proper risk management is essential.",
+      "author":{
+        "@type":"Organization",
+        "name":"Momentum Portfolios"
+      },
+      "publisher":{
+        "@type":"Organization",
+        "name":"Momentum Portfolios"
+      },
+      "mainEntityOfPage":{
+        "@type":"WebPage",
+        "@id":"https://momentumportfolios.com/"
+      }
+    }
+    </script>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#eef3f9;
+color:#333;
+line-height:1.9;
+}
+
+.container{
+max-width:1100px;
+margin:40px auto;
+padding:20px;
+}
+
+.article{
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 20px 50px rgba(0,0,0,.12);
+}
+
+.hero{
+background:linear-gradient(135deg,#0f172a,#1d4ed8,#06b6d4);
+padding:70px 45px;
+color:#fff;
+text-align:center;
+}
+
+.hero h1{
+font-size:42px;
+font-weight:800;
+margin-bottom:20px;
+line-height:1.3;
+}
+
+.hero p{
+font-size:20px;
+opacity:.95;
+max-width:900px;
+margin:auto;
+}
+
+.content{
+padding:45px;
+}
+
+.content h2{
+color:#0f172a;
+margin-top:40px;
+margin-bottom:18px;
+font-size:30px;
+border-left:6px solid #2563eb;
+padding-left:15px;
+}
+
+.content p{
+margin-bottom:22px;
+font-size:18px;
+}
+
+.highlight{
+background:#eff6ff;
+border-left:5px solid #2563eb;
+padding:22px;
+border-radius:10px;
+margin:30px 0;
+font-weight:500;
+}
+
+.warning{
+background:#fff4e5;
+border-left:5px solid #ff9800;
+padding:22px;
+border-radius:10px;
+margin:35px 0;
+}
+
+.danger{
+background:#fff1f2;
+border-left:5px solid #dc2626;
+padding:22px;
+border-radius:10px;
+margin:35px 0;
+}
+
+.success{
+background:#ecfdf5;
+border-left:5px solid #16a34a;
+padding:22px;
+border-radius:10px;
+margin:35px 0;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin:35px 0;
+}
+
+table th{
+background:#1d4ed8;
+color:#fff;
+padding:15px;
+font-size:17px;
+}
+
+table td{
+padding:15px;
+border:1px solid #ddd;
+font-size:16px;
+}
+
+table tr:nth-child(even){
+background:#f8fafc;
+}
+
+ul{
+margin:20px 0 30px 30px;
+}
+
+li{
+margin-bottom:12px;
+font-size:17px;
+}
+
+.quote{
+background:linear-gradient(135deg,#1e293b,#0f172a);
+color:#fff;
+padding:35px;
+border-radius:15px;
+font-size:24px;
+font-weight:600;
+font-style:italic;
+text-align:center;
+margin:45px 0;
+}
+
+.footer-box{
+background:#0f172a;
+color:#fff;
+padding:35px;
+border-radius:15px;
+margin-top:45px;
+}
+
+.footer-box h3{
+margin-bottom:15px;
+font-size:28px;
+}
+
+.footer-box p{
+color:#e5e7eb;
+}
+
+.disclaimer{
+background:#fef3c7;
+border-left:5px solid #d97706;
+padding:20px;
+margin-top:40px;
+border-radius:10px;
+font-size:15px;
+}
+
+@media(max-width:768px){
+
+.hero{
+padding:45px 25px;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+.hero p{
+font-size:17px;
+}
+
+.content{
+padding:28px;
+}
+
+.content h2{
+font-size:25px;
+}
+
+.content p{
+font-size:17px;
+}
+
+.quote{
+font-size:20px;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="article">
+
+<div class="hero">
+
+<h1>What Can Happen If You Sell Both a Call and a Put in the Stock Market?</h1>
+
+<p>Option Selling may look simple because you collect premium upfront—but without proper risk management, one strong market move can erase months of profits. Learn how the Short Straddle strategy really works before placing your next trade.</p>
+
+</div>
+
+<div class="content">
+
+<p>If someone tells me...</p>
+
+<div class="highlight">
+
+<strong>"I've sold both a Call and a Put."</strong>
+
+</div>
+
+<p>The first thing I won't ask is...</p>
+
+<p><strong>"Which strike price did you sell?"</strong></p>
+
+<p>The first thing I'll ask is...</p>
+
+<p><strong>"Why did you sell both?"</strong></p>
+
+<p>Because the answer reveals whether the trade was taken with a proper understanding of options... or simply because the premiums looked attractive.</p>
+
+<h2>Why Many Traders Sell Both Options</h2>
+
+<p>Many beginners believe that selling both a Call Option and a Put Option guarantees income because premium is collected from both sides.</p>
+
+<p>The thinking is simple:</p>
+
+<ul>
+<li>Collect Call Premium</li>
+<li>Collect Put Premium</li>
+<li>Wait for Time Decay (Theta)</li>
+<li>Keep the premium as profit</li>
+</ul>
+
+<p>It sounds like an easy strategy.</p>
+
+<p>Unfortunately...</p>
+
+<p>The stock market rarely rewards easy money.</p>
+
+<h2>Example of a Short Straddle</h2>
+
+<p>Suppose NIFTY is trading at <strong>25,000</strong>.</p>
+
+<p>You sell:</p>
+
+<table>
+
+<tr>
+<th>Position</th>
+<th>Strike Price</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>NIFTY 25000 Call</td>
+<td>25000 CE</td>
+<td>Sell</td>
+</tr>
+
+<tr>
+<td>NIFTY 25000 Put</td>
+<td>25000 PE</td>
+<td>Sell</td>
+</tr>
+
+</table>
+
+<p>If the market stays near 25,000 throughout the trading session...</p>
+
+<p>Both option premiums gradually lose value because of <strong>Theta Decay</strong>.</p>
+
+<p>The option seller benefits as both premiums shrink.</p>
+
+<div class="success">
+
+<strong>Ideal Scenario:</strong><br><br>
+
+✔ Market remains range-bound.<br>
+✔ Volatility stays low.<br>
+✔ Time decay works in your favour.<br>
+✔ Both premiums decline steadily.
+
+</div>
+
+<h2>Where Things Become Dangerous</h2>
+
+<p>This is where many traders stop thinking.</p>
+
+<p>They assume the strategy always works.</p>
+
+<p>Now imagine something unexpected happens.</p>
+
+<p>A major economic announcement...</p>
+
+<p>Global markets rally...</p>
+
+<p>Breaking news surprises investors...</p>
+
+<p>Suddenly...</p>
+
+<div class="danger">
+
+<strong>NIFTY jumps from 25,000 to 25,300.</strong>
+
+</div>
+
+<p>Your Call Option starts gaining value rapidly.</p>
+
+<p>The premium you collected may become several times larger against you.</p>
+
+<p>Although your Put Option becomes nearly worthless...</p>
+
+<p>The loss from the Call Option can be significantly bigger than the premium earned.</p>
+
+<h2>The Biggest Risk of Selling Both Options</h2>
+
+<table>
+
+<tr>
+<th>Profit</th>
+<th>Loss</th>
+</tr>
+
+<tr>
+<td>Limited to Premium Received</td>
+<td>Potentially Unlimited</td>
+</tr>
+
+</table>
+
+<p>This is the biggest difference between buying options and selling options.</p>
+
+<p>As an option seller...</p>
+
+<ul>
+
+<li>Your maximum profit is fixed.</li>
+
+<li>Your potential loss can continue increasing as the market trends strongly.</li>
+
+<li>High volatility can increase option premiums dramatically.</li>
+
+<li>Large overnight gaps can create substantial losses.</li>
+
+</ul>
+
+<div class="warning">
+
+<strong>Remember:</strong><br><br>
+
+One strong trending day can wipe out the profits earned over several weeks or even months.
+
+</div>
+
+<h2>The Real Job of an Option Seller</h2>
+
+<p>From experience, one lesson becomes very clear.</p>
+
+<p>The real job of an option seller isn't collecting premium.</p>
+
+<p><strong>The real job is controlling risk.</strong></p>
+
+<p>Professional option sellers spend more time managing losses than chasing profits.</p>
+
+<p>That includes:</p>
+
+<ul>
+
+<li>Using strict stop-loss levels</li>
+
+<li>Managing position sizing</li>
+
+<li>Avoiding event risk</li>
+
+<li>Monitoring implied volatility</li>
+
+<li>Keeping sufficient margin</li>
+
+<li>Adjusting positions when necessary</li>
+
+</ul>
+
+<div class="quote">
+
+"Premium Collection Creates Income.<br><br>
+
+Risk Management Protects Capital."
+
+</div>
+
+<h2>Final Thoughts</h2>
+
+<p>There is absolutely nothing wrong with selling both a Call and a Put.</p>
+
+<p>In fact, the Short Straddle is a popular strategy among experienced options traders.</p>
+
+<p>However...</p>
+
+<p>Selling both options without a clear risk management plan is like driving at high speed without wearing a seat belt.</p>
+
+<p>Everything may seem perfectly safe for days.</p>
+
+<p>But when the unexpected happens...</p>
+
+<p>That single day can become the most expensive trading day of your life.</p>
+
+<div class="footer-box">
+
+<h3>Key Takeaways</h3>
+
+<p>
+✔ Selling both a Call and Put earns premium from both sides.<br><br>
+
+✔ The strategy performs best in sideways markets.<br><br>
+
+✔ Maximum profit is limited to the premium received.<br><br>
+
+✔ Potential losses can be very large if the market trends strongly.<br><br>
+
+✔ Risk management, position sizing, stop-losses, and discipline are more important than premium collection.
+</p>
+
+</div>
+
+<div class="disclaimer">
+
+<strong>Disclaimer:</strong> This article is intended solely for educational and informational purposes. Options trading involves significant financial risk and may not be suitable for all investors. Always conduct your own research, understand the risks involved, and consult a SEBI-registered financial advisor before making any investment or trading decisions.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
