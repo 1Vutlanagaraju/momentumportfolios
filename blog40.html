@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Are You Really Ready to Invest Big? | Stock Market Experience</title>
+
+<meta name="description" content="Before investing a large amount in the stock market, experience is not just about reading charts. Learn why emotional control, risk management and mental preparation matter more when your capital increases.">
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        background: #f4f7fb;
+        color: #1f2937;
+        line-height: 1.8;
+    }
+
+    .article-wrapper {
+        max-width: 920px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    .article-card {
+        background: #ffffff;
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 15px 45px rgba(15, 23, 42, 0.10);
+    }
+
+    /* HERO */
+    .article-hero {
+        position: relative;
+        padding: 65px 55px;
+        background: linear-gradient(135deg, #071a35, #0b315f 55%, #123f70);
+        color: #ffffff;
+        overflow: hidden;
+    }
+
+    .article-hero::before {
+        content: "";
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.10);
+        right: -80px;
+        top: -100px;
+    }
+
+    .article-hero::after {
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.08);
+        right: 40px;
+        bottom: -100px;
+    }
+
+    .category {
+        display: inline-block;
+        padding: 7px 15px;
+        border-radius: 30px;
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.18);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 22px;
+    }
+
+    .article-hero h1 {
+        position: relative;
+        z-index: 2;
+        font-size: clamp(32px, 5vw, 50px);
+        line-height: 1.15;
+        margin-bottom: 20px;
+        letter-spacing: -1.2px;
+    }
+
+    .hero-subtitle {
+        position: relative;
+        z-index: 2;
+        font-size: 21px;
+        color: #dbeafe;
+        max-width: 720px;
+        line-height: 1.6;
+    }
+
+    .source-link {
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+        margin-top: 25px;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 14px;
+        opacity: 0.85;
+        border-bottom: 1px solid rgba(255,255,255,0.4);
+    }
+
+    .source-link:hover {
+        opacity: 1;
+    }
+
+    /* CONTENT */
+    .article-content {
+        padding: 55px;
+    }
+
+    .intro {
+        font-size: 20px;
+        color: #374151;
+        margin-bottom: 35px;
+    }
+
+    .article-content p {
+        font-size: 17px;
+        margin-bottom: 24px;
+        color: #374151;
+    }
+
+    .article-content strong {
+        color: #111827;
+    }
+
+    /* SECTION HEADINGS */
+    .section-title {
+        font-size: 29px;
+        line-height: 1.3;
+        margin: 45px 0 20px;
+        color: #0f172a;
+        letter-spacing: -0.5px;
+    }
+
+    .section-title::before {
+        content: "";
+        display: inline-block;
+        width: 5px;
+        height: 30px;
+        background: #2563eb;
+        border-radius: 5px;
+        margin-right: 12px;
+        vertical-align: -4px;
+    }
+
+    /* STORY BOX */
+    .story-box {
+        margin: 35px 0;
+        padding: 32px;
+        background: linear-gradient(145deg, #f8fafc, #eef4ff);
+        border: 1px solid #dbe7f5;
+        border-radius: 18px;
+    }
+
+    .story-box h3 {
+        font-size: 22px;
+        margin-bottom: 18px;
+        color: #0f3d73;
+    }
+
+    .story-box p {
+        margin-bottom: 16px;
+    }
+
+    /* QUESTION BOX */
+    .question-box {
+        margin: 35px 0;
+        padding: 30px;
+        border-left: 5px solid #2563eb;
+        background: #f8fafc;
+        border-radius: 0 15px 15px 0;
+    }
+
+    .question-box p {
+        margin-bottom: 12px;
+        font-weight: 600;
+        color: #1e3a5f;
+    }
+
+    .question-box p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* KEY INSIGHT */
+    .insight-box {
+        margin: 40px 0;
+        padding: 35px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #0f172a, #172554);
+        color: #ffffff;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
+    }
+
+    .insight-label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #93c5fd;
+        font-weight: 800;
+        margin-bottom: 15px;
+    }
+
+    .insight-box p {
+        color: #e5edf8;
+        font-size: 20px;
+        margin: 0;
+        line-height: 1.7;
+    }
+
+    /* EXPERIENCE CARDS */
+    .experience-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        margin: 30px 0 40px;
+    }
+
+    .experience-card {
+        padding: 25px;
+        border-radius: 16px;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+    }
+
+    .experience-card .number {
+        font-size: 14px;
+        font-weight: 800;
+        color: #2563eb;
+        margin-bottom: 10px;
+    }
+
+    .experience-card h3 {
+        font-size: 19px;
+        color: #111827;
+        margin-bottom: 8px;
+    }
+
+    .experience-card p {
+        font-size: 15px;
+        margin: 0;
+        color: #6b7280;
+    }
+
+    /* BIG QUOTE */
+    .big-quote {
+        position: relative;
+        margin: 45px 0;
+        padding: 40px 35px;
+        text-align: center;
+        background: linear-gradient(135deg, #eff6ff, #f8fafc);
+        border-radius: 20px;
+        border: 1px solid #dbeafe;
+    }
+
+    .big-quote::before {
+        content: "“";
+        position: absolute;
+        top: -15px;
+        left: 25px;
+        font-size: 80px;
+        color: #93c5fd;
+        line-height: 1;
+    }
+
+    .big-quote p {
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 1.5;
+        color: #0f3d73;
+        margin: 0;
+    }
+
+    /* FINAL MESSAGE */
+    .final-message {
+        margin-top: 45px;
+        padding: 38px;
+        border-radius: 20px;
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        text-align: center;
+    }
+
+    .final-message p {
+        font-size: 20px;
+        font-weight: 600;
+        color: #334155;
+        margin-bottom: 15px;
+    }
+
+    .final-message p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* DISCLAIMER */
+    .disclaimer {
+        margin-top: 45px;
+        padding: 20px;
+        border-top: 1px solid #e5e7eb;
+        font-size: 13px;
+        color: #6b7280;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+
+        .article-wrapper {
+            margin: 20px auto;
+            padding: 0 12px;
+        }
+
+        .article-hero {
+            padding: 45px 28px;
+        }
+
+        .article-content {
+            padding: 32px 25px;
+        }
+
+        .article-hero h1 {
+            font-size: 34px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+        }
+
+        .article-content p {
+            font-size: 16px;
+        }
+
+        .experience-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .big-quote p {
+            font-size: 21px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="article-wrapper">
+
+    <article class="article-card">
+
+        <!-- HERO SECTION -->
+        <header class="article-hero">
+
+            <div class="category">Stock Market Psychology</div>
+
+            <h1>Are You Really Ready to Invest Big?</h1>
+
+            <p class="hero-subtitle">
+                What kind of experience should you have before investing a large amount in the stock market?
+            </p>
+
+            <a
+                class="source-link"
+                href="https://www.quora.com/profile/Prashant-Roy-282/What-kind-of-experience-should-I-have-before-investing-a-large-amount-in-the-stock-market"
+                target="_blank"
+                rel="noopener noreferrer">
+                Read the original answer on Quora →
+            </a>
+
+        </header>
+
+
+        <!-- ARTICLE CONTENT -->
+        <div class="article-content">
+
+            <p class="intro">
+                Before putting a large amount of money into the stock market,
+                the most important question isn't
+                <strong>"How much do I know?"</strong>
+                It is:
+                <strong>"How do I behave when my money is at risk?"</strong>
+            </p>
+
+
+            <h2 class="section-title">
+                Imagine Learning to Swim
+            </h2>
+
+            <div class="story-box">
+
+                <h3>Would a Coach Put a Beginner in 20 Feet of Water?</h3>
+
+                <p>
+                    Suppose someone is going into a river for the first time.
+                </p>
+
+                <p>
+                    Would a Coach directly take him into 20 feet deep water?
+                </p>
+
+                <p>
+                    <strong>Absolutely not.</strong>
+                </p>
+
+                <p>
+                    He would first take him near the shore.
+                </p>
+
+                <p>
+                    Because the Coach is not only looking at whether the person
+                    can swim.
+                </p>
+
+                <p>
+                    The Coach is also watching
+                    <strong>how that person behaves in the water.</strong>
+                </p>
+
+            </div>
+
+
+            <div class="question-box">
+
+                <p>Does he panic?</p>
+
+                <p>
+                    Does he start waving his hands and legs as soon as he gets
+                    into the water?
+                </p>
+
+                <p>
+                    Or does he stay calm, observe and learn?
+                </p>
+
+            </div>
+
+
+            <h2 class="section-title">
+                The Stock Market Works the Same Way
+            </h2>
+
+            <p>
+                The Share Market doesn't care how much money you have.
+            </p>
+
+            <p>
+                It reveals something much more important:
+                <strong>how you behave when your money is under pressure.</strong>
+            </p>
+
+            <div class="insight-box">
+
+                <div class="insight-label">
+                    The Real Test
+                </div>
+
+                <p>
+                    Your real experience begins when the market does something
+                    you didn't expect.
+                </p>
+
+            </div>
+
+
+            <h2 class="section-title">
+                What Happens When You Face a Loss?
+            </h2>
+
+            <p>
+                Ask yourself honestly:
+            </p>
+
+
+            <div class="experience-grid">
+
+                <div class="experience-card">
+
+                    <div class="number">01</div>
+
+                    <h3>When the Stock Falls</h3>
+
+                    <p>
+                        Do you immediately panic and sell as soon as the stock
+                        falls 5%?
+                    </p>
+
+                </div>
+
+
+                <div class="experience-card">
+
+                    <div class="number">02</div>
+
+                    <h3>When You Make Profit</h3>
+
+                    <p>
+                        Do you exit too quickly as soon as you see a 10%
+                        profit?
+                    </p>
+
+                </div>
+
+
+                <div class="experience-card">
+
+                    <div class="number">03</div>
+
+                    <h3>When the Market Changes</h3>
+
+                    <p>
+                        Do you keep changing your decision again and again
+                        without a clear reason?
+                    </p>
+
+                </div>
+
+
+                <div class="experience-card">
+
+                    <div class="number">04</div>
+
+                    <h3>When There Is No Opportunity</h3>
+
+                    <p>
+                        Can you comfortably sit in cash instead of forcing a
+                        trade?
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <p>
+                If you still don't have clear answers to these questions,
+                understand that your experience may not be complete yet.
+            </p>
+
+
+            <h2 class="section-title">
+                Experience Is More Than Reading Charts
+            </h2>
+
+            <p>
+                Experience doesn't just mean knowing how to read a chart,
+                understand an indicator or identify a pattern.
+            </p>
+
+            <p>
+                Real experience means learning to manage yourself when the
+                market tests your emotions.
+            </p>
+
+
+            <div class="big-quote">
+
+                <p>
+                    Experience means managing greed when you see Profit,
+                    managing panic when you see Loss,
+                    and having the discipline to stay in Cash when there is
+                    no good opportunity.
+                </p>
+
+            </div>
+
+
+            <h2 class="section-title">
+                The ₹10,000 vs ₹10 Lakh Test
+            </h2>
+
+            <p>
+                From experience, I would say just one thing for your question:
+            </p>
+
+            <div class="insight-box">
+
+                <div class="insight-label">
+                    A Simple Self-Test
+                </div>
+
+                <p>
+                    The day your thinking remains the same whether you invest
+                    ₹10,000 or ₹10 lakh, understand that you are more prepared
+                    than before to invest a large amount.
+                </p>
+
+            </div>
+
+
+            <p>
+                But if increasing the investment amount changes your thinking,
+                your decisions or your emotional behaviour, then you may not
+                yet be ready to invest a large amount.
+            </p>
+
+
+            <h2 class="section-title">
+                Why Mental Preparation Matters
+            </h2>
+
+            <p>
+                When the amount becomes larger, the same percentage movement
+                can create a much larger emotional reaction.
+            </p>
+
+            <p>
+                A 5% decline on ₹10,000 may feel uncomfortable.
+                A 5% decline on ₹10 lakh can feel completely different.
+            </p>
+
+            <p>
+                The market hasn't changed.
+                <strong>Your emotional response has.</strong>
+            </p>
+
+            <p>
+                That is why increasing capital should also mean increasing
+                your mental preparation, discipline and understanding of risk.
+            </p>
+
+
+            <div class="final-message">
+
+                <p>
+                    In the Share Market, large capital is handled not by
+                    greater knowledge alone...
+                </p>
+
+                <p>
+                    <strong>
+                        It is handled by greater mental preparation.
+                    </strong>
+                </p>
+
+                <p>
+                    Living in reality is better than living in the world of
+                    illusions.
+                </p>
+
+            </div>
+
+
+            <div class="disclaimer">
+
+                <strong>Educational Purpose Only:</strong>
+                This article is intended for educational and informational
+                purposes only. It is not investment advice and should not be
+                considered a recommendation to buy, sell or hold any security.
+                Investors should conduct their own research and consider their
+                risk tolerance before making investment decisions.
+
+            </div>
+
+        </div>
+
+    </article>
+
+</div>
+
+</body>
+</html>
