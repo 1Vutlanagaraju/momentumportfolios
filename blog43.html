@@ -1,0 +1,484 @@
+<style>
+  .market-article {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #172033;
+    background: #ffffff;
+    line-height: 1.8;
+  }
+
+  .market-hero {
+    position: relative;
+    padding: 55px 48px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #101828 0%, #172554 55%, #1e3a8a 100%);
+    color: #ffffff;
+    overflow: hidden;
+    margin-bottom: 34px;
+  }
+
+  .market-hero::after {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    right: -80px;
+    top: -90px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .eyebrow {
+    display: inline-block;
+    padding: 7px 14px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #dbeafe;
+  }
+
+  .market-hero h1 {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 16px;
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+  }
+
+  .hero-subtitle {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0;
+    font-size: 19px;
+    color: #dbeafe;
+  }
+
+  .source-link {
+    margin-top: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .source-link a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+  }
+
+  .article-body {
+    padding: 0 12px;
+  }
+
+  .opening-quote {
+    margin: 0 0 35px;
+    padding: 28px 30px;
+    border-left: 5px solid #2563eb;
+    border-radius: 0 18px 18px 0;
+    background: #f3f7ff;
+    font-size: 25px;
+    line-height: 1.5;
+    font-weight: 750;
+    color: #14213d;
+  }
+
+  .section-title {
+    margin: 44px 0 16px;
+    font-size: 28px;
+    line-height: 1.25;
+    color: #111827;
+  }
+
+  .article-body p {
+    margin: 0 0 21px;
+    font-size: 17px;
+  }
+
+  .highlight {
+    margin: 30px 0;
+    padding: 26px 28px;
+    border: 1px solid #dbeafe;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #f8fbff, #eef5ff);
+  }
+
+  .highlight strong {
+    color: #1d4ed8;
+  }
+
+  .warning-card {
+    margin: 34px 0;
+    padding: 28px;
+    border-radius: 20px;
+    background: #fff8ed;
+    border: 1px solid #fed7aa;
+  }
+
+  .warning-card h3 {
+    margin: 0 0 12px;
+    font-size: 22px;
+    color: #9a3412;
+  }
+
+  .decision-box {
+    margin: 35px 0;
+    padding: 30px;
+    border-radius: 22px;
+    background: #111827;
+    color: #ffffff;
+  }
+
+  .decision-box h3 {
+    margin: 0 0 14px;
+    font-size: 24px;
+  }
+
+  .decision-box p {
+    margin-bottom: 0;
+    color: #e5e7eb;
+  }
+
+  .mistake-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 26px 0 34px;
+  }
+
+  .mistake-card {
+    padding: 22px;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(15,23,42,0.05);
+  }
+
+  .mistake-number {
+    display: inline-flex;
+    width: 34px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-weight: 800;
+  }
+
+  .mistake-card strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #111827;
+  }
+
+  .capacity-box {
+    margin: 40px 0;
+    padding: 34px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #eff6ff, #f8fafc);
+    border: 1px solid #dbeafe;
+  }
+
+  .capacity-box h2 {
+    margin-top: 0;
+    font-size: 30px;
+    color: #172554;
+  }
+
+  .capacity-list {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .capacity-list li {
+    position: relative;
+    margin: 13px 0;
+    padding-left: 30px;
+  }
+
+  .capacity-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #2563eb;
+    font-weight: 800;
+  }
+
+  .final-quote {
+    margin: 44px 0 28px;
+    padding: 35px 30px;
+    text-align: center;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #172554, #1e40af);
+    color: #ffffff;
+  }
+
+  .final-quote p {
+    margin: 0;
+    font-size: 25px;
+    line-height: 1.55;
+    font-weight: 750;
+  }
+
+  .closing-line {
+    margin: 26px 0 0;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+    color: #1d4ed8;
+  }
+
+  .disclaimer {
+    margin-top: 42px;
+    padding: 20px 22px;
+    border-radius: 14px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 680px) {
+    .market-hero {
+      padding: 38px 25px;
+      border-radius: 18px;
+    }
+
+    .article-body {
+      padding: 0 4px;
+    }
+
+    .opening-quote {
+      font-size: 21px;
+      padding: 22px;
+    }
+
+    .article-body p {
+      font-size: 16px;
+    }
+
+    .mistake-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .final-quote p {
+      font-size: 21px;
+    }
+  }
+</style>
+
+<article class="market-article">
+
+  <header class="market-hero">
+    <span class="eyebrow">Stock Market • Risk Management</span>
+
+```
+<h1>How Much Money Should One Invest in the Share Market?</h1>
+
+<p class="hero-subtitle">
+  The right amount is not the amount you can invest.
+  It is the amount you can handle without losing your discipline.
+</p>
+
+<div class="source-link">
+  Original Question:
+  <a href="https://www.quora.com/profile/Prashant-Roy-282/How-much-money-should-one-invest-in-the-Share-Market"
+     target="_blank"
+     rel="noopener noreferrer">
+    Read on Quora →
+  </a>
+</div>
+```
+
+  </header>
+
+  <div class="article-body">
+
+```
+<div class="opening-quote">
+  “Not as much as you have.”
+</div>
+
+<p>
+  If I have to answer this question in just one line, my answer would be:
+  <strong>“Not as much as you have.”</strong>
+</p>
+
+<p>
+  The real question is not simply how much money you have.
+  The more important question is:
+  <strong>How much money can you handle emotionally and financially?</strong>
+</p>
+
+<h2 class="section-title">Start With What You Can Afford to Lose</h2>
+
+<p>
+  In the beginning, invest only as much as, even if the value falls by
+  <strong>20–30%</strong>, it does not disturb your life, sleep or monthly budget.
+</p>
+
+<p>
+  I have seen people start with ₹50,000. As soon as they make their first
+  ₹5,000 profit, their confidence suddenly goes through the roof.
+</p>
+
+<div class="highlight">
+  <p>
+    They start thinking:
+    <strong>“If I can make ₹5,000 profit on ₹50,000, imagine how much I can make on ₹5 lakh.”</strong>
+  </p>
+</div>
+
+<p>
+  <strong>This is where the problem starts.</strong>
+</p>
+
+<h2 class="section-title">More Capital Doesn't Mean More Confidence</h2>
+
+<p>
+  As your capital increases in the market, the possibility of profit may increase,
+  but <strong>the psychological pressure also increases.</strong>
+</p>
+
+<p>
+  In a ₹10,000 portfolio, you may remain calm when you see a ₹1,000 fluctuation.
+  But when the same 10% fluctuation occurs on ₹10 lakh, many people stop looking
+  at the chart and start looking at their money.
+</p>
+
+<div class="mistake-grid">
+
+  <div class="mistake-card">
+    <span class="mistake-number">1</span>
+    <strong>Decisions Start Changing</strong>
+    The original trading or investment plan is no longer followed consistently.
+  </div>
+
+  <div class="mistake-card">
+    <span class="mistake-number">2</span>
+    <strong>Stop Loss Gets Removed</strong>
+    A planned loss suddenly becomes emotionally difficult to accept.
+  </div>
+
+  <div class="mistake-card">
+    <span class="mistake-number">3</span>
+    <strong>Losses Are Held</strong>
+    Instead of accepting a small loss, the investor keeps waiting for recovery.
+  </div>
+
+  <div class="mistake-card">
+    <span class="mistake-number">4</span>
+    <strong>Profits Are Booked Too Quickly</strong>
+    Fear of losing a small profit starts controlling the decision.
+  </div>
+
+</div>
+
+<div class="capacity-box">
+  <h2>Increase Your Capacity Before Increasing Your Capital</h2>
+
+  <p>
+    So, according to me, <strong>first increase your capacity, not your capital.</strong>
+  </p>
+
+  <ul class="capacity-list">
+    <li>Start with a small amount.</li>
+    <li>Understand how the market behaves.</li>
+    <li>Understand your own risk capacity.</li>
+    <li>Build discipline before increasing position size.</li>
+    <li>Observe your behaviour when you experience a loss.</li>
+  </ul>
+</div>
+
+<h2 class="section-title">Your Behaviour During a Loss Matters</h2>
+
+<p>
+  This is perhaps one of the most important tests for any trader or investor.
+</p>
+
+<p>
+  <strong>How do you behave when your position goes against you?</strong>
+</p>
+
+<p>
+  If you cannot maintain discipline with ₹20,000, then ₹2 lakh will not
+  automatically make you a better trader.
+</p>
+
+<p>
+  Rather, the same mistake can simply become <strong>10 times bigger.</strong>
+</p>
+
+<div class="warning-card">
+  <h3>⚠️ Don't Invest Money You May Need Soon</h3>
+
+  <p>
+    If the money is your <strong>emergency fund</strong>, household expense,
+    money reserved to repay a loan, or money you may need in the near future,
+    there is no need to put it at market risk.
+  </p>
+
+  <p>
+    Before putting money into the market, ask yourself:
+    <strong>“If this money becomes significantly lower for some time, can I still live comfortably?”</strong>
+  </p>
+</div>
+
+<div class="decision-box">
+  <h3>The Real Question Isn't “How Much Can I Invest?”</h3>
+
+  <p>
+    The better question is:
+    <strong>“How much can I invest without allowing money to control my decisions?”</strong>
+  </p>
+</div>
+
+<h2 class="section-title">The Right Amount Is the Amount You Can Handle</h2>
+
+<p>
+  From experience, I would say just one thing:
+</p>
+
+<div class="final-quote">
+  <p>
+    “The right amount in the Share Market is not the one that gives you
+    the most profit. Rather, the right amount is the one that allows
+    you to make the right decision.”
+  </p>
+</div>
+
+<p>
+  Because if the capital is small, the profit may be small.
+  But if the capital survives, <strong>the opportunities to learn and grow will always remain.</strong>
+</p>
+
+<p class="closing-line">
+  First stay in the Market...<br>
+  Then increase your Capital. 📈
+</p>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong>
+  This article is for educational and informational purposes only.
+  It is not investment advice and should not be considered a recommendation
+  to buy, sell or hold any security. Market investments are subject to risk.
+  Please assess your own financial situation, risk tolerance and investment
+  objectives before making any investment decision.
+</div>
+
+
+  </div>
+
+</article>
