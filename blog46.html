@@ -1,0 +1,975 @@
+<!-- ==========================================
+     PREMIUM STOCK MARKET ARTICLE
+     MOMENTUM PORTFOLIOS
+     ========================================== -->
+
+<article class="legend-investor-article">
+
+  <style>
+    .legend-investor-article {
+      max-width: 980px;
+      margin: 45px auto;
+      padding: 0 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      color: #1f2937;
+      line-height: 1.85;
+      font-size: 17px;
+    }
+
+    .legend-investor-article * {
+      box-sizing: border-box;
+    }
+
+    /* HERO */
+    .lia-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 60px 45px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #07111f 0%, #16263d 55%, #243b55 100%);
+      color: #fff;
+      box-shadow: 0 20px 55px rgba(15, 23, 42, 0.20);
+      margin-bottom: 35px;
+    }
+
+    .lia-hero:after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      right: -90px;
+      top: -90px;
+      border-radius: 50%;
+      background: rgba(251, 191, 36, 0.10);
+    }
+
+    .lia-tag {
+      display: inline-block;
+      padding: 7px 15px;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.10);
+      color: #fbbf24;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .lia-hero h1 {
+      position: relative;
+      z-index: 2;
+      margin: 0 0 18px;
+      font-size: clamp(31px, 5vw, 50px);
+      line-height: 1.14;
+      letter-spacing: -1.2px;
+      font-weight: 850;
+    }
+
+    .lia-hero p {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      margin: 0;
+      color: #dbe5f1;
+      font-size: 18px;
+    }
+
+    /* INTRO */
+    .lia-intro {
+      background: #f8fafc;
+      border-left: 5px solid #2563eb;
+      padding: 26px 29px;
+      border-radius: 14px;
+      margin: 30px 0;
+    }
+
+    .lia-intro strong {
+      color: #0f172a;
+    }
+
+    /* SECTION */
+    .lia-section {
+      margin: 48px 0;
+    }
+
+    .lia-section h2 {
+      color: #0f172a;
+      font-size: 29px;
+      line-height: 1.3;
+      margin: 0 0 20px;
+    }
+
+    .lia-section h3 {
+      color: #1e3a8a;
+      font-size: 22px;
+      margin-top: 30px;
+    }
+
+    /* STORY CARD */
+    .lia-story {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 30px;
+      margin: 30px 0;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .lia-story h3 {
+      margin-top: 0;
+      color: #111827;
+    }
+
+    /* QUOTE */
+    .lia-quote {
+      margin: 30px 0;
+      padding: 28px 30px;
+      background: linear-gradient(135deg, #eff6ff, #f8fafc);
+      border-left: 5px solid #2563eb;
+      border-radius: 15px;
+      font-size: 21px;
+      font-weight: 700;
+      color: #1e3a8a;
+    }
+
+    /* LESSON CARDS */
+    .lia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      margin: 28px 0;
+    }
+
+    .lia-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 17px;
+      padding: 24px;
+      box-shadow: 0 7px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .lia-card-number {
+      display: block;
+      font-size: 30px;
+      font-weight: 850;
+      color: #2563eb;
+      margin-bottom: 5px;
+    }
+
+    .lia-card strong {
+      display: block;
+      color: #111827;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    /* TIMELINE */
+    .lia-timeline {
+      position: relative;
+      margin: 35px 0;
+      padding-left: 30px;
+      border-left: 3px solid #dbeafe;
+    }
+
+    .lia-timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+      padding: 21px 24px;
+      background: #f8fafc;
+      border-radius: 14px;
+    }
+
+    .lia-timeline-item:before {
+      content: "";
+      position: absolute;
+      left: -41px;
+      top: 24px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #2563eb;
+      border: 4px solid #ffffff;
+      box-shadow: 0 0 0 2px #bfdbfe;
+    }
+
+    .lia-year {
+      display: inline-block;
+      font-weight: 850;
+      color: #1d4ed8;
+      margin-bottom: 5px;
+    }
+
+    /* CRASH BOX */
+    .lia-crash {
+      background: linear-gradient(135deg, #fff7ed, #fffbeb);
+      border: 1px solid #fed7aa;
+      border-left: 5px solid #f97316;
+      padding: 28px;
+      border-radius: 16px;
+      margin: 30px 0;
+    }
+
+    .lia-crash h3 {
+      color: #9a3412;
+      margin-top: 0;
+    }
+
+    /* FACT CHECK */
+    .lia-fact {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 5px solid #16a34a;
+      padding: 26px;
+      border-radius: 15px;
+      margin: 30px 0;
+    }
+
+    .lia-fact h3 {
+      color: #166534;
+      margin-top: 0;
+    }
+
+    /* BIG LESSON */
+    .lia-big-lesson {
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: #ffffff;
+      padding: 42px;
+      border-radius: 23px;
+      margin: 45px 0;
+      box-shadow: 0 18px 45px rgba(17, 24, 39, 0.18);
+    }
+
+    .lia-big-lesson h2 {
+      color: #ffffff;
+      margin-top: 0;
+    }
+
+    .lia-big-lesson p {
+      color: #d1d5db;
+    }
+
+    /* RULE */
+    .lia-rule {
+      text-align: center;
+      padding: 35px 25px;
+      margin: 35px 0;
+      background: #f8fafc;
+      border-radius: 20px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .lia-rule .main-rule {
+      display: block;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 900;
+      color: #1d4ed8;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .lia-rule span:last-child {
+      color: #64748b;
+      font-size: 16px;
+    }
+
+    /* CONCLUSION */
+    .lia-conclusion {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #ffffff;
+      padding: 42px;
+      border-radius: 23px;
+      margin-top: 45px;
+    }
+
+    .lia-conclusion h2 {
+      color: #ffffff;
+      margin-top: 0;
+    }
+
+    .lia-conclusion p {
+      color: #d1d5db;
+    }
+
+    .lia-final-quote {
+      margin-top: 28px;
+      padding: 18px 22px;
+      border-left: 4px solid #fbbf24;
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 750;
+    }
+
+    /* DISCLAIMER */
+    .lia-disclaimer {
+      margin-top: 35px;
+      padding: 22px 25px;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 13px;
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    .lia-footer {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid #e5e7eb;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    @media(max-width: 650px) {
+      .legend-investor-article {
+        padding: 0 14px;
+        font-size: 16px;
+      }
+
+      .lia-hero {
+        padding: 40px 25px;
+        border-radius: 19px;
+      }
+
+      .lia-story,
+      .lia-big-lesson,
+      .lia-conclusion {
+        padding: 27px 22px;
+      }
+
+      .lia-section h2 {
+        font-size: 25px;
+      }
+
+      .lia-quote {
+        padding: 22px;
+        font-size: 18px;
+      }
+    }
+  </style>
+
+
+  <!-- ================= HERO ================= -->
+
+  <header class="lia-hero">
+
+    <span class="lia-tag">Legendary Investors • Market Crash • Investing Psychology</span>
+
+    <h1>
+      How Did Rakesh Jhunjhunwala and Radhakishan Damani Navigate Market Crashes?
+    </h1>
+
+    <p>
+      The real lesson from India's legendary investors was not simply
+      "buy and hold." It was about patience, conviction, understanding
+      businesses, managing risk and maintaining a long-term perspective
+      when markets were under extreme pressure.
+    </p>
+
+  </header>
+
+
+  <!-- ================= INTRO ================= -->
+
+  <div class="lia-intro">
+
+    <strong>
+      What can ordinary investors learn from India's legendary investors?
+    </strong>
+
+    <p>
+      Market crashes are where investing psychology is tested the most.
+      When stock prices fall rapidly, even experienced investors can feel
+      fear and uncertainty.
+    </p>
+
+    <p>
+      Rakesh Jhunjhunwala and Radhakishan Damani became particularly
+      respected because they demonstrated patience and conviction across
+      multiple market cycles.
+    </p>
+
+  </div>
+
+
+  <!-- ================= STORY ================= -->
+
+  <section class="lia-section">
+
+    <h2>The Lesson Begins Before the Market Crash</h2>
+
+    <div class="lia-story">
+
+      <p>
+        Imagine a teenager asking his father:
+      </p>
+
+      <div class="lia-quote">
+        "Dad, my friends say I can make huge money in the stock market.
+        What exactly is the share market?"
+      </div>
+
+      <p>
+        A wise answer would not be to simply tell the child which stock to
+        buy.
+      </p>
+
+      <p>
+        The first lesson should be about becoming financially independent,
+        developing knowledge and understanding risk before putting serious
+        money into the market.
+      </p>
+
+      <p>
+        That principle is far more important than any individual stock tip.
+      </p>
+
+    </div>
+
+    <p>
+      Rakesh Jhunjhunwala himself started his market journey in 1985 with
+      around ₹5,000. His early success included Tata Tea, and he later built
+      a large investment portfolio over decades. :contentReference[oaicite:1]{index=1}
+    </p>
+
+  </section>
+
+
+  <!-- ================= EARLY JOURNEY ================= -->
+
+  <section class="lia-section">
+
+    <h2>From ₹5,000 to a Legendary Investment Career</h2>
+
+    <p>
+      Jhunjhunwala's journey is often presented as a simple story of buying
+      inexpensive shares and waiting for them to become multibaggers.
+    </p>
+
+    <p>
+      But the deeper lesson is more important:
+      <strong>wealth creation usually requires a combination of knowledge,
+      conviction, patience and the ability to survive difficult periods.</strong>
+    </p>
+
+    <div class="lia-timeline">
+
+      <div class="lia-timeline-item">
+
+        <span class="lia-year">1985</span>
+
+        <p>
+          Jhunjhunwala began investing with approximately ₹5,000 while the
+          Sensex was still at a very low level compared with today's market.
+        </p>
+
+      </div>
+
+
+      <div class="lia-timeline-item">
+
+        <span class="lia-year">1986</span>
+
+        <p>
+          One of his early well-known successes came from Tata Tea, where
+          he reportedly made a substantial profit from an early investment.
+        </p>
+
+      </div>
+
+
+      <div class="lia-timeline-item">
+
+        <span class="lia-year">1990s–2000s</span>
+
+        <p>
+          He gradually developed a portfolio containing businesses that he
+          believed had significant long-term growth potential.
+        </p>
+
+      </div>
+
+
+      <div class="lia-timeline-item">
+
+        <span class="lia-year">Titan</span>
+
+        <p>
+          Titan eventually became one of the defining investments associated
+          with Jhunjhunwala's portfolio and demonstrated the potential of
+          long-term ownership of a business whose fundamentals improved
+          substantially over time.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= 2008 CRASH ================= -->
+
+  <section class="lia-section">
+
+    <h2>What Happened During the 2008 Market Crash?</h2>
+
+    <p>
+      The 2008 global financial crisis was one of the most severe market
+      downturns of the modern era.
+    </p>
+
+    <p>
+      Indian equities also experienced a dramatic fall. For investors who
+      had accumulated large positions during the preceding bull market,
+      the decline could translate into enormous mark-to-market losses.
+    </p>
+
+    <div class="lia-crash">
+
+      <h3>The Important Point</h3>
+
+      <p>
+        A falling portfolio does not automatically mean that the underlying
+        businesses have permanently lost their value.
+      </p>
+
+      <p>
+        The crucial question is:
+        <strong>
+          "Has the investment thesis changed, or has only the market price changed?"
+        </strong>
+      </p>
+
+    </div>
+
+
+    <p>
+      Contemporary portfolio data from 2008 shows that Jhunjhunwala's
+      disclosed holdings included Titan, Aptech, Praj Industries, Lupin,
+      CRISIL, NCC, Bilcare, Punj Lloyd, Karur Vysya Bank and other companies.
+      The portfolio had suffered significant notional losses during the
+      downturn. :contentReference[oaicite:2]{index=2}
+    </p>
+
+
+    <div class="lia-story">
+
+      <h3>Bilcare: A Clear Illustration</h3>
+
+      <p>
+        One particularly useful example is Bilcare.
+      </p>
+
+      <p>
+        Available BSE-based shareholding data reported that Jhunjhunwala
+        held approximately 17.5 lakh shares through the 2008–09 period,
+        even though the stock experienced a dramatic fall during the crash.
+      </p>
+
+      <p>
+        The reported value of the holding fell sharply—from roughly
+        ₹285 crore at the end of March 2008 to about ₹54 crore at the end
+        of March 2009.
+      </p>
+
+      <p>
+        This demonstrates the enormous volatility and mark-to-market pain
+        that can occur even when a long-term investor chooses not to exit
+        immediately. :contentReference[oaicite:3]{index=3}
+      </p>
+
+    </div>
+
+
+    <div class="lia-fact">
+
+      <h3>What This Does NOT Mean</h3>
+
+      <p>
+        It would be incorrect to conclude that a successful investor should
+        always hold every falling stock.
+      </p>
+
+      <p>
+        The real lesson is that experienced investors distinguish between
+        <strong>temporary market volatility</strong> and
+        <strong>a permanent deterioration in the investment thesis.</strong>
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= INVESTMENT PHILOSOPHY ================= -->
+
+  <section class="lia-section">
+
+    <h2>The "Buy Right and Hold Tight" Philosophy</h2>
+
+    <p>
+      Jhunjhunwala was widely associated with a long-term investment
+      philosophy and the importance of having the courage to remain invested
+      through difficult market conditions.
+    </p>
+
+    <p>
+      In a 2008 article, his philosophy was described around the idea of
+      buying shares with a long-term perspective rather than reacting
+      emotionally to falling prices. :contentReference[oaicite:4]{index=4}
+    </p>
+
+    <div class="lia-rule">
+
+      <span class="main-rule">
+        BUY RIGHT. HOLD TIGHT.
+      </span>
+
+      <span>
+        But only when the underlying investment thesis remains valid.
+      </span>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= DAMANI ================= -->
+
+  <section class="lia-section">
+
+    <h2>Where Does Radhakishan Damani Fit Into This Story?</h2>
+
+    <p>
+      Radhakishan Damani was one of the most important influences in
+      Jhunjhunwala's investing journey.
+    </p>
+
+    <p>
+      Jhunjhunwala repeatedly spoke about Damani with enormous respect and
+      referred to him as a mentor. He credited Damani with teaching him
+      important lessons about markets, patience, human nature and life.
+      :contentReference[oaicite:5]{index=5}
+    </p>
+
+    <div class="lia-quote">
+
+      "Patience, conviction and the ability to think independently can be
+      more valuable than trying to predict every market move."
+
+    </div>
+
+    <p>
+      The relationship was not simply about following the same stocks.
+      Reports note that the two investors sometimes had different views and
+      investment positions. :contentReference[oaicite:6]{index=6}
+    </p>
+
+    <p>
+      That is an important lesson in itself:
+      <strong>
+        learning from a great investor does not mean blindly copying that
+        investor's portfolio.
+      </strong>
+    </p>
+
+  </section>
+
+
+  <!-- ================= WHAT THEY DID DIFFERENTLY ================= -->
+
+  <section class="lia-section">
+
+    <h2>What Made Their Approach Different?</h2>
+
+    <div class="lia-grid">
+
+      <div class="lia-card">
+
+        <span class="lia-card-number">01</span>
+
+        <strong>Patience</strong>
+
+        <p>
+          They were willing to think in years rather than days when the
+          investment thesis supported long-term ownership.
+        </p>
+
+      </div>
+
+
+      <div class="lia-card">
+
+        <span class="lia-card-number">02</span>
+
+        <strong>Conviction</strong>
+
+        <p>
+          Conviction came from understanding businesses rather than simply
+          predicting short-term price movements.
+        </p>
+
+      </div>
+
+
+      <div class="lia-card">
+
+        <span class="lia-card-number">03</span>
+
+        <strong>Independent Thinking</strong>
+
+        <p>
+          Great investors can learn from others without becoming dependent
+          on other people's opinions.
+        </p>
+
+      </div>
+
+
+      <div class="lia-card">
+
+        <span class="lia-card-number">04</span>
+
+        <strong>Long-Term Perspective</strong>
+
+        <p>
+          A temporary fall in share price was not automatically treated as
+          permanent destruction of business value.
+        </p>
+
+      </div>
+
+
+      <div class="lia-card">
+
+        <span class="lia-card-number">05</span>
+
+        <strong>Risk Awareness</strong>
+
+        <p>
+          Patience should never be confused with blindly holding a stock
+          whose underlying fundamentals have deteriorated.
+        </p>
+
+      </div>
+
+
+      <div class="lia-card">
+
+        <span class="lia-card-number">06</span>
+
+        <strong>Emotional Control</strong>
+
+        <p>
+          Market crashes test psychology. Panic can turn temporary losses
+          into permanent ones.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= IMPORTANT CORRECTION ================= -->
+
+  <section class="lia-section">
+
+    <div class="lia-fact">
+
+      <h3>A Important Fact Check About the Popular Story</h3>
+
+      <p>
+        Many social-media and Quora versions of Jhunjhunwala's story contain
+        exaggerated or inaccurate figures—for example, claims that he bought
+        "60 million Titan shares at ₹3" or that he could single-handedly
+        manipulate the Sensex.
+      </p>
+
+      <p>
+        Such claims should not be presented as established facts without
+        reliable documentation.
+      </p>
+
+      <p>
+        Similarly, describing Radhakishan Damani simply as the person who
+        "managed Jhunjhunwala's portfolio" would be misleading. The available
+        evidence supports describing Damani as a highly respected mentor and
+        close friend, while Jhunjhunwala managed his own investment activities.
+        :contentReference[oaicite:7]{index=7}
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= LESSON FOR RETAIL INVESTORS ================= -->
+
+  <section class="lia-section">
+
+    <h2>What Can Retail Investors Learn From Them?</h2>
+
+    <div class="lia-big-lesson">
+
+      <h2>The Real Lesson Is Not "Never Sell"</h2>
+
+      <p>
+        One of the biggest mistakes investors make is converting a successful
+        investor's philosophy into a simplistic rule.
+      </p>
+
+      <p>
+        "Buy and hold" does not mean "buy anything and never sell."
+      </p>
+
+      <p>
+        A better interpretation is:
+        <strong>
+          buy a business you understand, pay a sensible price, monitor the
+          investment thesis and give the business enough time to perform.
+        </strong>
+      </p>
+
+      <p>
+        If the original thesis breaks, reassessment is necessary.
+      </p>
+
+    </div>
+
+
+    <div class="lia-grid">
+
+      <div class="lia-card">
+
+        <span class="lia-card-number">01</span>
+
+        <strong>Don't Chase Every Rally</strong>
+
+        <p>
+          A rising stock is not automatically a good investment.
+        </p>
+
+      </div>
+
+
+      <div class="lia-card">
+
+        <span class="lia-card-number">02</span>
+
+        <strong>Don't Panic in Every Crash</strong>
+
+        <p>
+          First determine whether the business has fundamentally changed.
+        </p>
+
+      </div>
+
+
+      <div class="lia-card">
+
+        <span class="lia-card-number">03</span>
+
+        <strong>Know What You Own</strong>
+
+        <p>
+          Understand the business, earnings, valuation and risks.
+        </p>
+
+      </div>
+
+
+      <div class="lia-card">
+
+        <span class="lia-card-number">04</span>
+
+        <strong>Think Long Term</strong>
+
+        <p>
+          Wealth creation is usually a process rather than a single trade.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CONCLUSION ================= -->
+
+  <section class="lia-conclusion">
+
+    <h2>Conclusion: The Biggest Advantage Is Patience</h2>
+
+    <p>
+      The 2008 market crash provides one of the clearest lessons in investing:
+      even legendary investors can experience enormous temporary losses.
+    </p>
+
+    <p>
+      What separates an experienced investor from an emotional market
+      participant is not the ability to avoid every decline.
+    </p>
+
+    <p>
+      It is the ability to understand what has actually changed.
+    </p>
+
+    <p>
+      Rakesh Jhunjhunwala's long-term approach and his deep respect for
+      Radhakishan Damani's patience and wisdom provide an important lesson:
+      <strong>
+        markets can test your conviction, but your investment thesis should
+        determine your decision—not fear.
+      </strong>
+    </p>
+
+    <div class="lia-final-quote">
+
+      "Don't confuse a falling share price with a broken business.
+      First understand the difference."
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= DISCLAIMER ================= -->
+
+  <div class="lia-disclaimer">
+
+    <strong>Educational Disclaimer:</strong>
+
+    <p>
+      This article is provided strictly for educational and informational
+      purposes. It is not investment advice, financial advice, research
+      advice, or a recommendation to buy or sell any security.
+    </p>
+
+    <p>
+      Historical portfolios, investment decisions and market performance of
+      well-known investors should not be interpreted as a guarantee of future
+      returns. Investors should conduct their own research, evaluate
+      valuations and risks, and consider their individual financial
+      circumstances before making investment decisions.
+    </p>
+
+  </div>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="lia-footer">
+
+    <p>
+      © 2026 MomentumPortfolios.com |
+      Stock Market Education & Investing Insights
+    </p>
+
+  </footer>
+
+</article>
