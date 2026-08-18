@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Why Do Professional Traders Focus More on Risk Management Than Profits? | Momentum Portfolios</title>
+
+  <meta name="description" content="Why do professional traders focus more on risk management than profits? Learn how capital preservation, position sizing, stop losses, risk per trade and trading psychology help traders survive and stay profitable.">
+
+  <meta name="keywords" content="risk management in trading, professional traders, trading risk management, position sizing, stop loss, capital preservation, trading psychology, risk reward, swing trading, day trading, options trading">
+
+  <meta name="author" content="Momentum Portfolios">
+
+  <style>
+    :root {
+      --navy: #0f172a;
+      --slate: #334155;
+      --muted: #64748b;
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --blue-light: #eff6ff;
+      --gold: #f59e0b;
+      --green: #059669;
+      --red: #dc2626;
+      --red-light: #fef2f2;
+      --border: #e2e8f0;
+      --bg: #f1f5f9;
+      --white: #ffffff;
+      --shadow: 0 20px 55px rgba(15, 23, 42, 0.10);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--slate);
+      line-height: 1.8;
+    }
+
+    .risk-article {
+      max-width: 1080px;
+      margin: 40px auto;
+      background: var(--white);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      padding: 75px 60px;
+      color: white;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(59, 130, 246, 0.30), transparent 30%),
+        radial-gradient(circle at 10% 90%, rgba(245, 158, 11, 0.12), transparent 25%),
+        linear-gradient(135deg, #020617, #0f172a 55%, #172554);
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 50%;
+    }
+
+    .hero::before {
+      width: 360px;
+      height: 360px;
+      right: -150px;
+      top: -180px;
+    }
+
+    .hero::after {
+      width: 220px;
+      height: 220px;
+      left: -120px;
+      bottom: -140px;
+    }
+
+    .eyebrow {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      padding: 7px 16px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 30px;
+      background: rgba(255,255,255,.08);
+      color: #bfdbfe;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+      margin-bottom: 22px;
+      color: white;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.12;
+      letter-spacing: -1.8px;
+    }
+
+    .hero h1 span {
+      color: #93c5fd;
+    }
+
+    .hero-subtitle {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      color: #dbeafe;
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+    /* CONTENT */
+    .content {
+      padding: 55px 60px 70px;
+    }
+
+    .source-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 17px;
+      margin-bottom: 30px;
+      border: 1px solid #dbeafe;
+      border-radius: 30px;
+      background: var(--blue-light);
+      color: var(--blue);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      transition: .25s ease;
+    }
+
+    .source-link:hover {
+      background: #dbeafe;
+      transform: translateY(-2px);
+    }
+
+    .intro {
+      margin-bottom: 24px;
+      font-size: 18px;
+    }
+
+    .intro strong {
+      color: var(--navy);
+    }
+
+    /* BIG QUOTE */
+    .big-quote {
+      position: relative;
+      margin: 35px 0 45px;
+      padding: 35px 42px;
+      border-left: 6px solid var(--blue);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #eff6ff, #f8fafc);
+      box-shadow: 0 12px 35px rgba(37,99,235,.08);
+    }
+
+    .big-quote::before {
+      content: "“";
+      position: absolute;
+      top: -15px;
+      left: 20px;
+      color: rgba(37,99,235,.10);
+      font-family: Georgia, serif;
+      font-size: 100px;
+      line-height: 1;
+    }
+
+    .big-quote p {
+      position: relative;
+      font-size: 25px;
+      line-height: 1.5;
+      font-weight: 850;
+      color: var(--navy);
+    }
+
+    /* SECTION */
+    .section {
+      margin: 60px 0;
+    }
+
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 15px;
+      border-radius: 13px;
+      background: var(--blue);
+      color: white;
+      font-size: 16px;
+      font-weight: 900;
+      box-shadow: 0 8px 20px rgba(37,99,235,.25);
+    }
+
+    .section h2 {
+      margin-bottom: 18px;
+      color: var(--navy);
+      font-size: 30px;
+      line-height: 1.3;
+      letter-spacing: -.6px;
+    }
+
+    .section h2 span {
+      color: var(--blue);
+    }
+
+    .section p {
+      margin-bottom: 18px;
+      font-size: 17px;
+    }
+
+    strong {
+      color: var(--navy);
+      font-weight: 850;
+    }
+
+    /* PRO VS AMATEUR */
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .comparison-card {
+      padding: 28px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+    }
+
+    .comparison-card.amateur {
+      background: #fff7ed;
+      border-color: #fed7aa;
+    }
+
+    .comparison-card.pro {
+      background: #ecfdf5;
+      border-color: #a7f3d0;
+    }
+
+    .comparison-card h3 {
+      margin-bottom: 15px;
+      color: var(--navy);
+      font-size: 19px;
+    }
+
+    .comparison-card p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .comparison-card.pro h3 {
+      color: var(--green);
+    }
+
+    /* CONTROL CARDS */
+    .control-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 30px 0;
+    }
+
+    .control-card {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fff;
+      transition: .25s ease;
+    }
+
+    .control-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(15,23,42,.08);
+      border-color: #bfdbfe;
+    }
+
+    .control-icon {
+      margin-bottom: 12px;
+      font-size: 28px;
+    }
+
+    .control-card h3 {
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 18px;
+    }
+
+    .control-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* MATH BOX */
+    .math-box {
+      margin: 30px 0;
+      padding: 32px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      box-shadow: 0 18px 40px rgba(15,23,42,.15);
+    }
+
+    .math-box h3 {
+      margin-bottom: 20px;
+      color: white;
+      font-size: 21px;
+    }
+
+    .math-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .math-row:last-child {
+      border-bottom: none;
+    }
+
+    .math-row span:first-child {
+      color: #cbd5e1;
+    }
+
+    .math-row strong {
+      color: #93c5fd;
+    }
+
+    .math-warning {
+      margin-top: 22px;
+      padding: 17px;
+      border-radius: 12px;
+      background: rgba(220,38,38,.15);
+      border: 1px solid rgba(248,113,113,.25);
+      color: #fecaca;
+      font-weight: 700;
+    }
+
+    /* PSYCHOLOGY */
+    .psychology-box {
+      margin: 30px 0;
+      padding: 28px;
+      border-radius: 18px;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-left: 5px solid var(--red);
+    }
+
+    .psychology-box h3 {
+      margin-bottom: 12px;
+      color: #991b1b;
+    }
+
+    .psychology-flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      font-weight: 800;
+    }
+
+    .flow-item {
+      padding: 9px 13px;
+      border-radius: 9px;
+      background: white;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+      font-size: 14px;
+    }
+
+    .arrow {
+      color: var(--red);
+      font-weight: 900;
+    }
+
+    /* TAKEAWAY */
+    .takeaway {
+      margin-top: 65px;
+      padding: 45px;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(59,130,246,.22), transparent 28%),
+        linear-gradient(135deg, #020617, #172554);
+      color: white;
+      box-shadow: 0 22px 50px rgba(15,23,42,.20);
+    }
+
+    .takeaway h2 {
+      margin-bottom: 18px;
+      color: white;
+      font-size: 32px;
+    }
+
+    .takeaway p {
+      margin-bottom: 20px;
+      color: #dbeafe;
+      font-size: 17px;
+    }
+
+    .takeaway-list {
+      list-style: none;
+      margin: 25px 0;
+    }
+
+    .takeaway-list li {
+      padding: 11px 0;
+      color: #f8fafc;
+      font-weight: 700;
+    }
+
+    .takeaway-list li::before {
+      content: "✓";
+      margin-right: 12px;
+      color: #60a5fa;
+      font-weight: 900;
+    }
+
+    .final-quote {
+      margin-top: 30px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.16);
+      color: white;
+      font-size: 23px;
+      line-height: 1.55;
+      font-weight: 850;
+    }
+
+    /* DISCLAIMER */
+    .disclaimer {
+      margin-top: 45px;
+      padding: 23px 26px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: #f8fafc;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .disclaimer strong {
+      color: var(--navy);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      .risk-article {
+        margin: 15px;
+        border-radius: 20px;
+      }
+
+      .hero {
+        padding: 50px 25px;
+      }
+
+      .content {
+        padding: 35px 24px 45px;
+      }
+
+      .hero h1 {
+        font-size: 37px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+      }
+
+      .comparison,
+      .control-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .big-quote {
+        padding: 28px 23px;
+      }
+
+      .big-quote p {
+        font-size: 20px;
+      }
+
+      .section h2 {
+        font-size: 25px;
+      }
+
+      .section p {
+        font-size: 16px;
+      }
+
+      .takeaway {
+        padding: 30px 24px;
+      }
+
+      .math-row {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+<article class="risk-article">
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+```
+<div class="eyebrow">
+  Trading Psychology • Risk Management
+</div>
+
+<h1>
+  Why Do <span>Professional Traders</span> Focus More on Risk Management Than Profits?
+</h1>
+
+<p class="hero-subtitle">
+  Professional traders understand one fundamental truth:
+  you cannot control what the market gives you, but you can control
+  how much you are willing to lose.
+</p>
+```
+
+  </header>
+
+  <main class="content">
+
+```
+<!-- SOURCE -->
+<a
+  class="source-link"
+  href="https://www.quora.com/Why-do-professional-traders-focus-more-on-risk-management-than-profits"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Read the original article on Quora →
+</a>
+
+
+<!-- INTRO -->
+<p class="intro">
+  Focusing on risk rather than profit enables traders to preserve capital
+  and prevent significant losses.
+</p>
+
+<p class="intro">
+  Risk management is one of the most important skills traders can learn,
+  and it remains useful throughout a trader's entire career.
+</p>
+
+<p class="intro">
+  The reason is simple:
+  <strong>proper risk management helps traders withstand losing streaks
+  and protect themselves against destructive losses.</strong>
+</p>
+
+<div class="big-quote">
+  <p>
+    You can be wrong 60% of the time and still make a profit —
+    if you manage risk properly.
+  </p>
+</div>
+
+
+<!-- 1 -->
+<section class="section">
+
+  <div class="section-number">01</div>
+
+  <h2>
+    Survival Is More Important Than <span>One Big Win</span>
+  </h2>
+
+  <p>
+    One of the biggest differences between an amateur trader and a
+    professional trader is the question they ask before entering a trade.
+  </p>
+
+  <div class="comparison">
+
+    <div class="comparison-card amateur">
+      <h3>🔴 Amateur Mindset</h3>
+      <p>
+        <strong>“How much can I make on this trade?”</strong>
+      </p>
+    </div>
+
+    <div class="comparison-card pro">
+      <h3>🟢 Professional Mindset</h3>
+      <p>
+        <strong>“If I'm wrong, how much can I lose?”</strong>
+      </p>
+    </div>
+
+  </div>
+
+  <p>
+    The professional trader is not obsessed with predicting every market
+    move. Instead, the focus is on making sure that a wrong prediction
+    does not cause catastrophic damage.
+  </p>
+
+  <div class="psychology-box">
+    <h3>Think About This</h3>
+    <p>
+      One bad trade with no risk management can wipe out the gains
+      from many good trades.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- 2 -->
+<section class="section">
+
+  <div class="section-number">02</div>
+
+  <h2>
+    You Can't Control Profit — But You Can Control <span>Losses</span>
+  </h2>
+
+  <p>
+    You cannot force the market to move in your direction.
+  </p>
+
+  <p>
+    The market decides whether your trade becomes profitable.
+    But there are several things that <strong>you</strong> can decide
+    before entering the trade.
+  </p>
+
+  <div class="control-grid">
+
+    <div class="control-card">
+      <div class="control-icon">📐</div>
+      <h3>Position Size</h3>
+      <p>
+        Decide how much capital is exposed to the trade instead of
+        allowing one position to dominate the portfolio.
+      </p>
+    </div>
+
+    <div class="control-card">
+      <div class="control-icon">🛑</div>
+      <h3>Stop Loss</h3>
+      <p>
+        Define the point where your trade thesis is no longer valid
+        and exit according to your plan.
+      </p>
+    </div>
+
+    <div class="control-card">
+      <div class="control-icon">⚖️</div>
+      <h3>Risk Per Trade</h3>
+      <p>
+        Establish a predefined maximum amount you are willing to risk
+        on an individual trade.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="big-quote">
+    <p>
+      The market controls the outcome. You control the amount you put at risk.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- 3 -->
+<section class="section">
+
+  <div class="section-number">03</div>
+
+  <h2>
+    The Mathematics of <span>Losses</span> Is Brutal
+  </h2>
+
+  <p>
+    Many traders underestimate how difficult it becomes to recover
+    after a large drawdown.
+  </p>
+
+  <div class="math-box">
+
+    <h3>📊 A Simple Example</h3>
+
+    <div class="math-row">
+      <span>Starting Capital</span>
+      <strong>$10,000</strong>
+    </div>
+
+    <div class="math-row">
+      <span>Loss</span>
+      <strong>50%</strong>
+    </div>
+
+    <div class="math-row">
+      <span>Capital Remaining</span>
+      <strong>$5,000</strong>
+    </div>
+
+    <div class="math-row">
+      <span>Gain Required to Return to $10,000</span>
+      <strong>100%</strong>
+    </div>
+
+    <div class="math-warning">
+      A 50% loss requires a 100% gain just to get back to the starting
+      capital.
+    </div>
+
+  </div>
+
+  <p>
+    This is why professional traders take drawdowns seriously.
+    Preserving capital is not simply about avoiding losses today —
+    it is about keeping enough capital available to participate in
+    future opportunities.
+  </p>
+
+</section>
+
+
+<!-- 4 -->
+<section class="section">
+
+  <div class="section-number">04</div>
+
+  <h2>
+    Uncontrolled Risk Can <span>Destroy Trading Psychology</span>
+  </h2>
+
+  <p>
+    Trading is not only a mathematical game. It is also a psychological game.
+  </p>
+
+  <p>
+    Without predefined risk rules, one loss can quickly turn into
+    an emotional sequence of decisions.
+  </p>
+
+  <div class="psychology-box">
+
+    <h3>⚠️ The Dangerous Cycle</h3>
+
+    <div class="psychology-flow">
+
+      <span class="flow-item">Loss</span>
+
+      <span class="arrow">→</span>
+
+      <span class="flow-item">Revenge Trade</span>
+
+      <span class="arrow">→</span>
+
+      <span class="flow-item">Bigger Position</span>
+
+      <span class="arrow">→</span>
+
+      <span class="flow-item">Bigger Loss</span>
+
+      <span class="arrow">→</span>
+
+      <span class="flow-item">Panic</span>
+
+    </div>
+
+  </div>
+
+  <p>
+    This is where risk management becomes more than a trading technique.
+    It becomes a psychological safety system.
+  </p>
+
+  <p>
+    Predefined rules can reduce the chance of making decisions purely
+    because of fear, greed, frustration or the desire to recover losses quickly.
+  </p>
+
+</section>
+
+
+<!-- 5 -->
+<section class="section">
+
+  <div class="section-number">05</div>
+
+  <h2>
+    Risk Management Creates <span>Consistency</span>
+  </h2>
+
+  <p>
+    A professional trader does not need every trade to be profitable.
+  </p>
+
+  <p>
+    The goal is to build a process where losses remain manageable
+    while profitable trades are allowed to contribute meaningfully
+    to the overall result.
+  </p>
+
+  <div class="comparison">
+
+    <div class="comparison-card amateur">
+      <h3>❌ Profit-Focused Approach</h3>
+      <p>
+        Takes oversized positions, moves stop losses, increases risk
+        after losses and searches for quick recovery.
+      </p>
+    </div>
+
+    <div class="comparison-card pro">
+      <h3>✓ Risk-Focused Approach</h3>
+      <p>
+        Controls position size, accepts predefined losses, protects
+        capital and waits for high-quality setups.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BUFFETT -->
+<section class="section">
+
+  <h2>
+    The Philosophy of <span>Protecting Capital</span>
+  </h2>
+
+  <p>
+    Warren Buffett is widely associated with the famous investing principle:
+  </p>
+
+  <div class="big-quote">
+    <p>
+      “Rule No. 1: Don't lose money. Rule No. 2: Don't forget Rule No. 1.”
+    </p>
+  </div>
+
+  <p>
+    While trading and long-term investing are different activities,
+    the underlying principle remains valuable:
+    <strong>capital preservation gives you the ability to keep participating.</strong>
+  </p>
+
+</section>
+
+
+<!-- ASSET CLASS -->
+<section class="section">
+
+  <h2>
+    Risk Rules Depend on <span>What You Trade</span>
+  </h2>
+
+  <p>
+    There is no single risk-management formula that works identically
+    for every trader and every market.
+  </p>
+
+  <p>
+    Risk management needs to reflect the characteristics of the asset,
+    strategy, volatility, liquidity and trading timeframe.
+  </p>
+
+  <div class="control-grid">
+
+    <div class="control-card">
+      <div class="control-icon">📈</div>
+      <h3>Stocks</h3>
+      <p>
+        Position sizing, portfolio concentration, volatility and
+        predefined exit levels can all influence risk.
+      </p>
+    </div>
+
+    <div class="control-card">
+      <div class="control-icon">⚡</div>
+      <h3>Options</h3>
+      <p>
+        Premium decay, implied volatility, expiry and strike selection
+        create additional risk considerations.
+      </p>
+    </div>
+
+    <div class="control-card">
+      <div class="control-icon">📊</div>
+      <h3>Futures & Forex</h3>
+      <p>
+        Leverage makes position sizing and predefined risk limits
+        particularly important.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FINAL TAKEAWAY -->
+<section class="takeaway">
+
+  <h2>
+    The Professional Trader's Mindset
+  </h2>
+
+  <p>
+    Risk Management is one of the deciding factors that separates
+    disciplined traders from those who struggle.
+  </p>
+
+  <p>
+    From investing to swing trading and day trading,
+    risk management remains a cornerstone of long-term survival.
+  </p>
+
+  <ul class="takeaway-list">
+
+    <li>Protect your trading capital.</li>
+
+    <li>Know your maximum acceptable loss before entering.</li>
+
+    <li>Use position sizing according to your risk tolerance.</li>
+
+    <li>Don't allow one trade to determine your financial future.</li>
+
+    <li>Accept that losing trades are part of the game.</li>
+
+    <li>Never increase risk simply because you want to recover a loss.</li>
+
+    <li>Focus on consistency rather than spectacular individual wins.</li>
+
+  </ul>
+
+  <div class="final-quote">
+    Professional traders don't survive because they are right all the time.
+    They survive because when they are wrong, they know how much they can afford to lose.
+  </div>
+
+</section>
+
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+
+  <strong>Educational Disclaimer:</strong>
+  This article is provided strictly for educational and informational
+  purposes. It is not investment advice, financial advice, or a
+  recommendation to buy, sell or hold any security or derivative.
+  Trading and investing involve risk, and losses can occur.
+  Risk limits should be determined according to an individual's
+  financial situation, experience, objectives and risk tolerance.
+  Past performance does not guarantee future results.
+
+</div>
+```
+
+  </main>
+
+</article>
+
+</body>
+</html>
